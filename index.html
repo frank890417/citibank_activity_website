@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>webdemo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>花旗網站demo 1024</title>
-<meta property="og:title" content="花旗網站demo 1024" />
+<title>一起愛，愛不同-第22屆花旗聯合勸募活動</title>
+<meta property="og:title" content="花旗網站demo 1025" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://45.118.133.210" />
 <meta property="og:image" content="http://45.118.133.210/img/og.JPG" />
-<meta property="og:description" content="花旗網站demo 1021" />
+<meta property="og:description" content="花旗網站demo 1025" />
 
     
 
@@ -662,10 +662,11 @@
           </div>
         </div>
         <div class="col_newsdetail">
+          <div v-on:click="show_news(news_id)" class="back_news_btn">◀ 回到消息清單</div>
           <div v-if="index_news.length&gt;0" class="newsarea">
-            <h2>{{index_news[news_id].title}}</h2>
+            <h2>{{index_news[news_id].title}} <span class="small">
+                <h4>{{index_news[news_id].time}} {{index_news[news_id].eng_time}}</h4></span></h2>
             <hr/>
-            <h4>{{index_news[news_id].time}} {{index_news[news_id].eng_time}}</h4>
             <h4>{{index_news[news_id].content}}</h4>
             <p>{{index_news[news_id].detail}}</p>
             <div>{{{index_news[news_id].blog}}}      </div>

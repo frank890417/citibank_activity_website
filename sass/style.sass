@@ -8,7 +8,7 @@ $color_grey: #333
 $color_black: #333
 
 //maxium content width
-$max_width: 1200px
+$max_width: 1100px
 
 //title and para fontsize
 $title_size: 1.55em
@@ -799,7 +799,7 @@ hr
   .clock
     width: 90px
     position: absolute
-    top: -80px
+    top: -40px
     right: 15%
     z-index: 5000
   .col_left
@@ -1428,9 +1428,16 @@ hr
 .page_news
   .page_title
     font-weight: 900
-  &.unfold .row_p_news
-    .col_newsdetail
-      width: 100%
+  .back_news_btn
+    display: none
+    margin-top: 20px
+    margin-bottom: 20px
+    font-weight: 800
+    cursor: pointer
+  .col_newsdetail
+    max-height: 0px
+    transition: 0.5s
+  
       
   .row_p_news
     .max_width
@@ -1445,21 +1452,27 @@ hr
       transition-duration: 0.5s
       white-space: nowrap
       overflow: hidden
+      max-height: 1000px
     .col_right
       width: 100%
       transition-duration: 0.5s
-      // overflow-y: scroll
+      overflow: hidden
       // height: 70%
       min-height: 0
+      max-height: 10000px
+      
     .col_newsdetail
-      width: 0%
-      height: 400px
+      // width: 0%
+      max-height: 0px
+      display: none
       transition-duration: 0.5s
       overflow: hidden
-      white-space: nowrap
+      padding: 40px
+      // white-space: nowrap
       box-sizing: border-box
       .newsarea
         background-color: $color_white
+        display: none
         vertical-align: top
         width: 100%
         height: 80%
@@ -1507,6 +1520,19 @@ hr
       
     h5
       margin: 5px
+  &.unfold .row_p_news
+    .col_left,.col_right
+      // max-height: 0px
+      display: none
+    .col_newsdetail
+      
+      max-height: 10000px
+      min-height: 400px
+      display: block  
+      .newsarea
+        display: block  
+    .back_news_btn
+      display: block
 .page_support
   .row_sp_present
     img

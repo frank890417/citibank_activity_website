@@ -732,10 +732,13 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
               h5.news_engtime {{news.eng_time}}
               p.news_content {{news.content}}
         .col_newsdetail
+          .back_news_btn(v-on:click="show_news(news_id)") ◀ 回到消息清單
+          //- span.next_news_btn(v-on:click="show_news(news_id+1)") ◀ 下一則消息
           .newsarea(v-if="index_news.length>0")
-            h2 {{index_news[news_id].title}}
+            h2 {{index_news[news_id].title}} 
+              span.small
+                h4 {{index_news[news_id].time}} {{index_news[news_id].eng_time}}
             hr
-            h4 {{index_news[news_id].time}} {{index_news[news_id].eng_time}}
             h4 {{index_news[news_id].content}}
             p {{index_news[news_id].detail}}
             div {{{index_news[news_id].blog}}}      
