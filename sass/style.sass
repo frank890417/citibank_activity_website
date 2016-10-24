@@ -1186,9 +1186,15 @@ hr
       transform-origin: center center
   .row_acegg_eggs
     min-height: 500px
+    .col_right
+      height: 450px
     .bigpic
       position: absolute
-      height: 80%
+      height: 350px
+      top: -20px
+      left: 0px
+      img
+        width: 100%
     .kj2
       width: 90%
       min-width: 500px
@@ -1198,11 +1204,27 @@ hr
       left: 10px
       bottom: 10px
       width: 80%
+      
       .equalbox
+        display: inline-block
+        width: 50px
+        margin: 0px 3px
+        transition: 0.5s
+        &:hover
+          width: 60px
+          .fimg
+            width: 60px
         .fimg
-          margin: 10px
+          margin: 0px 3px
           width: 50px
+          background-color: $color_white
+          
+          // color: $color_black
+          border: solid 2px $color_black
           cursor: pointer
+          transition: 0.5s
+
+          
 .page_activity
   .row_ac_main
     // height: 400px

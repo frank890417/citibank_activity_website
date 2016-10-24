@@ -1590,9 +1590,17 @@ hr {
 .page_egg .row_acegg_eggs {
   min-height: 500px;
 }
+.page_egg .row_acegg_eggs .col_right {
+  height: 450px;
+}
 .page_egg .row_acegg_eggs .bigpic {
   position: absolute;
-  height: 80%;
+  height: 350px;
+  top: -20px;
+  left: 0px;
+}
+.page_egg .row_acegg_eggs .bigpic img {
+  width: 100%;
 }
 .page_egg .row_acegg_eggs .kj2 {
   width: 90%;
@@ -1605,10 +1613,27 @@ hr {
   bottom: 10px;
   width: 80%;
 }
-.page_egg .row_acegg_eggs .navchk .equalbox .fimg {
-  margin: 10px;
+.page_egg .row_acegg_eggs .navchk .equalbox {
+  display: inline-block;
   width: 50px;
+  margin: 0px 3px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.page_egg .row_acegg_eggs .navchk .equalbox:hover {
+  width: 60px;
+}
+.page_egg .row_acegg_eggs .navchk .equalbox:hover .fimg {
+  width: 60px;
+}
+.page_egg .row_acegg_eggs .navchk .equalbox .fimg {
+  margin: 0px 3px;
+  width: 50px;
+  background-color: #fafafa;
+  border: solid 2px #222;
   cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .page_activity .row_ac_main .col_left {

@@ -439,9 +439,9 @@
           </div>
         </div>
         <div class="col_right">
-          <div v-if="chicken_egg_data.datas.length&gt;0" class="bigpic"><img v-bind:src="chicken_egg_data.datas[chicken_egg_data.now_id].img" class="fimg"/></div>
-          <div class="navchk flex_row">
-            <div v-for="(id,cegg) in chicken_egg_data.datas" v-on:click="sw_egg_pre(id)" class="equalbox"><img v-bind:src="cegg.img" class="fimg"/>
+          <div v-if="chicken_egg_data.datas.length&gt;0" class="bigpic"><img v-bind:src="chicken_egg_data.datas[chicken_egg_data.now_id].img"/></div>
+          <div class="navchk">
+            <div v-for="(id,cegg) in chicken_egg_data.datas" v-on:click="sw_egg_pre(id)" title="{{cegg.title}}" class="equalbox"><img v-bind:src="cegg.img" class="fimg"/>
             </div>
             
           </div>

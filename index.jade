@@ -482,9 +482,9 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
             h3 {{{chicken_egg_data.datas[chicken_egg_data.now_id].content}}}
         .col_right
           .bigpic(v-if="chicken_egg_data.datas.length>0")
-            img.fimg(v-bind:src="chicken_egg_data.datas[chicken_egg_data.now_id].img" )
-          .navchk.flex_row
-            .equalbox(v-for="(id,cegg) in chicken_egg_data.datas" v-on:click="sw_egg_pre(id)")
+            img(v-bind:src="chicken_egg_data.datas[chicken_egg_data.now_id].img" )
+          .navchk
+            .equalbox(v-for="(id,cegg) in chicken_egg_data.datas" v-on:click="sw_egg_pre(id)" title="{{cegg.title}}")
               //- h3.ftitle {{cegg.title}}
               img.fimg(v-bind:src="cegg.img" )
             //- p.fcontent {{{cegg.content}}}
