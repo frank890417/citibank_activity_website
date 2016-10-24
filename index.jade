@@ -19,13 +19,14 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
       //- img.eggheart(src="http://45.118.133.210/img/graphic-56.svg")
   //- input(type="checkbox" v-model="pic_mode")
   .page_index_hold(v-bind:class="[cur_page=='index'?'hide':'']")
+
   .row.row_index.pic_mode(v-bind:class="[cur_page=='index'?'':'page_index']")
     div.logofixed(v-on:click="sw_page('index')" v-bind:class="[page_loading?'loading':'']")
       img(src="http://45.118.133.210/img/logo-01.svg")
       //- h1 第二十二屆花旗聯合勸募活動
     nav.normal_nav
       img.mobile_nav_toggle(src="https://openclipart.org/image/2400px/svg_to_png/221605/menu-icon.png")
-        
+
       ul
         li.btn.nav_home(v-bind:class="[cur_page=='index'?'selected':'']" v-on:click="sw_page('index')") Home 
         li |
@@ -47,10 +48,10 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
     .yellowpiece
     .max_width.main_index_content
       .col_left
-        
+
         .comic_block(data-mul-speed="0.1" v-on:click="sw_page('about')" )
           img.chicken(src="http://45.118.133.210/img/graphic-03.svg")
-        
+
       .col_mid
         //- .button.nav_sponsor 立即響應
         .talkbox(v-if="index_talk.data.length>0")
@@ -60,10 +61,10 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
         .comic_block(data-mul-speed="0.5"  v-on:click="sw_page('about')")
           img.chair(src="http://45.118.133.210/img/graphic-07.svg")
           img.chicken2(src="http://45.118.133.210/img/graphic-04.svg")
-          
-          
+
+
       .col_right
-        
+
         nav#index_nav
           ul
             li.nav_home( v-on:click="sw_page('index')") Home
@@ -71,7 +72,7 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
             li.nav_activity( v-on:click="sw_page('activity')") 第22屆花旗聯合勸募活動
             li.nav_activity( v-on:click="sw_page('about')") 聯合勸募
             li.nav_news( v-on:click="sw_page('news')") 最新消息
-            
+
         .comic_block.big(data-mul-speed="0.6" v-on:click="sw_page('activity_village')" title="我想看安雞樂業村的故事!")
           img.village(src="http://45.118.133.210/img/block1.svg")
           h2 你的愛心，讓我們生活更美好...
@@ -94,97 +95,95 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
               img.logo(src="http://45.118.133.210/img/logo-01.svg")
               h3 第22屆花旗聯合勸募活動
           .bottom
-            
-        
-  .row.row_about.row_red(v-bind:class="[cur_page=='index'?'':'hide']")
-    img.flyingchicken(src="http://45.118.133.210/img/graphic-08.svg")
-    .max_width
-      .col_left
-        img.circle(src="http://45.118.133.210/img/graphic-14.svg")
-        img.machine(src="http://45.118.133.210/img/graphic-09.svg")
-        img.egg1(src="http://45.118.133.210/img/graphic-10.svg")
-        img.egg2(src="http://45.118.133.210/img/graphic-11.svg")
-        img.egg3(src="http://45.118.133.210/img/graphic-12.svg")
-        img.egg4(src="http://45.118.133.210/img/graphic-13.svg")
+
+  .page_index_other(v-bind:class="[cur_page=='index'?'':'hide']")
+    .row.row_about.row_red
+      img.flyingchicken(src="http://45.118.133.210/img/graphic-08.svg")
+      .max_width
+        .col_left
+          img.circle(src="http://45.118.133.210/img/graphic-14.svg")
+          img.machine(src="http://45.118.133.210/img/graphic-09.svg")
+          img.egg1(src="http://45.118.133.210/img/graphic-10.svg")
+          img.egg2(src="http://45.118.133.210/img/graphic-11.svg")
+          img.egg3(src="http://45.118.133.210/img/graphic-12.svg")
+          img.egg4(src="http://45.118.133.210/img/graphic-13.svg")
 
 
-        img.eggo1(src="http://45.118.133.210/img/graphic-13.svg")
-        img.eggo2(src="http://45.118.133.210/img/graphic-11.svg")
-        img.eggo3(src="http://45.118.133.210/img/graphic-12.svg")
+          img.eggo1(src="http://45.118.133.210/img/graphic-13.svg")
+          img.eggo2(src="http://45.118.133.210/img/graphic-11.svg")
+          img.eggo3(src="http://45.118.133.210/img/graphic-12.svg")
 
-      .col_right.col_content
-        h2.page_title 「扭」轉生命奇蹟
-        hr
-        .page_content 一起讓愛轉出生命不同的奇蹟！<br>聯合勸募與花旗（台灣）銀行長期致力於匯集愛的星火，讓每個小小的付出，積累成足以扭轉弱勢朋友未來的巨大能量。<br><br>21年來，我們協助超過7,000個遍及全台各地知名度低、募款能力不足、服務資源缺乏的中小型社福團體。每一筆愛心善款用到哪裡？幫助了哪些弱勢朋友扭轉生命奇蹟？改寫了哪些人的生命故事？<br>今年，我們用可愛的扭蛋，告訴您關於一個又一個觸動人心的生命奇蹟。<br>
-          .btns
-            .btn(v-on:click="sw_page('activity')") 扭蛋活動
-            .btn(v-on:click="sw_page('about')") 聯合勸募
-            .btn(v-on:click="sw_page('url:https://www.unitedway.org.tw/civicrm/contribute/transact?reset=1&id=3')") 立即響應
-  .row.row_yellow.row_news(v-bind:class="[cur_page=='index'?'':'hide']")
-    .max_width
-      .col_left.col_content
-      
-        h2.page_title 最新消息
-        hr
-        .page_content 
-          .newsitem(v-for="(id,news) in index_news" v-on:click="jump_newspage(id)" title="點擊查看詳細消息!") 
-            h3.newstime {{news.time}}
-            h2.newstitle {{news.title}}
-            h5.news_engtime {{news.eng_time}}
-            //- p.news_content {{news.content}}
-          img.clock(src="http://45.118.133.210/img/graphic-21.svg") 
-          .btns
-            .btn(v-on:click="sw_page('news')") 更多消息
-            .btn(v-on:click="sw_page('support')") 立即響應
-      .col_right
-        img.hex(src="http://45.118.133.210/img/graphic-17.svg")
-        img.heart.heart1(src="http://45.118.133.210/img/graphic-16.svg")
-        img.chicken_news(src="http://45.118.133.210/img/graphic-15.svg")
-        img.heart.heart2(src="http://45.118.133.210/img/graphic-18.svg")
-        img.heart.heart3(src="http://45.118.133.210/img/graphic-19.svg")   
-        img.heart.heart4(src="http://45.118.133.210/img/graphic-16.svg")  
-        img.heart.heart5(src="http://45.118.133.210/img/graphic-19.svg") 
-      
-  .row.row_blue.row_support(v-bind:class="[cur_page=='index'?'':'hide']")
-    .max_width
-      .col_left
-        img.tri(src="http://45.118.133.210/img/graphic-22.svg") 
-        img.talk(src="http://45.118.133.210/img/graphic-23.svg")
-        img.chicken_sup(src="http://45.118.133.210/img/graphic-24.svg")
-        
-      .col_right.col_content
-        h2.page_title 立即響應！
-        hr
-        .page_content 
-          img.bird_sup(src="http://45.118.133.210/img/graphic-25.svg")
-          |您愛的付出，幫助弱勢朋友跨越生命的困境<br>讓愛不中斷，陪伴他們勇敢改寫生命的故事<br>扭轉生命的奇蹟，因為有您！ <br><br><br><br>
-      
-          .btns
-            .btn(v-on:click="sw_page('activity')") 了解更多
-            .btn(v-on:click="sw_page('support')") 立即響應
-  .row.row_yellow.row_movie(v-bind:class="[cur_page=='index'?'':'hide']")
-    br
-    br
-    br   
-    .playbtn
-      i.fa.fa-play-circle-o
-  .row.row_yellow.row_summary(v-bind:class="[cur_page=='index'?'':'hide']")
-    
-    .max_width
-      
-      .col_left.col_content
-        //- img.dialog_sum(src="http://45.118.133.210/img/graphic-26.svg")  
-        
-        h2.page_title 花旗聯合勸募
-        hr
-        .page_content 我們知道每一筆善款，都是一份善的執念。<br>因此在這花旗(台灣)銀行)與聯合勸募攜手走過的二十二餘年，<br>我們將募集來超過16億的善款，透過嚴密的專案審查制度，<br>幫助台灣各地因為知名度不足而無法獨立募款的社福機構<br>能夠專心地為受助者提供服務，扭轉一個又一個生命的奇蹟，<br>一起擁抱每一份與眾不同的人與愛。
-          img.cook(src="http://45.118.133.210/img/graphic-27.svg")
+        .col_right.col_content
+          h2.page_title 「扭」轉生命奇蹟
+          hr
+          .page_content 一起讓愛轉出生命不同的奇蹟！<br>聯合勸募與花旗（台灣）銀行長期致力於匯集愛的星火，讓每個小小的付出，積累成足以扭轉弱勢朋友未來的巨大能量。<br><br>21年來，我們協助超過7,000個遍及全台各地知名度低、募款能力不足、服務資源缺乏的中小型社福團體。每一筆愛心善款用到哪裡？幫助了哪些弱勢朋友扭轉生命奇蹟？改寫了哪些人的生命故事？<br>今年，我們用可愛的扭蛋，告訴您關於一個又一個觸動人心的生命奇蹟。
+            .btns
+              .btn(v-on:click="sw_page('activity')") 扭蛋活動
+              .btn(v-on:click="sw_page('about')") 聯合勸募
+              .btn(v-on:click="sw_page('url:https://www.unitedway.org.tw/civicrm/contribute/transact?reset=1&id=3')") 立即響應
+    .row.row_yellow.row_news
+      .max_width
+        .col_left.col_content
 
-          .btns
-            .btn(v-on:click="sw_page('news')") 更多消息
-            .btn(v-on:click="sw_page('support')") 立即響應
-      .col_right
-        img.allegg(src="http://45.118.133.210/img/graphic-28.svg")
+          h2.page_title 最新消息
+          hr
+          .page_content 
+            .newsitem(v-for="(id,news) in index_news" v-on:click="jump_newspage(id)" title="點擊查看詳細消息!") 
+              h3.newstime {{news.time}}
+              h2.newstitle {{news.title}}
+              h5.news_engtime {{news.eng_time}}
+              //- p.news_content {{news.content}}
+            img.clock(src="http://45.118.133.210/img/graphic-21.svg") 
+            .btns
+              .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 立即響應
+        .col_right
+          img.hex(src="http://45.118.133.210/img/graphic-17.svg")
+          img.heart.heart1(src="http://45.118.133.210/img/graphic-16.svg")
+          img.chicken_news(src="http://45.118.133.210/img/graphic-15.svg")
+          img.heart.heart2(src="http://45.118.133.210/img/graphic-18.svg")
+          img.heart.heart3(src="http://45.118.133.210/img/graphic-19.svg")   
+          img.heart.heart4(src="http://45.118.133.210/img/graphic-16.svg")  
+          img.heart.heart5(src="http://45.118.133.210/img/graphic-19.svg") 
+
+    .row.row_blue.row_support
+      .max_width
+        .col_left
+          img.tri(src="http://45.118.133.210/img/graphic-22.svg") 
+          img.talk(src="http://45.118.133.210/img/graphic-23.svg")
+          img.chicken_sup(src="http://45.118.133.210/img/graphic-24.svg")
+
+        .col_right.col_content
+          h2.page_title 立即響應！
+          hr
+          .page_content 
+            img.bird_sup(src="http://45.118.133.210/img/graphic-25.svg")
+            |您愛的付出，幫助弱勢朋友跨越生命的困境<br>讓愛不中斷，陪伴他們勇敢改寫生命的故事<br>扭轉生命的奇蹟，因為有您！
+
+            .btns
+              .btn(v-on:click="sw_page('activity')") 了解更多
+              .btn(v-on:click="sw_page('support')") 立即響應
+    .row.row_yellow.row_movie
+      br
+      br
+      br   
+      .playbtn
+        i.fa.fa-play-circle-o
+    .row.row_yellow.row_summary
+      .max_width
+        .col_left.col_content
+          //- img.dialog_sum(src="http://45.118.133.210/img/graphic-26.svg")  
+
+          h2.page_title 花旗聯合勸募
+          hr
+          .page_content 我們知道每一筆善款，都是一份善的執念。<br>因此在這花旗(台灣)銀行)與聯合勸募攜手走過的二十二餘年，<br>我們將募集來超過16億的善款，透過嚴密的專案審查制度，<br>幫助台灣各地因為知名度不足而無法獨立募款的社福機構<br>能夠專心地為受助者提供服務，扭轉一個又一個生命的奇蹟，<br>一起擁抱每一份與眾不同的人與愛。
+            img.cook(src="http://45.118.133.210/img/graphic-27.svg")
+
+            .btns
+              .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 立即響應
+        .col_right
+          img.allegg(src="http://45.118.133.210/img/graphic-28.svg")
 
   .page_activity(v-bind:class="[cur_page=='activity'?'':'hide']")
     .row.row_white.row_ac_main
@@ -267,7 +266,7 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
               img(src="http://45.118.133.210/img/graphic-42.svg" width=60)
             |花旗聯合勸募＆安雞樂業村
           hr
-          .page_content 花旗聯合勸募＆安雞樂業村<br>您的愛心被用到哪裡去了？<br>知道您的和大家的愛心捐款如何被使用？幫助了哪些人呢？<br>讓安雞樂業村的小雞們，告訴您屬於他們愛的旅程，<br>關於寶貴的善款，如何扭轉他們生命奇蹟的溫馨故事。<br><br>
+          .page_content 花旗聯合勸募＆安雞樂業村<br>您的愛心被用到哪裡去了？<br>知道您的和大家的愛心捐款如何被使用？幫助了哪些人呢？<br>讓安雞樂業村的小雞們，告訴您屬於他們愛的旅程，<br>關於寶貴的善款，如何扭轉他們生命奇蹟的溫馨故事。
           
             .btns
               .btn(v-on:click="sw_page('news')") 更多消息

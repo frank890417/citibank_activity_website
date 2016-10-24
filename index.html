@@ -110,73 +110,75 @@
       </div>
     </div>
   </div>
-  <div v-bind:class="[cur_page=='index'?'':'hide']" class="row row_about row_red"><img src="http://45.118.133.210/img/graphic-08.svg" class="flyingchicken"/>
-    <div class="max_width">
-      <div class="col_left"><img src="http://45.118.133.210/img/graphic-14.svg" class="circle"/><img src="http://45.118.133.210/img/graphic-09.svg" class="machine"/><img src="http://45.118.133.210/img/graphic-10.svg" class="egg1"/><img src="http://45.118.133.210/img/graphic-11.svg" class="egg2"/><img src="http://45.118.133.210/img/graphic-12.svg" class="egg3"/><img src="http://45.118.133.210/img/graphic-13.svg" class="egg4"/><img src="http://45.118.133.210/img/graphic-13.svg" class="eggo1"/><img src="http://45.118.133.210/img/graphic-11.svg" class="eggo2"/><img src="http://45.118.133.210/img/graphic-12.svg" class="eggo3"/></div>
-      <div class="col_right col_content">
-        <h2 class="page_title">「扭」轉生命奇蹟</h2>
-        <hr/>
-        <div class="page_content">一起讓愛轉出生命不同的奇蹟！<br>聯合勸募與花旗（台灣）銀行長期致力於匯集愛的星火，讓每個小小的付出，積累成足以扭轉弱勢朋友未來的巨大能量。<br><br>21年來，我們協助超過7,000個遍及全台各地知名度低、募款能力不足、服務資源缺乏的中小型社福團體。每一筆愛心善款用到哪裡？幫助了哪些弱勢朋友扭轉生命奇蹟？改寫了哪些人的生命故事？<br>今年，我們用可愛的扭蛋，告訴您關於一個又一個觸動人心的生命奇蹟。<br>
-          <div class="btns">
-            <div v-on:click="sw_page('activity')" class="btn">扭蛋活動</div>
-            <div v-on:click="sw_page('about')" class="btn">聯合勸募</div>
-            <div v-on:click="sw_page('url:https://www.unitedway.org.tw/civicrm/contribute/transact?reset=1&amp;id=3')" class="btn">立即響應</div>
+  <div v-bind:class="[cur_page=='index'?'':'hide']" class="page_index_other">
+    <div class="row row_about row_red"><img src="http://45.118.133.210/img/graphic-08.svg" class="flyingchicken"/>
+      <div class="max_width">
+        <div class="col_left"><img src="http://45.118.133.210/img/graphic-14.svg" class="circle"/><img src="http://45.118.133.210/img/graphic-09.svg" class="machine"/><img src="http://45.118.133.210/img/graphic-10.svg" class="egg1"/><img src="http://45.118.133.210/img/graphic-11.svg" class="egg2"/><img src="http://45.118.133.210/img/graphic-12.svg" class="egg3"/><img src="http://45.118.133.210/img/graphic-13.svg" class="egg4"/><img src="http://45.118.133.210/img/graphic-13.svg" class="eggo1"/><img src="http://45.118.133.210/img/graphic-11.svg" class="eggo2"/><img src="http://45.118.133.210/img/graphic-12.svg" class="eggo3"/></div>
+        <div class="col_right col_content">
+          <h2 class="page_title">「扭」轉生命奇蹟</h2>
+          <hr/>
+          <div class="page_content">一起讓愛轉出生命不同的奇蹟！<br>聯合勸募與花旗（台灣）銀行長期致力於匯集愛的星火，讓每個小小的付出，積累成足以扭轉弱勢朋友未來的巨大能量。<br><br>21年來，我們協助超過7,000個遍及全台各地知名度低、募款能力不足、服務資源缺乏的中小型社福團體。每一筆愛心善款用到哪裡？幫助了哪些弱勢朋友扭轉生命奇蹟？改寫了哪些人的生命故事？<br>今年，我們用可愛的扭蛋，告訴您關於一個又一個觸動人心的生命奇蹟。
+            <div class="btns">
+              <div v-on:click="sw_page('activity')" class="btn">扭蛋活動</div>
+              <div v-on:click="sw_page('about')" class="btn">聯合勸募</div>
+              <div v-on:click="sw_page('url:https://www.unitedway.org.tw/civicrm/contribute/transact?reset=1&amp;id=3')" class="btn">立即響應</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div v-bind:class="[cur_page=='index'?'':'hide']" class="row row_yellow row_news">
-    <div class="max_width">
-      <div class="col_left col_content">
-        <h2 class="page_title">最新消息</h2>
-        <hr/>
-        <div class="page_content"> 
-          <div v-for="(id,news) in index_news" v-on:click="jump_newspage(id)" title="點擊查看詳細消息!" class="newsitem"> 
-            <h3 class="newstime">{{news.time}}</h3>
-            <h2 class="newstitle">{{news.title}}</h2>
-            <h5 class="news_engtime">{{news.eng_time}}</h5>
-          </div><img src="http://45.118.133.210/img/graphic-21.svg" class="clock"/>
-          <div class="btns">
-            <div v-on:click="sw_page('news')" class="btn">更多消息</div>
-            <div v-on:click="sw_page('support')" class="btn">立即響應</div>
+    <div class="row row_yellow row_news">
+      <div class="max_width">
+        <div class="col_left col_content">
+          <h2 class="page_title">最新消息</h2>
+          <hr/>
+          <div class="page_content"> 
+            <div v-for="(id,news) in index_news" v-on:click="jump_newspage(id)" title="點擊查看詳細消息!" class="newsitem"> 
+              <h3 class="newstime">{{news.time}}</h3>
+              <h2 class="newstitle">{{news.title}}</h2>
+              <h5 class="news_engtime">{{news.eng_time}}</h5>
+            </div><img src="http://45.118.133.210/img/graphic-21.svg" class="clock"/>
+            <div class="btns">
+              <div v-on:click="sw_page('news')" class="btn">更多消息</div>
+              <div v-on:click="sw_page('support')" class="btn">立即響應</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col_right"><img src="http://45.118.133.210/img/graphic-17.svg" class="hex"/><img src="http://45.118.133.210/img/graphic-16.svg" class="heart heart1"/><img src="http://45.118.133.210/img/graphic-15.svg" class="chicken_news"/><img src="http://45.118.133.210/img/graphic-18.svg" class="heart heart2"/><img src="http://45.118.133.210/img/graphic-19.svg" class="heart heart3"/><img src="http://45.118.133.210/img/graphic-16.svg" class="heart heart4"/><img src="http://45.118.133.210/img/graphic-19.svg" class="heart heart5"/></div>
-    </div>
-  </div>
-  <div v-bind:class="[cur_page=='index'?'':'hide']" class="row row_blue row_support">
-    <div class="max_width">
-      <div class="col_left"><img src="http://45.118.133.210/img/graphic-22.svg" class="tri"/><img src="http://45.118.133.210/img/graphic-23.svg" class="talk"/><img src="http://45.118.133.210/img/graphic-24.svg" class="chicken_sup"/></div>
-      <div class="col_right col_content">
-        <h2 class="page_title">立即響應！</h2>
-        <hr/>
-        <div class="page_content"> <img src="http://45.118.133.210/img/graphic-25.svg" class="bird_sup"/>您愛的付出，幫助弱勢朋友跨越生命的困境<br>讓愛不中斷，陪伴他們勇敢改寫生命的故事<br>扭轉生命的奇蹟，因為有您！ <br><br><br><br>
-          <div class="btns">
-            <div v-on:click="sw_page('activity')" class="btn">了解更多</div>
-            <div v-on:click="sw_page('support')" class="btn">立即響應</div>
-          </div>
-        </div>
+        <div class="col_right"><img src="http://45.118.133.210/img/graphic-17.svg" class="hex"/><img src="http://45.118.133.210/img/graphic-16.svg" class="heart heart1"/><img src="http://45.118.133.210/img/graphic-15.svg" class="chicken_news"/><img src="http://45.118.133.210/img/graphic-18.svg" class="heart heart2"/><img src="http://45.118.133.210/img/graphic-19.svg" class="heart heart3"/><img src="http://45.118.133.210/img/graphic-16.svg" class="heart heart4"/><img src="http://45.118.133.210/img/graphic-19.svg" class="heart heart5"/></div>
       </div>
     </div>
-  </div>
-  <div v-bind:class="[cur_page=='index'?'':'hide']" class="row row_yellow row_movie"><br/><br/><br/>
-    <div class="playbtn"><i class="fa fa-play-circle-o"></i></div>
-  </div>
-  <div v-bind:class="[cur_page=='index'?'':'hide']" class="row row_yellow row_summary">
-    <div class="max_width">
-      <div class="col_left col_content">
-        <h2 class="page_title">花旗聯合勸募</h2>
-        <hr/>
-        <div class="page_content">我們知道每一筆善款，都是一份善的執念。<br>因此在這花旗(台灣)銀行)與聯合勸募攜手走過的二十二餘年，<br>我們將募集來超過16億的善款，透過嚴密的專案審查制度，<br>幫助台灣各地因為知名度不足而無法獨立募款的社福機構<br>能夠專心地為受助者提供服務，扭轉一個又一個生命的奇蹟，<br>一起擁抱每一份與眾不同的人與愛。<img src="http://45.118.133.210/img/graphic-27.svg" class="cook"/>
-          <div class="btns">
-            <div v-on:click="sw_page('news')" class="btn">更多消息</div>
-            <div v-on:click="sw_page('support')" class="btn">立即響應</div>
+    <div class="row row_blue row_support">
+      <div class="max_width">
+        <div class="col_left"><img src="http://45.118.133.210/img/graphic-22.svg" class="tri"/><img src="http://45.118.133.210/img/graphic-23.svg" class="talk"/><img src="http://45.118.133.210/img/graphic-24.svg" class="chicken_sup"/></div>
+        <div class="col_right col_content">
+          <h2 class="page_title">立即響應！</h2>
+          <hr/>
+          <div class="page_content"> <img src="http://45.118.133.210/img/graphic-25.svg" class="bird_sup"/>您愛的付出，幫助弱勢朋友跨越生命的困境<br>讓愛不中斷，陪伴他們勇敢改寫生命的故事<br>扭轉生命的奇蹟，因為有您！
+            <div class="btns">
+              <div v-on:click="sw_page('activity')" class="btn">了解更多</div>
+              <div v-on:click="sw_page('support')" class="btn">立即響應</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col_right"><img src="http://45.118.133.210/img/graphic-28.svg" class="allegg"/></div>
+    </div>
+    <div class="row row_yellow row_movie"><br/><br/><br/>
+      <div class="playbtn"><i class="fa fa-play-circle-o"></i></div>
+    </div>
+    <div class="row row_yellow row_summary">
+      <div class="max_width">
+        <div class="col_left col_content">
+          <h2 class="page_title">花旗聯合勸募</h2>
+          <hr/>
+          <div class="page_content">我們知道每一筆善款，都是一份善的執念。<br>因此在這花旗(台灣)銀行)與聯合勸募攜手走過的二十二餘年，<br>我們將募集來超過16億的善款，透過嚴密的專案審查制度，<br>幫助台灣各地因為知名度不足而無法獨立募款的社福機構<br>能夠專心地為受助者提供服務，扭轉一個又一個生命的奇蹟，<br>一起擁抱每一份與眾不同的人與愛。<img src="http://45.118.133.210/img/graphic-27.svg" class="cook"/>
+            <div class="btns">
+              <div v-on:click="sw_page('news')" class="btn">更多消息</div>
+              <div v-on:click="sw_page('support')" class="btn">立即響應</div>
+            </div>
+          </div>
+        </div>
+        <div class="col_right"><img src="http://45.118.133.210/img/graphic-28.svg" class="allegg"/></div>
+      </div>
     </div>
   </div>
   <div v-bind:class="[cur_page=='activity'?'':'hide']" class="page_activity">
@@ -251,7 +253,7 @@
         <div class="col_left col_content">
           <h2 class="page_title"> <span><img src="http://45.118.133.210/img/graphic-42.svg" width="60"/></span>花旗聯合勸募＆安雞樂業村</h2>
           <hr/>
-          <div class="page_content">花旗聯合勸募＆安雞樂業村<br>您的愛心被用到哪裡去了？<br>知道您的和大家的愛心捐款如何被使用？幫助了哪些人呢？<br>讓安雞樂業村的小雞們，告訴您屬於他們愛的旅程，<br>關於寶貴的善款，如何扭轉他們生命奇蹟的溫馨故事。<br><br>
+          <div class="page_content">花旗聯合勸募＆安雞樂業村<br>您的愛心被用到哪裡去了？<br>知道您的和大家的愛心捐款如何被使用？幫助了哪些人呢？<br>讓安雞樂業村的小雞們，告訴您屬於他們愛的旅程，<br>關於寶貴的善款，如何扭轉他們生命奇蹟的溫馨故事。
             <div class="btns">
               <div v-on:click="sw_page('news')" class="btn">更多消息</div>
               <div v-on:click="sw_page('support')" class="btn">立即響應</div>

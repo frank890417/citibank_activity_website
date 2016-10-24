@@ -5,14 +5,15 @@ $color_yellow: #FFD629
 $color_brown: #5F1C00
 $color_blue: #66A5BE
 $color_grey: #333
-$color_black: #222
+$color_black: #333
 
 //maxium content width
 $max_width: 1100px
 
 //title and para fontsize
-$title_size: 2em
-$para_size: 1em
+$title_size: 1.5em
+$sub_title_size: 1.1em
+$para_size: 0.75em
 
 //rwd
 $break_small: 800px
@@ -31,6 +32,7 @@ $break_medium: 1050px
 @mixin bg_branch
   background: radial-gradient(#ddd 10%,$color_white 11%)
   background-size: 11px 11px
+  background-attachment: fixed
 
 @mixin color_set($fc,$bc)
   color: $fc
@@ -117,13 +119,13 @@ body.loading
 .page_title
   padding: 5px 20px
   margin: 0
-  font-size: 1.9em
+  font-size: $title_size
   letter-spacing: 1px
   font-weight: 900
   z-index: 1000
   
 .page_content
-  font-size: 0.92em
+  font-size: $para_size
   letter-spacing: 1px
   padding: 5px 20px
   margin: 0
@@ -157,7 +159,10 @@ body.loading
   &.imgbtn
     background-color: #fff
     cursor: pointer
-  
+
+.btns
+  margin-top: 60px
+    
 hr
   border: none
   margin: 0
@@ -254,7 +259,7 @@ hr
     cursor: pointer
     z-index: 3000
     transition: 0.5s
-
+    font-size: $para_size*1.1
     background-size: 100% 200%
     &:hover
       background-color: $color_grey
@@ -382,6 +387,9 @@ hr
   +bg_branch
   transition: 0.5s 0.2s
   min-height: 100vh
+  #index_nav
+    ul li
+      font-size: $para_size
   .logofixed
     position: absolute
     left: 10px
@@ -445,7 +453,7 @@ hr
     
       
     h2
-      font-size: 12px
+      font-size: $para_size
       color: white
       z-index: 900
       position: absolute
@@ -504,7 +512,7 @@ hr
         color: $color_black
         padding: 35px
         margin-top: 45px
-        font-size: 16px
+        font-size: $para_size*1.2
         
     
     .comic_block
@@ -540,7 +548,7 @@ hr
       width: 90%
       top: 25px
       color: $color_black
-      font-size: 1em
+      font-size: $para_size
       letter-spacing: 2px
       text-align: center
       margin-bottom: -120px
@@ -560,7 +568,7 @@ hr
         display: inline-block
         padding: 5px 15px
         cursor: pointer
-        font-size: 0.95em
+        font-size: $para_size
         letter-spacing: 1px
         border-bottom: solid 2px transparent
         transition-duration: 0.5s
@@ -645,7 +653,7 @@ hr
       h3
         border-top: solid 1px $color_grey
         padding-top: 10px
-        font-size: 16px
+        font-size: $para_size*1.2
         font-weight: 500
         color: $color_grey
         letter-spacing: 3px
@@ -762,7 +770,7 @@ hr
       color: $color_grey
       width: 32px
       text-align: right
-      font-size: 15px
+      font-size: $sub_title_size
       white-space: nowrap
       
     .news_engtime
@@ -917,10 +925,12 @@ hr
   
   padding-bottom: 5px
   // border-top: solid 1px $color_grey
+  
   +bg_branch
   height: initial
   background-image: none
   background-color: $color_white
+  box-shadow: 0px 0px 15px rgba($color_black,0.2)
   flex-direction: column
   justify-content: center
   .row_companys ,.row_last
@@ -998,17 +1008,23 @@ hr
       transform: translateX(50px)
   
 .page_index_hold
-  height: 80px
+  height: 75px
 .page_index
   // overflow: hidden
   width: 100vw
   z-index: 2000
   transition-delay: 0s
   min-height: initial
-  max-height: 80px
+  max-height: 75px
   position: fixed
   top: 0px
   left: 0px
+  
+  //取消當index成為導覽列時候的斑點背景
+  // &.row_index
+  //   background-image: none
+  //   background-color: $color_white
+  //   box-shadow: 0px 0px 10px rgba($color_black,0.1)
   .col_left,.col_mid,.col_right
     pointer-events: none
   .yellowpiece,.bluepiece
@@ -1022,7 +1038,7 @@ hr
   #index_nav
     pointer-events: none
   .bluepiece
-    transform: translateY(-58px) skewY(0.5deg)
+    transform: translateY(-58px) skewY(0.45deg)
     
   .yellowpiece
     transform: translateY(-55px) skewY(-0.25deg)
