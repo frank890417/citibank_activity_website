@@ -48,7 +48,7 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
     .max_width.main_index_content
       .col_left
         
-        .comic_block(data-mul-speed="0.1")
+        .comic_block(data-mul-speed="0.1" v-on:click="sw_page('about')" )
           img.chicken(src="http://45.118.133.210/img/graphic-03.svg")
         
       .col_mid
@@ -57,7 +57,7 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
           h3.title {{{index_talk.data[index_talk.cur_id].substr(0,index_talk.cur_len)}}}
             | {{(index_talk.cur_len % 3==0? '|':'')}}
           img.talkbg(src="http://45.118.133.210/img/index_talk-01.svg")
-        .comic_block(data-mul-speed="0.5")
+        .comic_block(data-mul-speed="0.5"  v-on:click="sw_page('about')")
           img.chair(src="http://45.118.133.210/img/graphic-07.svg")
           img.chicken2(src="http://45.118.133.210/img/graphic-04.svg")
           
@@ -72,7 +72,7 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
             li.nav_activity( v-on:click="sw_page('about')") 聯合勸募
             li.nav_news( v-on:click="sw_page('news')") 最新消息
             
-        .comic_block.big(data-mul-speed="0.6" v-on:click="sw_page('activity')" title="我想看安雞樂業村的故事!")
+        .comic_block.big(data-mul-speed="0.6" v-on:click="sw_page('activity_village')" title="我想看安雞樂業村的故事!")
           img.village(src="http://45.118.133.210/img/block1.svg")
           h2 你的愛心，讓我們生活更美好...
           img.mch.mch1(src="http://45.118.133.210/img/chicken-29.svg")
@@ -163,10 +163,9 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
             .btn(v-on:click="sw_page('activity')") 了解更多
             .btn(v-on:click="sw_page('support')") 立即響應
   .row.row_yellow.row_movie(v-bind:class="[cur_page=='index'?'':'hide']")
-          br
-          br
-          br
-          
+    br
+    br
+    br   
     .playbtn
       i.fa.fa-play-circle-o
   .row.row_yellow.row_summary(v-bind:class="[cur_page=='index'?'':'hide']")
@@ -577,7 +576,7 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
             span 聯合勸募2016年支持社福團體執行助人方案
             
           hr
-          table
+          table.page_content
             thead
               th 服務對象
               th 專案件數
@@ -663,32 +662,32 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
     .row.row_red.row_sp_price
       .max_width
         .col_full
+          .page_content
+            h2.page_title 
+              span 扭蛋小公仔，超級能力組
+            hr
+            .flex_row
 
-          h2.page_title 
-            span 扭蛋小公仔，超級能力組
-          hr
-          .page_content.flex_row
-            
-            .col_left
-              img(src="http://45.118.133.210/img/graphic-67.svg")
-              span 
-                h3 / 月捐500元
-                h4 讓愛擁有無限可能
-              p 活動期間2016/11/1-2017/2/28<br>月捐500元，持續12個月以上（含）或單筆捐款滿6000元（含），<br>即可珍藏愛心見證禮「安雞樂業」乙套<br>單筆捐款滿3000元，安雞樂業絨毛布偶或小提袋，挑選一項，開心帶回家！
-                .small 每筆捐款以兌換乙份禮物為限，捐款金額不累積贈送禮物，數量有限，送完為止。
+              .col_left
+                img(src="http://45.118.133.210/img/graphic-67.svg")
+                span 
+                  h3 / 月捐500元
+                  h4 讓愛擁有無限可能
+                p 活動期間2016/11/1-2017/2/28<br>月捐500元，持續12個月以上（含）或單筆捐款滿6000元（含），<br>即可珍藏愛心見證禮「安雞樂業」乙套<br>單筆捐款滿3000元，安雞樂業絨毛布偶或小提袋，挑選一項，開心帶回家！
+                  .small 每筆捐款以兌換乙份禮物為限，捐款金額不累積贈送禮物，數量有限，送完為止。
 
-                
-               
-            .col_right
-              img(src="http://45.118.133.210/img/graphic-66.svg")
-              span 
-                h3 / 捐款200元
-                h4 由您開始行動，轉出生命不同的奇蹟
-              p 五款不同可愛造型及具實用功能的超萌扭蛋，值得您用愛珍藏。
-              p 【實體扭蛋機】<br>捐款200元（投入四枚50元硬幣），即能玩轉乙次扭蛋機。<br>
-              //- 【線上扭蛋機】<br>活動期間：2016/12/12-2017/2/28<br>響應本活動線上信用卡捐款乙次達200元以上者（捐款金額不得累計），<br>即可參加線上扭蛋機遊戲乙次。<br>＊捐款滿額獲得愛心見證禮者，不再贈送扭蛋。
 
-            
+
+              .col_right
+                img(src="http://45.118.133.210/img/graphic-66.svg")
+                span 
+                  h3 / 捐款200元
+                  h4 由您開始行動，轉出生命不同的奇蹟
+                p 五款不同可愛造型及具實用功能的超萌扭蛋，值得您用愛珍藏。
+                p 【實體扭蛋機】<br>捐款200元（投入四枚50元硬幣），即能玩轉乙次扭蛋機。<br>
+                //- 【線上扭蛋機】<br>活動期間：2016/12/12-2017/2/28<br>響應本活動線上信用卡捐款乙次達200元以上者（捐款金額不得累計），<br>即可參加線上扭蛋機遊戲乙次。<br>＊捐款滿額獲得愛心見證禮者，不再贈送扭蛋。
+
+
             
           
 
@@ -724,8 +723,9 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
             p {{index_news[news_id].detail}}
             div {{{index_news[news_id].blog}}}      
   .row.row_footer(v-if="footer_com")
-    .max_width.flex_col
-      .row_companys.flex_row(v-bind:class="[cur_page=='index'?'':'hide']")
+
+    .row_companys(v-bind:class="[cur_page=='index'?'':'hide']")
+      .max_width
         div.col_left
           div
             h4 協辦單位
@@ -737,7 +737,8 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
           h4 通路贊助
           .flex_row
             img(v-for="com in footer_com.selsup" v-bind:src="com.url" title="{{com.name}}" alt="{{com.name}}")
-      .row_last.flex_row
+    .row_last.flex_row
+      .max_width
         .logos
           img(src="http://45.118.133.210/img/company.PNG")
           img(src="http://45.118.133.210/img/companylogo/banklogo.png")

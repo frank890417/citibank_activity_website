@@ -54,7 +54,7 @@ body.loading {
 
 .max_width {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -178,6 +178,10 @@ hr {
   border: none;
   margin: 0;
   z-index: 100;
+}
+
+.small {
+  font-size: 0.5em;
 }
 
 .row.row_red {
@@ -929,7 +933,7 @@ hr {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .row_about .col_left {
@@ -1194,12 +1198,33 @@ hr {
 
 .row_footer {
   min-height: 0px;
-  padding-bottom: 50px;
-  border-top: solid 1px #333;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background: -webkit-radial-gradient(#dddddd 10%, #fafafa 11%);
   background: radial-gradient(#dddddd 10%, #fafafa 11%);
   background-size: 11px 11px;
   height: initial;
+  background-image: none;
+  background-color: #fafafa;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.row_footer .row_companys, .row_footer .row_last {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0px;
+}
+.row_footer:before {
+  display: none;
 }
 .row_footer .col_left {
   width: 35%;
@@ -1211,15 +1236,20 @@ hr {
   width: 65%;
 }
 .row_footer img {
-  height: 40px;
+  height: 35px;
   margin-bottom: 10px;
   display: inline-block;
 }
 .row_footer .max_width {
-  padding: 50px;
-  padding-top: 50px;
+  padding: 0px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
-.row_footer .col_left, .row_footer .col_right, .row_footer max_width {
+.row_footer .col_left, .row_footer .col_right {
   min-height: 0px;
   whitespace: no-wrap;
 }
@@ -1236,9 +1266,7 @@ hr {
   -webkit-align-items: top;
       -ms-flex-align: top;
           align-items: top;
-  padding-left: 30px;
   width: 100%;
-  border-top: solid 2px #333;
   padding-top: 20px;
 }
 .row_footer .row_last .logos {
@@ -1257,13 +1285,22 @@ hr {
   margin-right: 10px;
   height: 35px;
 }
+.row_footer .row_companys {
+  background-color: #e8e8e8;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
 .row_footer .row_companys h4:before {
   content: "/ ";
   font-weight: bold;
   font-size: 15px;
-}
-.row_footer .row_companys:hide {
-  display: none;
 }
 
 .comic_block_hover .chicken {
@@ -1949,9 +1986,6 @@ hr {
   display: none;
 }
 
-.page_about .row_ab {
-  min-height: 600px;
-}
 .page_about .row_ab_table table {
   margin-top: 50px;
   width: 70%;
@@ -1996,17 +2030,19 @@ hr {
   width: 16%;
 }
 .page_about .row_ab {
+  min-height: 700px;
   background-image: -webkit-radial-gradient(#ed7481 50%, #ea5d6d 50%);
   background-image: radial-gradient(#ed7481 50%, #ea5d6d 50%);
   background-size: 150% 250%;
 }
-.page_about .village2 {
+.page_about .row_ab .village2 {
   position: absolute;
   bottom: 0%;
   width: 120%;
   max-height: 47vh;
   left: 5%;
   z-index: 1000;
+  pointer-events: none;
 }
 .page_about .row_ab_donate .qrcode {
   width: 120px;
@@ -2284,6 +2320,17 @@ hr {
     min-height: 250px;
   }
 
+  .row_sp_price .col_full .flex_row {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -webkit-flex-direction: column !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .row_sp_price .col_full .col_left, .row_sp_price .col_full .col_right {
+    width: 100%;
+  }
+
   .page_about .row_ab_feature {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2318,5 +2365,14 @@ hr {
 
   .row_acegg_howto .col_right {
     height: 300px;
+  }
+
+  .row_footer .col_left, .row_footer .col_right {
+    width: 100%;
+  }
+  .row_footer .col_right .flex_row {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
   }
 }

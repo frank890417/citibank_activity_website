@@ -8,7 +8,7 @@ $color_grey: #333
 $color_black: #222
 
 //maxium content width
-$max_width: 1200px
+$max_width: 1100px
 
 //title and para fontsize
 $title_size: 2em
@@ -162,6 +162,9 @@ hr
   border: none
   margin: 0
   z-index: 100
+  
+.small
+  font-size: 0.5em
   
 //color scheme
   
@@ -677,7 +680,7 @@ hr
         background-size: cover
         transition: 0.5s
 .hide
-  display: none
+  display: none !important
 
 
   
@@ -910,11 +913,21 @@ hr
   
 .row_footer
   min-height: 0px
-  padding-bottom: 50px
-  border-top: solid 1px $color_grey
+  padding-top: 5px
+  
+  padding-bottom: 5px
+  // border-top: solid 1px $color_grey
   +bg_branch
   height: initial
-  
+  background-image: none
+  background-color: $color_white
+  flex-direction: column
+  justify-content: center
+  .row_companys ,.row_last
+    justify-content: center
+    margin: 0px
+  &:before
+    display: none
   .col_left
     width: 35%
     img
@@ -923,14 +936,16 @@ hr
     width: 65%
   
   img
-    height: 40px
+    height: 35px
     margin-bottom: 10px
     display: inline-block
   .max_width
-    padding: 50px
-    padding-top: 50px
+    padding: 0px
+    padding-top: 5px
+    padding-bottom: 10px
+    justify-content: space-between
     
-  .col_left,.col_right,max_width
+  .col_left,.col_right
     min-height: 0px
     whitespace: no-wrap
     
@@ -943,9 +958,8 @@ hr
     color: $color_grey
   .row_last
     align-items: top
-    padding-left: 30px
     width: 100%
-    border-top: solid 2px $color_grey
+    // border-top: solid 2px $color_grey
     padding-top: 20px
     .logos
       padding-top: 10px
@@ -964,8 +978,10 @@ hr
       content: "/ "
       font-weight: bold
       font-size: 15px
-    &:hide
-      display: none
+    background-color: darken($color_white,7)
+    display: flex
+    flex-direction: row
+    
   
     
 .comic_block_hover 
@@ -1494,8 +1510,7 @@ hr
     
       
 .page_about
-  .row_ab
-    min-height: 600px
+
   .row_ab_table
     table
       thead
@@ -1531,15 +1546,17 @@ hr
 
       
   .row_ab
+    min-height: 700px
     background-image: radial-gradient(lighten($color_red,5) 50% ,$color_red 50%)
     background-size: 150%  250%
-  .village2
-    position: absolute
-    bottom: 0%
-    width: 120%
-    max-height: 47vh
-    left: 5%
-    z-index: 1000
+    .village2
+      position: absolute
+      bottom: 0%
+      width: 120%
+      max-height: 47vh
+      left: 5%
+      z-index: 1000
+      pointer-events: none
   .row_ab_donate
     .qrcode
       width: 120px
@@ -1738,6 +1755,12 @@ hr
     width: 100%
     max-width: 100%
     min-height: 250px
+  .row_sp_price
+    .col_full 
+      .flex_row
+        flex-direction: column !important
+      .col_left,.col_right
+        width: 100%
   .page_about
     .row_ab_feature
       flex-direction: column 
@@ -1762,3 +1785,8 @@ hr
     .col_right
       height: 300px
       
+  .row_footer 
+    .col_left,.col_right
+      width: 100%
+    .col_right .flex_row
+      flex-wrap: wrap
