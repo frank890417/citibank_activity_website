@@ -1,0 +1,1740 @@
+// color definition
+$color_white: #fafafa
+$color_red: #EA5D6D
+$color_yellow: #FFD629
+$color_brown: #5F1C00
+$color_blue: #66A5BE
+$color_grey: #333
+$color_black: #222
+
+//maxium content width
+$max_width: 1200px
+
+//title and para fontsize
+$title_size: 2em
+$para_size: 1em
+
+//rwd
+$break_small: 800px
+$break_medium: 1050px
+
+*
+  font-family: 'Hind Madurai',"sans-serif","Noto Sans TC","微軟正黑體"
+  // font-weight: 500
+  position: relative
+  // border: solid 1px black
+
+@mixin fill
+  width: 100%
+  height: 100%
+
+@mixin bg_branch
+  background: radial-gradient(#ddd 10%,$color_white 11%)
+  background-size: 11px 11px
+
+@mixin color_set($fc,$bc)
+  color: $fc
+  background-color: $bc
+  
+html,body
+  padding: 0
+  margin: 0
+
+html
+  overflow-x: hidden
+body,html
+  width: 100%
+  font-weight: 400
+  overflow-x: hidden
+  
+body.loading
+  height: 100vh
+  overflow: hidden
+  
+.flex_row
+  display: flex !important
+  flex-direction: row !important
+  
+.flex_col
+  display: flex !important
+  flex-direction: column !important
+  
+.container-fluid
+  width: 100%
+  
+.max_width
+  width: 100%
+  max-width: $max_width
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 50px
+  // box-sizing: border-box
+
+.auto_height
+  height: auto !important
+  
+[class ^= 'col_' ]
+  display: inline-block
+  // min-height: 400px
+  
+.col_full
+  width: 100%
+  
+  
+.col_left,.col_right
+  width: calc(50% - 20px)
+  margin: 10px
+  z-index: 200
+
+.col_content
+  width: calc(55% - 20px)
+  
+.row
+  display: flex
+  justify-content: center
+  // min-height: 66vh
+  padding-top: 25px
+  padding-bottom: 25px
+  // height: 0px
+  transition-duration: 0.5s
+  &:before
+    content: ""
+    display: block
+    width: 120vw
+    height: 100px
+    position: absolute
+    +color_set(inherit,inherit)
+    transform: skewY(-1.5deg) translateX(-120px)
+    z-index: 200
+    // box-shadow: none
+  &:before
+    top: -20px
+    box-shadow: 0px -10px 30px -10px rgba($color_black,0.4)
+  // &:after
+  //   bottom: 30px
+ 
+.page_title
+  padding: 5px 20px
+  margin: 0
+  font-size: 1.9em
+  letter-spacing: 1px
+  font-weight: 900
+  z-index: 1000
+  
+.page_content
+  font-size: 0.92em
+  letter-spacing: 1px
+  padding: 5px 20px
+  margin: 0
+  padding-top: 20px
+  line-height: 1.7em
+  min-height: 250px
+  font-weight: 300
+  width: 100%
+  & .btn:first
+    margin-left: 20px
+  
+.btn
+  padding: 5px 15px
+  border: solid 1px $color_white
+  display: inline-block
+  letter-spacing: 1px
+  margin: 5px
+  margin-top: 10px
+  transition: 0.5s
+  cursor: pointer
+  z-index: 5000
+  font-weight: 400
+  
+  &:hover
+    +color_set($color_black,$color_white)
+  img
+    width: 100%
+    max-width: 300px
+    
+  &.imgbtn
+    background-color: #fff
+  
+hr
+  border: none
+  margin: 0
+  z-index: 100
+  
+//color scheme
+  
+.row.row_red
+  +color_set($color_white,$color_red)
+  hr
+    border-top: solid 2px $color_white
+  .page_content
+    +color_set(rgba($color_white,0.8),inherit)
+  .page_title
+    font-weight: 600
+  
+  
+.row.row_yellow
+  +color_set($color_brown,$color_yellow)
+  hr
+    border-top: solid 2px $color_brown
+  .page_title
+    font-weight: 900
+  .page_content
+    +color_set(rgba($color_brown,0.8),inherit)
+    font-weight: 500
+  .btn
+    border-color: $color_brown
+    &:hover
+      +color_set($color_white,$color_brown)
+  
+.row.row_blue
+  background-color: $color_blue
+  color: $color_white
+  .page_title
+    font-weight: 600
+  hr
+    border-top: solid 2px $color_white
+  .page_content
+    color: rgba($color_white,0.8)
+    
+.row.row_white
+  +bg_branch
+  color: $color_brown
+  border-color: $color_brown
+  .page_title
+    font-weight: 600
+  hr
+    border-top: solid 2px $color_brown
+  .page_content
+    color: rgba($color_brown,0.8)
+  .btn
+    border-color: $color_brown
+    &:hover
+      background-color: $color_brown
+      color: $color_white
+  
+@keyframes cin
+  0%
+    transform: translateY(-50px)
+    opacity: 0
+  100%
+    transform: translateY(50px)
+    opacity: 1
+    
+  
+.main_index_content
+  transition: 0.5s
+.normal_nav
+  .mobile_nav_toggle
+    display: none
+    cursor: pointer
+  position: absolute
+  top: 20px
+  right: 20px
+  color: $color_grey
+  opacity: 0
+  tranisiton: 0.5s 0.3s
+  user-select: none
+  z-index: 10000
+  
+  li
+    list-style: none
+    display: inline-block
+  li.btn
+    list-style: none
+    display: inline-block
+    font-weight: 500
+    margin: 0px 7px
+    padding: 5px 10px
+    cursor: pointer
+    z-index: 3000
+    transition: 0.5s
+
+    background-size: 100% 200%
+    &:hover
+      background-color: $color_grey
+      color: white
+    &.selected
+      background-color: $color_yellow
+      color: $color_brown
+      
+.nav_activity:hover
+  #sub_nav
+    max-height: 200px
+#sub_nav
+  li
+    margin: 0
+    display: block
+    color: $color_black
+    &:hover
+      background-color: $color_grey
+      color: $color_white
+    padding: 6px 10px
+  padding: 0
+  margin: 0
+  display: block
+  position: absolute
+  top: 40px
+  width: 100%
+  background-color: $color_white
+  overflow: hidden
+  max-height: 0px
+  transition: 0.5s
+  
+  
+    
+.loading_page
+  position: absolute
+  width: 100vw
+  height: 100vh
+  left: 0
+  top: 0
+  z-index: 4000
+  opacity: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  +bg_branch
+  transition: 1s
+  pointer-events: none
+  
+  .center_box
+    width: 30%
+    hieght: 30%
+    max-width: 200px
+    max-height: 200px
+  img
+    position: absolute
+    z-index: 4000
+    width: 100px
+    left: 0
+    top: 0
+  
+  .loading_egg
+    transform-origin: center center
+    width: 100px
+    height: 100px
+    *
+      transition: 0.5s
+    .eggtop
+      top: 0px
+    .eggmid 
+      top: 0px
+      z-index: 1000
+    .eggchk
+      top: 0px
+    .eggbottom
+      top: 10px
+    .eggbottompart
+      top: 35px
+    .eggtop2
+      top: 45px
+      z-index: 8000
+    .egglight
+      top: 10px
+      z-index: 8000  
+    &.open
+      .eggchk
+        transform: rotate(-45deg) scale(1.1)
+      .eggtop2
+        top: -8px
+        left: -8px
+        transform: rotate(15deg) scale(0.9)
+      .eggtop
+        top: -50px
+        transform: rotate(15deg) scale(0.9)
+      .egglight
+        top: -40px
+        transform: rotate(15deg) scale(0.9) 
+      // .egglight
+        // top: 10px
+      .eggbottom
+        top: 70px
+        transform: rotate(10deg) scale(0.9)
+      .eggmid
+        top: 40px
+        transform: rotate(10deg) scale(0.9)
+      .eggmid 
+        top: 60px
+        left: 4px
+      // .eggtoppart
+      //   top: -50px
+      //   transform: rotate(15deg) scale(0.9)
+      // .eggbottompart
+      //   top: 120px
+      //   transform: rotate(10deg) scale(0.9)
+  &.loading
+
+    opacity: 1
+    transition: 0.25s
+    pointer-events: auto
+    
+      
+      
+.row_index
+  
+  color: $color_white
+  +bg_branch
+  transition: 0.5s 0.2s
+  min-height: 100vh
+  .logofixed
+    position: absolute
+    left: 10px
+    top: 10px
+    z-index: 10000
+    cursor: pointer
+    img
+      height: 80px
+    opacity: 0
+    transition: opacity 0.5s
+    &.loading
+      
+  .company
+    position: absolute
+    height: 40px
+    top: 20px
+    
+  .max_width
+    align-items: flex-start
+    
+  .yellowpiece,.bluepiece
+    width: 100%
+    height: 120px
+    position: absolute
+    background-color: $color_black
+    bottom: -60px
+    transition: 0.4s
+  .yellowpiece
+    background-color: $color_yellow
+    transform: skewY(-4deg)
+  .bluepiece
+    background-color: $color_blue
+    transform: skewY(1.8deg)
+    bottom: -55px
+    
+  .people
+    height: 60vh
+    width: auto
+    position: absolute
+    bottom: -50px
+    right: -50px
+    z-index: 100
+    animation: 10s people_walk infinite
+    transition: 0.5s
+  @keyframes people_walk
+    0%
+      transform: rotate(2deg)
+    50%
+      transform: rotate(-2deg)
+      // filter: grayscale(00)
+    100%
+      transform: rotate(2deg)
+    
+  .comic_block
+    min-height: 60vh
+    border: solid 4px $color_black
+    // animation: cin 2s both
+    margin-top: 50px
+    overflow: hidden
+    cursor: pointer
+    
+      
+    h2
+      font-size: 12px
+      color: white
+      z-index: 900
+      position: absolute
+      top: 20px
+      left: 30%
+      letter-spacing: 1px
+      font-weight: 400
+      letter-spacing: 2px
+      
+      
+      
+
+  
+    
+  .col_left
+    width: calc(15% - 10px)
+  .col_mid
+    width: calc(15% - 10px)
+    
+  .col_right
+    width: calc(100% - 35% - 10px)
+
+  .col_left
+    .comic_block
+      background-color: $color_white
+      top: 20px
+    .chicken
+      position: absolute
+      width: 200%
+      left: -100%
+      bottom: 10%
+      animation: c_in1 5s both
+      
+    @keyframes c_in1
+      0%
+        transform: translateX(-200px)
+      30%
+        transform: translateX(-120px)
+      60%
+        transform: translateX(-60px)
+      100%
+        transform: translateX(0px)
+    
+  .col_mid
+    .talkbox
+      position: absolute
+      width: 300px
+      left: -200px
+      transition: 0.5s
+      .talkbg,.title
+        position: absolute
+        z-index: 300
+        
+      .title
+        z-index: 301
+        color: $color_black
+        padding: 35px
+        margin-top: 45px
+        font-size: 16px
+        
+    
+    .comic_block
+      background-color: $color_yellow
+      top: 30px
+    .chicken2,.chair
+      position: absolute
+      width: 160%
+      right: -50%
+      bottom: 10%
+      animation: c_in2 1.5s ease-in both
+    
+      
+    @keyframes c_in2
+      0%
+        transform: translateY(-500px) rotate(8deg)
+      90%
+        transform: translateY(0px) rotate(-5deg)
+      100%
+        transform: rotate(2deg)
+      
+    .chair
+      position: absolute
+      width: 90%
+      right: -10%
+      bottom: 0%
+      animation-delay: -0.5s
+    .button
+      position: absolute
+      display: inline-block
+      background-color: $color_yellow
+      padding: 10px
+      width: 90%
+      top: 25px
+      color: $color_black
+      font-size: 1em
+      letter-spacing: 2px
+      text-align: center
+      margin-bottom: -120px
+      font-weight: 400
+      
+  .col_right
+    display: flex
+    flex-direction: column
+    nav 
+      // margin-top: -25px
+      ul
+        background-color: $color_grey
+        width: 100%
+        padding: 5px 5px
+        
+      li
+        display: inline-block
+        padding: 5px 15px
+        cursor: pointer
+        font-size: 0.95em
+        letter-spacing: 1px
+        border-bottom: solid 2px transparent
+        transition-duration: 0.5s
+        // border-left: solid 1px white
+        &:hover
+          border-bottom: solid 2px $color_white
+    .comic_block
+      margin-top: -5px
+      height: 250px
+      min-height: 0px
+      overflow: hidden
+      .village
+        position: absolute
+        width: 105%
+        bottom: -2%
+        pointer-events: none
+      &.big
+        background-color: #69ACC7
+      .mch
+        height: 50%
+        position: absolute
+        bottom: -2%
+        animation: popup 1s both
+        &.mch1
+          left: 20%
+          animation-delay: 0s
+        &.mch2
+          left: 5%
+          animation-delay: 0.4s
+        &.mch3
+          left: 58%
+          animation-delay: 0.8s
+        &.mch4
+          left: 4%
+          animation-delay: 1.2s
+        &.mch5
+          left: 6%
+          animation-delay: 1.6s
+        &.mch6
+          left: 37%
+          animation-delay: 2s
+      @keyframes popup
+        0%
+          bottom: -50%
+        100%
+          bottom: -2%
+    .bottompart
+      display: flex
+      flex-direction: column
+      
+    .top
+      display: flex
+      flex-direction: row
+    .comic_block.small
+      display: inline-block
+      width: 30%
+      height: 20vh
+      
+      background-color: $color_red
+      margin-top: 10px
+      .grass
+        top: initial
+        position: absolute
+        width: 200%
+        bottom: -5%
+        
+      .table
+        top: initial
+        position: absolute
+        height: 90%
+        bottom: -10%
+        right: 10%
+        animation: table_flow 1.5s both
+        
+      @keyframes table_flow
+        0%
+          transform: translateY(100px)
+        100%
+          transform: translateY(0px)
+    .logoarea
+      display: inline-block
+      h3
+        border-top: solid 1px $color_grey
+        padding-top: 10px
+        font-size: 16px
+        font-weight: 500
+        color: $color_grey
+        letter-spacing: 3px
+        margin-left: 80px
+        margin-top: -45px
+        
+    .logo
+      width: 220px
+      margin: 30px
+      display: inline-block
+      margin-bottom: 50px
+      margin-left: 65px
+    .heartbox
+      margin: 10px
+      .barbox
+        height: 15vh
+        width: 14px
+        border: solid 4px $color_black
+        .bar
+          width: 100%
+          height: 20%
+          transition: 0.5s
+          background-color: $color_red
+          position: absolute
+          bottom: 0
+          left: 0
+      .heart
+        position: absolute
+        width: 30px
+        height: 30px
+        background: url("http://45.118.133.210/img/graphic-18.svg")
+        background-size: cover
+        transition: 0.5s
+.hide
+  display: none
+
+
+  
+.row_about
+  .col_left
+    height: 550px
+  img
+    z-index: 3000
+  .flyingchicken
+    width: 60%
+    max-width: 160px
+    position: absolute
+    top: 50px
+    left: 35%
+    z-index: 2000
+  .circle
+    position: absolute
+    width: 65%
+    left: 7%
+    bottom: 30%
+    min-width: 300px
+  .machine
+    width: 47%
+    left: 25%
+    position: absolute
+    top: 0px
+    min-width: 250px
+  .egg1,.egg4,.eggo1
+    width: 150px
+    position: absolute
+  .egg2,.egg3,
+    width: 70px
+    position: absolute
+  .eggo2,.eggo3
+    width: 60px
+    position: absolute
+  .egg1
+    left: 35%
+    top: 15%
+  .egg2
+    left: 30%
+    top: 20%
+  .egg3
+    left: 60%
+    top: 10%
+  .egg4
+    left: 40%
+    top: 25%
+    
+  .eggo1
+    left: 8%
+    bottom: 40%
+  .eggo2
+    left: 25%
+    bottom: 30%
+  .eggo3
+    left: 5%
+    bottom: 50%
+    
+    
+.row_news
+  .newsitem
+    margin: 0
+    padding: 10px 5px
+    border-bottom: solid 2px $color_white
+    cursor: pointer
+    transition-duration: 0.5s
+    &:hover
+      background-color: lighten($color_yellow,10)
+    
+    .newstime
+      // border: solid 2px $color_black
+      padding: 7px
+      display: inline-block
+      margin: 0px
+      margin-right: 10px
+      letter-spacing: 1px
+      background-color: $color_white
+      color: $color_grey
+      width: 32px
+      text-align: right
+      font-size: 15px
+      white-space: nowrap
+      
+    .news_engtime
+      opacity: 0.7 
+    .newstitle
+      display: inline-block
+      margin: 0
+    .news_content
+      font-weight: 400
+      font-size: 13px
+      
+    h5
+      margin: 5px
+  .col_left
+    .clock
+      width: 90px
+      position: absolute
+      top: -80px
+      left: 35%
+      z-index: 5000
+    .news_jump_btn
+      cursor: pointer
+      transition: 0.3s
+      &:hover
+        transform: scale(1.3)
+  .col_right
+    height: 500px
+    .heart
+      width: 60px
+      position: absolute
+      left: 10%
+      top: 10%
+      z-index: 100
+    .heart2
+      left: 43%
+      top: 2%
+    .heart3
+      left: 73%
+      top: 33%
+    .heart4
+      left: 53%
+      top: 43%
+    .heart5
+      left: 43%
+      top: 20%
+    .hex
+      width: 80%
+      position: absolute
+      z-index: 100
+    .chicken_news
+      width: 65%
+      bottom: 12%
+      left: 5%
+      position: absolute
+      z-index: 100
+
+.row_support
+  .col_left
+    min-height: 90%
+    .tri,.talk,.chicken_sup,.bird_sup
+      position: absolute
+    .tri
+      width: 80%
+      left: 0%
+      top: -20%
+    .chicken_sup
+      width: 40%
+      left: 20%
+      top: 20%
+    .talk
+      width: 110px
+      left: 62%
+      top: 13%
+      position: absolute
+      transform-origin: left bottom
+      z-index: 300
+      
+  .col_right
+    .bird_sup
+      position: absolute
+      width: 70px
+      top: -50px
+      right: 20%
+      z-index: 2000
+      
+      
+      
+      
+.row_movie
+  background-image: url('http://event.unitedway.org.tw/citi2015/upload/index/5946697a35d17463c6267c30c1d537a2.jpg')
+  background-size: cover
+  min-height: 400px
+  &:before,&:after 
+    height: 50px
+  .playbtn
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translateX(-50%) translateY(-50%)
+    font-size: 100px
+    cursor: pointer
+    color: $color_white
+  
+  
+.row_summary
+  background: radial-gradient(#ddd 10%,$color_white 11%)
+  background-size: 11px 11px
+  padding-top: 20px
+  &:before
+    height: 50px
+  .btn
+    border-color: $color_brown !important
+    &:hover
+      background-color: $color_brown !important
+      color: $color_white !important
+  .col_left
+    
+    .dialog_sum,.cook
+      position: absolute
+    .dialog_sum
+      height: 15vh
+      top: -15%
+      right: -20%
+    .cook
+      width: 120px
+      top: -40px
+      right: 20%
+      
+      
+    
+      
+  .col_right
+    .allegg
+      height: 140%
+      
+//scroll effect
+.scroll_common
+  transition: 0.5s
+  transform: translateY(0px)
+.scroll_wait
+  opacity: 0
+  transform: translateY(50px)
+  
+  
+  
+  
+
+  
+.row_footer
+  min-height: 0px
+  padding-bottom: 50px
+  border-top: solid 1px $color_grey
+  +bg_branch
+  height: initial
+  
+  .col_left
+    width: 35%
+    img
+      height: 35px
+  .col_right
+    width: 65%
+  
+  img
+    height: 40px
+    margin-bottom: 10px
+    display: inline-block
+  .max_width
+    padding: 50px
+    padding-top: 50px
+    
+  .col_left,.col_right,max_width
+    min-height: 0px
+    whitespace: no-wrap
+    
+  h4
+    text-align: left
+    margin: 3px
+    letter-spacing: 1px
+    font-size: 15px
+    font-weight: 500
+    color: $color_grey
+  .row_last
+    align-items: top
+    padding-left: 30px
+    width: 100%
+    border-top: solid 2px $color_grey
+    padding-top: 20px
+    .logos
+      padding-top: 10px
+    .info
+      padding-left: 20px
+    
+    h4
+      font-size: 14px
+    b
+      font-size: 17px
+    img
+      margin-right: 10px
+      height: 35px
+  .row_companys
+    h4:before
+      content: "/ "
+      font-weight: bold
+      font-size: 15px
+    &:hide
+      display: none
+  
+    
+.comic_block_hover 
+  .chicken
+    animation: cmove_h 4s infinite !important 
+  @keyframes cmove_h
+    0% 
+      transform: translateX(50px)
+    60%
+      transform: translateX(70px)
+    80%
+      transform: translateX(-20px)
+    100% 
+      transform: translateX(50px)
+  
+.page_index_hold
+  height: 80px
+.page_index
+  // overflow: hidden
+  width: 100vw
+  z-index: 2000
+  transition-delay: 0s
+  min-height: initial
+  max-height: 80px
+  position: fixed
+  top: 0px
+  left: 0px
+  .col_left,.col_mid,.col_right
+    pointer-events: none
+  .yellowpiece,.bluepiece
+    height: 20px
+  .yellowpiece
+    height: 20px
+  .main_index_content,.people
+    opacity: 0
+  .normal_nav
+    opacity: 1
+  #index_nav
+    pointer-events: none
+  .bluepiece
+    transform: translateY(-58px) skewY(0.5deg)
+    
+  .yellowpiece
+    transform: translateY(-55px) skewY(-0.25deg)
+  .logofixed
+    opacity: 1
+  
+//picture mode
+@mixin texttag
+  content: "用愛扭轉生命，各個弱勢族群得到了新的機會"
+  padding: 7px 25px
+  display: block
+  // +fill
+  position: absolute
+  left: 0
+  bottom: 5%
+  color: $color_black
+  background-color: $color_white
+  transition: 0.5s
+  font-size: 17px
+  font-weight: bold
+
+.row_index
+  .col_left 
+    transition: width 0.5s
+    .comic_block
+      &:before
+        content: ""
+        display: block
+        position: absolute
+        left: 0
+        top: 0
+        +fill
+        background-image: url("http://45.118.133.210/img/pic1.jpg")
+        background-size: auto 100%
+        background-position: 55% 0
+        opacity: 0
+        transition: 0.5s
+      &:after
+        +texttag
+        opacity: 0
+      img.chicken
+        transition: 0.5s
+  .col_mid
+    transition: width 0.5s
+    & .comic_block
+      &:before
+        content: ""
+        display: block
+        position: absolute
+        left: 0
+        top: 0
+        opacity: 0
+        +fill
+        background-image: url("http://45.118.133.210/img/pic2.jpg")
+        background-size: auto 110%
+        background-position: 45% 80%
+        transition: 0.5s
+      img.chair,img.chicken2
+        transition: 0.5s
+      &:after
+        +texttag
+        content: "用愛扭轉生命 ，獨居老人不再孤單"
+        opacity: 0
+  .col_right
+    .comic_block.small
+      &:before
+        content: ""
+        display: block
+        position: absolute
+        left: 0
+        top: 0
+        +fill
+        background-image: url("http://45.118.133.210/img/pic3.jpg")
+        background-size: 120% auto
+        background-position: 55% 0
+        opacity: 0
+        transition: 0.5s
+      img
+        transition: 0.5s
+      
+.row_index
+  .col_left:hover 
+    width: 30%
+    .comic_block
+      &:before
+        opacity: 1
+      &:after
+        opacity: 1
+      img.chicken
+        width: 45%
+        opacity: 0
+      
+  .col_mid:hover 
+    width: 20%
+    & .comic_block
+      &:before
+        opacity: 1
+      img.chair,img.chicken2
+        width: 45%
+        transition: 0.5s
+        opacity: 0
+      &:after
+        opacity: 1
+        
+  .col_right
+    .comic_block.small:hover 
+      &:before
+        opacity: 1
+      img
+        opacity: 0
+      img.table
+        bottom: -100px
+    .comic_block.big:hover 
+      .mch
+        animation-delay: 0s
+        animation: wiggle 1s infinite
+        
+      @keyframes wiggle
+        0%
+          transform: rotate(0deg)
+        30%
+          transform: rotate(5deg)
+        70%
+          transform: rotate(-5deg)
+        100%
+          transform: rotate(0deg)
+
+.pic_mode
+  .col_left 
+    width: 30%
+    .comic_block
+      &:before
+        opacity: 1
+      img.chicken
+        width: 35%
+        opacity: 0
+  .col_mid
+    width: 22%
+    .comic_block
+      &:before
+        opacity: 1
+      img.chair,img.chicken2
+        width: 25%
+        transition: 0.5s
+        opacity: 0
+  .col_right
+    .comic_block.small 
+      &:before
+        opacity: 1
+      img
+        opacity: 0
+      img.table
+        bottom: -100px
+   
+
+.page_egg
+  .row_acegg_demo,.row_acegg_howto,.row_acegg_eggs
+    .equalbox
+      width: 20%
+    .fimg
+      display: block
+      width: 200px
+  .row_acegg_intro
+    .acegg_machine,.acegg_circle
+      position: absolute
+      width: 70%
+      left: 50%
+      top: 50%
+      transform: translateX(-50%) translateY(-50%)
+      transform-origin: center center
+  .row_acegg_howto
+    min-height: 600px
+    .acegg_hex,.acegg_eggchk
+      position: absolute
+      width: 70%
+      left: 50%
+      top: 50%
+      transform: translateX(-50%) translateY(-50%)
+      transform-origin: center center
+  .row_acegg_eggs
+    min-height: 500px
+    .bigpic
+      position: absolute
+      height: 80%
+    .kj2
+      width: 90%
+      min-width: 500px
+      max-width: 750px
+    .navchk
+      position: absolute
+      left: 10px
+      bottom: 10px
+      width: 80%
+      .equalbox
+        .fimg
+          margin: 10px
+          width: 50px
+          cursor: pointer
+.page_activity
+  .row_ac_main
+    // height: 400px
+    .col_left
+      display: flex
+      justify-content: center
+      align-items: center
+    .bird_sup
+      width: 0px
+      position: absolute
+    .icon
+      width: 40vh
+  .row_ac_main_egg,.row_ac_main_village,.row_ac_main_present
+    .col_left
+      display: flex
+      justify-content: center
+      align-items: center
+    img
+      width: 70%
+  .row_aboutvillage
+    background-image: radial-gradient(lighten($color_yellow,8) 50% ,$color_yellow 50%)
+    background-size: 150%  250%
+  .village2
+    position: absolute
+    bottom: 0%
+    width: 120%
+    max-height: 40vh
+    left: 5%
+    z-index: 100
+    pointer-events: none
+  .row_aboutvillage2
+    .page_title 
+      span ,img
+        vertical-align: bottom
+    #chicken_activity
+      min-height: 60vh
+    .chk
+      width: 30%
+      border: solid 6px white
+      overflow: hidden
+      border-radius: 100%
+      position: absolute
+      transition: background-color 0.4s, width 0.3s,  height 0.3s, left 0.05s, top 0.05s
+      transform-origin: 50% 50%
+      background-color: transparent
+      cursor: pointer
+      z-index: 4000
+
+      &:hover
+        width: 35%
+        background-color: $color_white
+      &:nth-child(1)
+        right: 30vw
+        top: 1vw
+      &:nth-child(2)
+        right: 22vw
+        top: 9vw
+      &:nth-child(3)
+        right: 11vw
+        top: 5vw
+      &:nth-child(4)
+        right: 3vw
+        top: 13vw
+      &:nth-child(5)
+        right: 8.2vw
+        top: 23.5vw  
+  .slogan
+    display: block
+    background-color: $color_brown
+    color: $color_white
+    font-size: 13px
+    letter-spacing: 1px
+    font-weight: 300
+    padding: 0px 10px
+    margin: 2px
+    overflow: hidden
+    max-height: 0px
+    transition: 0.3s
+    width: 70%
+    &:after
+      content: ""
+      display: block
+      width: 150px
+      height: 150px
+      position: absolute
+      right: -80px
+      top: -10px
+      transform: skewX(10deg)
+      background-color: $color_yellow
+      
+    
+  .slogan.show
+    padding: 5px 10px
+    max-height: 100px
+.page_activity_present
+  .row_acpr_about
+    .bag
+      width: 85%
+    &:before
+      display: none
+  .row_acpr_chks
+    .icon
+      width: 100%
+      // background-color: $color_white
+      &:before
+        content: ""
+        display: block
+        width: 100px
+        height: 90px
+        // background-color: $color_white
+        position: absolute
+        left: -50px
+        bottom: 40px
+  .row_ac_artist
+    .rab_book
+      width: 30%
+      position: absolute
+      right: 30%
+      bottom: 30%
+    .rab_chicken
+      position: absolute
+      right: 35%
+      bottom: 5%
+      width: 70%
+      transform-origin: 50% 105%
+.page_activity_review
+  .row_abre_about
+    
+  .row_abre_before
+    
+.page_news
+  .page_title
+    font-weight: 900
+  &.unfold .row_p_news
+    .col_left
+      width: 0%
+      
+      
+      white-space: nowrap
+    .col_right
+      width: 35%
+      
+    .col_newsdetail
+      width: 65%
+  .row_p_news
+    
+    .page_title_right_pic
+      width: 120px
+      top: 40px
+      transform: rotate(10deg)
+      margin-left: 10px
+    .col_left
+      width: 55%
+      transition-duration: 0.5s
+      white-space: nowrap
+      overflow: hidden
+    .col_right
+      width: 45%
+      transition-duration: 0.5s
+      overflow-y: scroll
+      height: 70%
+      min-height: 0
+    .col_newsdetail
+      width: 0%
+      height: 400px
+      transition-duration: 0.5s
+      overflow: hidden
+      white-space: nowrap
+      box-sizing: border-box
+      .newsarea
+        background-color: $color_white
+        vertical-align: top
+        width: 100%
+        height: 80%
+        padding: 20px
+      
+    
+  .newsitem
+    margin: 0
+    padding: 10px 5px
+    border-bottom: solid 2px $color_white
+    cursor: pointer
+    transition-duration: 0.5s
+    &:hover
+      background-color: lighten($color_yellow,10)
+    
+    .newstime
+      // border: solid 2px $color_black
+      padding: 7px
+      display: inline-block
+      margin: 0px
+      margin-right: 10px
+      letter-spacing: 1px
+      background-color: $color_white
+      color: $color_grey
+      width: 32px
+      text-align: right
+      font-size: 15px
+      white-space: nowrap
+      
+    .news_engtime
+      opacity: 0.7 
+    .newstitle
+      display: inline-block
+      margin: 0
+    .news_content
+      font-weight: 400
+      font-size: 13px
+      
+    h5
+      margin: 5px
+.page_support
+  .row_sp_present
+    img
+      width: 70%
+  .row_sp_ab
+    &:before
+      display: none
+    // background-color: $color_red
+    .redline
+      width: 100vw
+      height: 15%
+      // background-color: $color_red
+      background: linear-gradient(90deg ,transparent 30% , $color_white 30%,$color_white 70%,transparent 70%)
+      background-color: $color_red
+      background-size: 30px 100%
+      transform: skewX(10deg)
+      position: absolute
+      left: 0px
+      bottom: 15%
+      z-index: 0
+    .kj3
+      min-width: 550px
+      max-width: 1000px
+      height: auto
+      width: 550px
+      position: absolute
+      bottom: 0px
+      right: 10%
+  .row_sp_price
+    // min-height: 1000px
+    .col_left,.col_right
+      width: 50%
+    img
+      height: 40vh
+    h3
+      color: $color_white
+      font-size: 23px
+    h4
+      color: $color_white
+    h3,h4
+      margin: 0px
+    h4
+      margin-top: 5px
+    p
+      margin-top: 5px
+  .row_sp_present
+    min-height: 75vh
+    background-image: url("http://45.118.133.210/img/item_pic/bag.jpg")
+    background-size: 100% auto
+    // background-attachment: fixed
+    &:before
+      display: none
+  
+    
+      
+.page_about
+  .row_ab
+    min-height: 600px
+  .row_ab_table
+    table
+      thead
+        border-bottom: solid 1px $color_white
+      margin-top: 50px
+      width: 70%
+      text-align: left
+  
+  //聯合勸募五個介紹
+  .row_ab_feature
+    display: flex
+    justify-content: center
+    align-items: top
+    padding-top: 50px
+    
+    .ftitle
+      font-size: 18px
+      color: $color_brown
+      
+      &:before
+        content: "/ "
+    .fimg
+      width: 100px
+    // .fcontent
+    //   text-indent: 2em
+    .equalbox
+      padding: 0px 10px
+      width: 20%
+    .equalbox:nth-child(1)
+      width: 16%
+    .equalbox:nth-child(2)
+      width: 16%
+
+      
+  .row_ab
+    background-image: radial-gradient(lighten($color_red,5) 50% ,$color_red 50%)
+    background-size: 150%  250%
+  .village2
+    position: absolute
+    bottom: 0%
+    width: 120%
+    max-height: 47vh
+    left: 5%
+    z-index: 1000
+  .row_ab_donate
+    .qrcode
+      width: 120px
+.row_aboutvillage3
+  .relation
+    height: 90%
+
+.switches
+  white-space: nowrap
+  font-size: 0
+  overflow: hidden
+  .row
+    &:before
+      transform: skewX(0deg)
+  .container-fluid
+    display: inline-block
+    transition: 0.5s
+    font-size: initial
+    vertical-align: top
+  .control
+    position: absolute
+    font-size: 30px
+    top: 50%
+    transform: translateY(-50%)
+    cursor: pointer
+    z-index: 100
+    color: $color_brown
+    user-select: none
+    &:hover
+      transform: translateY(-50%) scale(1.2)
+    &.cleft
+      left: 30px
+    &.cright
+      right: 30px
+      
+@media screen and (max-width: $break_medium)
+  .row_companys
+    flex-direction: column !important
+
+//RWD
+  
+
+@media screen and (max-width: $break_small)
+  
+  .normal_nav
+    width: 100vw
+    height: 100vh
+    
+    left: initial
+    right: -105%
+    
+    top: 0px
+    // display: none
+    // pointer-events: none
+    position: fixed
+    .mobile_nav_toggle
+      display: block
+      position: absolute
+      left: -70px
+      top: 50px
+      width: 30px
+    li
+      display: none
+      font-size: 25px
+      padding: 20px
+      &.btn
+        display: block
+    #sub_nav
+      display: block
+      font-size: 20px
+      max-height: 1000px
+      position: relative
+      margin: 0
+      top: 0
+      li
+        position: relative
+    background-color: #fff
+    transition: right 0.5s
+  .mnavopen
+    right: 0px
+  .max_width
+    flex-direction: column
+    padding: 5px
+    padding: 100px 5px
+    padding-right: 45px
+  .main_index_content
+    padding-top: 0px !important
+  .col_left,.col_right
+    min-height: 400px
+    width: 100%
+    
+    &:before
+      z-index: 1
+  [class^='col_']
+    min-height: initial
+  // .row
+  //   min-height: 120vh
+  .page_about
+    .row
+      min-height: 500px
+    
+  .page_index
+    .row_index
+      min-height: 0px
+      height: 60px
+  .row_index
+    display: flex
+    flex-direction: row
+    // min-height: 900px
+    .mch 
+      width: 20%
+      bottom: -10px
+    .max_width
+      padding: 30px
+      left: -10px
+    .col_left
+      order: 2
+      display: none
+    .col_content
+      order: 1
+    .col_left,.col_mid,.col_right
+      width: 100%
+      height: auto
+      min-height: 400px
+      
+      .comic_block
+        width: 100%
+        height: initial
+        min-height: 200px
+    .col_left
+      .comic_block
+        margin: 0px
+        width: 40%
+    .col_mid
+      .comic_block
+        width: 30%
+        &:hover
+          width: 30%
+    .col_mid
+      order: 3
+      // display: none
+      &:hover
+        width: 100%
+      .comic_block
+        width: 50%
+        height: 200px
+        margin: 20px
+        margin-top: 0px
+        .chair
+          width: 50%
+          left: 5%
+        .chicken2
+          width: 80%
+          left: 5%
+        &:hover
+          width: 50%
+        
+      .talkbox
+        left: initial
+        right: 80px
+        
+    .col_right
+      order: 1
+      .comic_block
+        height: 250px
+        max-height: 250px
+      .comic_block.small
+        width: 70%
+        &:hover
+          width: 70%
+  .row_support .col_left
+    min-height: 500px
+  .row_news
+    .col_right
+      height: 400px
+  .row_support
+    .col_left
+      height: 400px
+  .row_movie
+    min-height: 500px
+  .row_about
+    .col_left
+      height: 400px
+      margin-top: -100px
+    .circle
+      top: initial
+      bottom: 10px
+    .machine
+      top: initial
+      bottom: 30px
+  .col
+    display: block
+    width: 100% !important
+    // height: 20%
+  .comic_block
+    width: 100%
+    max-width: 100%
+    min-height: 250px
+  .page_about
+    .row_ab_feature
+      flex-direction: column 
+      .equalbox
+        width: 100% !important
+  .page_news .row_p_news
+    .col_left,.col_right,col_newsdetail
+      width: 100%
+    .col_left
+      overflow: initial
+  .page_support
+    .row_sp_ab
+      height: 600px
+      .kj3
+        right: -100px
+    .row_sp_present
+      background-size: auto 100%
+  .row_acegg_intro
+    .col_left
+      height: 300px
+  .row_acegg_howto
+    .col_right
+      height: 300px
+      

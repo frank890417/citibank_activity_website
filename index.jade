@@ -1,0 +1,748 @@
+body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loading':'']")
+  .loading_page(v-bind:class="[page_loading?'loading':'']")
+    .center_box
+      .loading_egg(v-bind:class="[page_loading?'':'open']")
+        
+        
+
+
+       
+        .eggtoppart  
+          img.eggtop(src="http://45.118.133.210/img/graphic-51.svg")
+          img.eggtop2(src="http://45.118.133.210/img/graphic-57.svg") 
+          img.egglight(src="http://45.118.133.210/img/graphic-58.svg") 
+        img.eggchk(src="http://45.118.133.210/img/graphic-54.svg")
+        .eggbottompart  
+          img.eggbottom(src="http://45.118.133.210/img/graphic-53.svg")
+          img.eggmid(src="http://45.118.133.210/img/graphic-52.svg") 
+      //- img.eggbum(src="http://45.118.133.210/img/graphic-55.svg")
+      //- img.eggheart(src="http://45.118.133.210/img/graphic-56.svg")
+  //- input(type="checkbox" v-model="pic_mode")
+  .page_index_hold(v-bind:class="[cur_page=='index'?'hide':'']")
+  .row.row_index.pic_mode(v-bind:class="[cur_page=='index'?'':'page_index']")
+    div.logofixed(v-on:click="sw_page('index')" v-bind:class="[page_loading?'loading':'']")
+      img(src="http://45.118.133.210/img/logo-01.svg")
+      //- h1 第二十二屆花旗聯合勸募活動
+    nav.normal_nav
+      img.mobile_nav_toggle(src="https://openclipart.org/image/2400px/svg_to_png/221605/menu-icon.png")
+        
+      ul
+        li.btn.nav_home(v-bind:class="[cur_page=='index'?'selected':'']" v-on:click="sw_page('index')") Home 
+        li |
+        li.btn.nav_sponsor(v-bind:class="[cur_page=='support'?'selected':'']" v-on:click="sw_page('page_support')") 立即響應
+        li |
+        li.btn.nav_activity(v-bind:class="[cur_page.indexOf('activity')==0?'selected':'']") 
+          span(v-on:click="sw_page('activity')") 第22屆花旗聯合勸募活動聯合勸募  
+          ul#sub_nav
+            li(v-bind:class="[cur_page.indexOf('activity_egg')==0?'selected':'']" v-on:click="sw_page('activity_egg')") 扭蛋系列活動
+            li(v-bind:class="[cur_page.indexOf('activity_village')==0?'selected':'']" v-on:click="sw_page('activity_village')") 安雞樂業村
+            li(v-bind:class="[cur_page.indexOf('activity_present')==0?'selected':'']" v-on:click="sw_page('activity_present')") 愛心見證禮
+            li(v-bind:class="[cur_page.indexOf('activity_review')==0?'selected':'']" v-on:click="sw_page('activity_review')") 歷年回顧
+        li |
+        li.btn.nav_about(v-bind:class="[cur_page=='about'?'selected':'']" v-on:click="sw_page('about')") 聯合勸募
+        li |
+        li.btn.nav_news(v-bind:class="[cur_page=='news'?'selected':'']" v-on:click="sw_page('news')") 最新消息
+    img.people(src="http://45.118.133.210/img/people.png")
+    .bluepiece
+    .yellowpiece
+    .max_width.main_index_content
+      .col_left
+        
+        .comic_block(data-mul-speed="0.1")
+          img.chicken(src="http://45.118.133.210/img/graphic-03.svg")
+        
+      .col_mid
+        //- .button.nav_sponsor 立即響應
+        .talkbox(v-if="index_talk.data.length>0")
+          h3.title {{{index_talk.data[index_talk.cur_id].substr(0,index_talk.cur_len)}}}
+            | {{(index_talk.cur_len % 3==0? '|':'')}}
+          img.talkbg(src="http://45.118.133.210/img/index_talk-01.svg")
+        .comic_block(data-mul-speed="0.5")
+          img.chair(src="http://45.118.133.210/img/graphic-07.svg")
+          img.chicken2(src="http://45.118.133.210/img/graphic-04.svg")
+          
+          
+      .col_right
+        
+        nav#index_nav
+          ul
+            li.nav_home( v-on:click="sw_page('index')") Home
+            li.nav_sponsor( v-on:click="sw_page('page_support')") 立即響應
+            li.nav_activity( v-on:click="sw_page('activity')") 第22屆花旗聯合勸募活動
+            li.nav_activity( v-on:click="sw_page('about')") 聯合勸募
+            li.nav_news( v-on:click="sw_page('news')") 最新消息
+            
+        .comic_block.big(data-mul-speed="0.6" v-on:click="sw_page('activity')" title="我想看安雞樂業村的故事!")
+          img.village(src="http://45.118.133.210/img/block1.svg")
+          h2 你的愛心，讓我們生活更美好...
+          img.mch.mch1(src="http://45.118.133.210/img/chicken-29.svg")
+          //- img.mch.mch2(src="http://45.118.133.210/img/chicken-30.svg")
+          img.mch.mch3(src="http://45.118.133.210/img/chicken-31.svg")
+          //- img.mch.mch4(src="http://45.118.133.210/img/chicken-32.svg")
+          img.mch.mch5(src="http://45.118.133.210/img/chicken-33.svg")
+          img.mch.mch6(src="http://45.118.133.210/img/chicken-34.svg")
+        .bottompart
+          .top
+            .comic_block(data-mul-speed="0.2").small
+              img.grass(src="http://45.118.133.210/img/graphic-05.svg")
+              img.table(src="http://45.118.133.210/img/graphic-06.svg")
+            .heartbox
+              .barbox
+                .bar
+              .heart.bar_heart
+            .logoarea     
+              img.logo(src="http://45.118.133.210/img/logo-01.svg")
+              h3 第22屆花旗聯合勸募活動
+          .bottom
+            
+        
+  .row.row_about.row_red(v-bind:class="[cur_page=='index'?'':'hide']")
+    img.flyingchicken(src="http://45.118.133.210/img/graphic-08.svg")
+    .max_width
+      .col_left
+        img.circle(src="http://45.118.133.210/img/graphic-14.svg")
+        img.machine(src="http://45.118.133.210/img/graphic-09.svg")
+        img.egg1(src="http://45.118.133.210/img/graphic-10.svg")
+        img.egg2(src="http://45.118.133.210/img/graphic-11.svg")
+        img.egg3(src="http://45.118.133.210/img/graphic-12.svg")
+        img.egg4(src="http://45.118.133.210/img/graphic-13.svg")
+
+
+        img.eggo1(src="http://45.118.133.210/img/graphic-13.svg")
+        img.eggo2(src="http://45.118.133.210/img/graphic-11.svg")
+        img.eggo3(src="http://45.118.133.210/img/graphic-12.svg")
+
+      .col_right.col_content
+        h2.page_title 「扭」轉生命奇蹟
+        hr
+        .page_content 一起讓愛轉出生命不同的奇蹟！<br>聯合勸募與花旗（台灣）銀行長期致力於匯集愛的星火，讓每個小小的付出，積累成足以扭轉弱勢朋友未來的巨大能量。<br><br>21年來，我們協助超過7,000個遍及全台各地知名度低、募款能力不足、服務資源缺乏的中小型社福團體。每一筆愛心善款用到哪裡？幫助了哪些弱勢朋友扭轉生命奇蹟？改寫了哪些人的生命故事？<br>今年，我們用可愛的扭蛋，告訴您關於一個又一個觸動人心的生命奇蹟。<br>
+          .btns
+            .btn(v-on:click="sw_page('activity')") 扭蛋活動
+            .btn(v-on:click="sw_page('about')") 聯合勸募
+            .btn(v-on:click="sw_page('url:https://www.unitedway.org.tw/civicrm/contribute/transact?reset=1&id=3')") 立即響應
+  .row.row_yellow.row_news(v-bind:class="[cur_page=='index'?'':'hide']")
+    .max_width
+      .col_left.col_content
+      
+        h2.page_title 最新消息
+        hr
+        .page_content 
+          .newsitem(v-for="(id,news) in index_news" v-on:click="jump_newspage(id)" title="點擊查看詳細消息!") 
+            h3.newstime {{news.time}}
+            h2.newstitle {{news.title}}
+            h5.news_engtime {{news.eng_time}}
+            //- p.news_content {{news.content}}
+          img.clock(src="http://45.118.133.210/img/graphic-21.svg") 
+          .btns
+            .btn(v-on:click="sw_page('news')") 更多消息
+            .btn(v-on:click="sw_page('support')") 立即響應
+      .col_right
+        img.hex(src="http://45.118.133.210/img/graphic-17.svg")
+        img.heart.heart1(src="http://45.118.133.210/img/graphic-16.svg")
+        img.chicken_news(src="http://45.118.133.210/img/graphic-15.svg")
+        img.heart.heart2(src="http://45.118.133.210/img/graphic-18.svg")
+        img.heart.heart3(src="http://45.118.133.210/img/graphic-19.svg")   
+        img.heart.heart4(src="http://45.118.133.210/img/graphic-16.svg")  
+        img.heart.heart5(src="http://45.118.133.210/img/graphic-19.svg") 
+      
+  .row.row_blue.row_support(v-bind:class="[cur_page=='index'?'':'hide']")
+    .max_width
+      .col_left
+        img.tri(src="http://45.118.133.210/img/graphic-22.svg") 
+        img.talk(src="http://45.118.133.210/img/graphic-23.svg")
+        img.chicken_sup(src="http://45.118.133.210/img/graphic-24.svg")
+        
+      .col_right.col_content
+        h2.page_title 立即響應！
+        hr
+        .page_content 
+          img.bird_sup(src="http://45.118.133.210/img/graphic-25.svg")
+          |您愛的付出，幫助弱勢朋友跨越生命的困境<br>讓愛不中斷，陪伴他們勇敢改寫生命的故事<br>扭轉生命的奇蹟，因為有您！ <br><br><br><br>
+      
+          .btns
+            .btn(v-on:click="sw_page('activity')") 了解更多
+            .btn(v-on:click="sw_page('support')") 立即響應
+  .row.row_yellow.row_movie(v-bind:class="[cur_page=='index'?'':'hide']")
+          br
+          br
+          br
+          
+    .playbtn
+      i.fa.fa-play-circle-o
+  .row.row_yellow.row_summary(v-bind:class="[cur_page=='index'?'':'hide']")
+    
+    .max_width
+      
+      .col_left.col_content
+        //- img.dialog_sum(src="http://45.118.133.210/img/graphic-26.svg")  
+        
+        h2.page_title 花旗聯合勸募
+        hr
+        .page_content 我們知道每一筆善款，都是一份善的執念。<br>因此在這花旗(台灣)銀行)與聯合勸募攜手走過的二十二餘年，<br>我們將募集來超過16億的善款，透過嚴密的專案審查制度，<br>幫助台灣各地因為知名度不足而無法獨立募款的社福機構<br>能夠專心地為受助者提供服務，扭轉一個又一個生命的奇蹟，<br>一起擁抱每一份與眾不同的人與愛。
+          img.cook(src="http://45.118.133.210/img/graphic-27.svg")
+
+          .btns
+            .btn(v-on:click="sw_page('news')") 更多消息
+            .btn(v-on:click="sw_page('support')") 立即響應
+      .col_right
+        img.allegg(src="http://45.118.133.210/img/graphic-28.svg")
+
+  .page_activity(v-bind:class="[cur_page=='activity'?'':'hide']")
+    .row.row_white.row_ac_main
+      .max_width
+        .col_left
+          img.icon(src="http://45.118.133.210/img/logo-01.svg") 
+         
+        .col_right.col_content
+          h2.page_title 每一筆善款，都是一份愛的堅持。
+          hr
+          .page_content 
+            img.bird_sup(src="http://45.118.133.210/img/graphic-25.svg")
+            p 聯合勸募與花旗(台灣)銀行攜手走過的二十二年，我們將所募集來自四面八方超過16億的善款，透過嚴謹的專業審查機制，公開合理分配給台灣各地因知名度不足，募款能量薄弱，助人服務資源缺乏的社福團體，提升社福夥伴的專業能量，讓弱勢朋友能夠獲得更多元的幫助和更優質的服務，扭轉一個又一個生命的奇蹟，一起擁抱每一份與眾不同的愛。
+ 
+
+            .btns
+              .btn(v-on:click="sw_page('about')") 了解更多
+              .btn(v-on:click="sw_page('support')") 立即響應
+    .row.row_red.row_ac_main_egg
+      .max_width
+        .col_left
+          img.icon(src="http://45.118.133.210/img/graphic-65.svg")
+          
+        .col_right.col_content
+          
+          h2.page_title 扭蛋系列活動＆捐款感動
+          hr
+          .page_content 
+            
+            p 聯合勸募匯集大家的愛心，「有愛無類」幫助不同需求的弱勢朋友。<br>我們希望能夠讓您透過更輕鬆有趣的方式，走入受助者的生活樣貌，一同感受傳遞溫暖給他人的喜悅，明白您的善款幫助到哪些人。<br>因此，今年我們與花旗(台灣)銀行一起打造溫馨有愛的安雞樂業村，選擇受助對象辨識度較為鮮明的五種弱勢族群：長者、兒童、身心障礙者、原住民和新住民婦女做為主角，設計成為多功能可愛的扭蛋公仔，為您訴說許多「一起愛 愛不同」的故事。
+
+
+            .btns
+              .btn(v-on:click="sw_page('activity_egg')") 了解更多
+              .btn(v-on:click="sw_page('support')") 立即響應
+    .row.row_yellow.row_ac_main_village
+      .max_width
+        .col_left
+          img.icon(src="http://45.118.133.210/img/graphic-50.svg") 
+         
+        .col_right.col_content
+          h2.page_title 花旗聯合勸募＆安雞樂業村
+          hr
+          .page_content 
+            
+            p 我們將安雞樂業村型塑成宛若是台灣的小小縮影，以受助者的故事為背景，並融合生活及趣味的場景元素；<br>藉此呈現在眾人的愛心灌注下，展現藉由社會大眾的關懷與付出，圓滿了村民們生命的缺憾，讓善的種籽能發芽，正面的能量可以不斷發散，<br>一個個動人的故事能在台灣各個角落發生，在互助、互愛中改寫生命的暖心故事，而您就是最給力的愛的後盾。
+
+ 
+
+            .btns
+              .btn(v-on:click="sw_page('activity_village')") 了解更多
+              .btn(v-on:click="sw_page('support')") 立即響應
+    .row.row_white.row_ac_main_present
+      .max_width
+        .col_left
+          img.icon(src="http://45.118.133.210/img/logo-01.svg") 
+        .col_right.col_content
+          
+          h2.page_title 立即響應＆愛心見證禮
+          hr
+          .page_content 
+            
+            p 活動期間2016/11/1-2017/2/28<br> <br>月捐500元，持續12個月以上（含）或單筆捐款滿 6,000元，即可珍藏愛心見證禮「安雞樂業」 乙套。<br><br>單筆捐款滿3,000元，安雞樂業絨毛布偶或小提袋，挑選一項，開心帶回家！  
+
+ 
+
+            .btns
+              .btn(v-on:click="sw_page('activity_present')") 了解更多
+              .btn(v-on:click="sw_page('support')") 立即響應
+  .page_activity(v-bind:class="[cur_page=='activity_village'?'':'hide']")
+    .row.row_yellow.row_aboutvillage
+
+      img.village2(src="http://45.118.133.210/img/graphic-35.svg")
+      .max_width
+
+        .col_left.col_content
+
+          h2.page_title 
+            span
+              img(src="http://45.118.133.210/img/graphic-42.svg" width=60)
+            |花旗聯合勸募＆安雞樂業村
+          hr
+          .page_content 花旗聯合勸募＆安雞樂業村<br>您的愛心被用到哪裡去了？<br>知道您的和大家的愛心捐款如何被使用？幫助了哪些人呢？<br>讓安雞樂業村的小雞們，告訴您屬於他們愛的旅程，<br>關於寶貴的善款，如何扭轉他們生命奇蹟的溫馨故事。<br><br>
+          
+            .btns
+              .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 立即響應
+          br
+          br
+          br
+          br
+        .col_right
+
+    .row.row_yellow.row_aboutvillage2(v-bind:class="[showing_chicken?'show_chk':'']")
+      .max_width(v-if="showing_chkdata.length>0")
+        
+        .col_left
+
+          h2.page_title 
+            span
+              img(src="http://45.118.133.210/img/graphic-44.svg" height="80px")
+            span(v-show="!showing_chicken") 安雞樂業村
+            span(v-show="showing_chicken") {{showing_chkdata[showing_chicken_id].title}}
+            span.slogan(v-bind:class="[showing_chicken?'show':'']") {{{showing_chkdata[showing_chicken_id].slogan}}}
+          hr
+          .page_content(v-show="showing_chicken") 
+            
+            span {{{showing_chkdata[showing_chicken_id].content}}}
+          .page_content(v-show="!showing_chicken") 安雞樂業村是個溫暖的小村莊，和外頭的世界相同，<br>村子裡面有各式各樣、形形色色的小雞。<br>有些小雞富有，有些小雞貧窮；有些小雞天生有美麗的缺陷，<br>有些小雞後天變得不一樣。<br>他們彼此之間有些不同，但相同的是擁有一顆溫暖的心<br>喜歡分享愛、分享快樂，喜歡彼此擁抱，喜歡一起歡笑。<br>最喜歡互助合作的他們，獲選為第22屆花旗聯合勸募活動模範村莊，<br>號召大家一起響應「一起愛 愛不同」
+            .btns
+              .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 立即響應
+        .col_right#chicken_activity
+          //- img.chk.chk1(src="http://45.118.133.210/img/graphic-37.svg")
+          //- img.chk.chk2(src="http://45.118.133.210/img/graphic-38.svg")
+          //- img.chk.chk3(src="http://45.118.133.210/img/graphic-39.svg")
+          //- img.chk.chk4(src="http://45.118.133.210/img/graphic-40.svg")
+          //- img.chk.chk5(src="http://45.118.133.210/img/graphic-41.svg")
+
+    .row.row_yellow.row_aboutvillage3
+      .max_width
+        
+        .col_left
+
+          h2.page_title 安雞樂業村關係圖
+
+          hr
+          .page_content 因為有你我的參與，安雞樂業村的村民們彼此互助，<br>溫暖了每一個需要幫助的人。<br>而在台灣，我們和安雞樂業村一樣，<br>也有許多與眾不同的弱勢朋友需要幫助，<br>我們誠摯邀請您一同響應「一起愛 愛不同」，<br> 一起扭轉生命的奇蹟。
+            .btns
+              .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 立即響應
+        .col_right
+          img.relation(src="http://45.118.133.210/img/graphic-43.svg")
+          
+  .page_activity_present(v-bind:class="[cur_page=='activity_present'?'':'hide']")
+    .row.row_white.row_acpr_about
+      .max_width
+        .col_left
+           img.bag(src="http://45.118.133.210/img/item_pic/bag2.png")
+         
+        .col_right.col_content
+          h2.page_title 愛心見證禮
+          hr
+          .page_content 
+            p 每一年，花旗聯合勸募活動都會依隔年的生肖，設計製作愛心見證禮送給捐款人，<br>以表達對捐款人無私付出的感謝。<br>今年特別與插畫家安雞樂業合作，共同設計「安雞樂業」開心組，為了滿足捐款人的不同喜好及需求，我們貼心設計可愛的絨毛玩偶，還有實用的帆布小提袋，讓給捐款人有多樣化的選擇。<br><br>活動期間2016/11/1-2017/2/28<br><br>月捐500元，持續12個月以上（含）或單筆捐款滿 6,000元，即可珍藏愛心見證禮「安雞樂業」乙套。<br>∙單筆捐款滿3,000元，安雞樂業絨毛布偶或小提袋，挑選一項，開心帶回家！
+            .btns
+              .btn(v-on:click="sw_page('activity')") 了解更多
+              .btn(v-on:click="sw_page('support')") 立即響應
+    .row.row_red.row_acpr_chks
+      .max_width
+        .col_left
+          //- img.icon(src="http://45.118.133.210/img/item_pic/bag2.png") 
+         
+        .col_right.col_content
+          h2.page_title 愛心見證禮：安雞樂業組介紹
+          hr
+          .page_content 
+            p 安心生活，雞年豐收，樂善好施，業發利市，處處有愛，天天開心！<br>安雞樂業絨毛布偶<br>毛茸茸、肥嘟嘟，陪伴左右，溫暖您心！<br>尺寸：<br>安雞樂業小提袋<br>限量版安雞樂業可扣式帆布包，讓您快樂帶出門，便利又環保！<br>尺寸：寬25公分、高20公分、側寬10公分
+
+            .btns
+              .btn(v-on:click="sw_page('activity_village')") 了解更多
+              .btn(v-on:click="sw_page('support')") 立即響應 
+    .row.row_blue.scroll_area.row_ac_artist
+
+    
+      .max_width
+
+        .col_left
+          h2.page_title 插畫家：安雞樂業介紹
+
+          hr
+          .page_content 雞毛與安特，<br>一個懶懶der又很愛吃，<br>一個強迫症上身脾氣又差差der。<br>我們都愛旅遊到處拍照發掘新奇事物，<br>湊在一起就是安雞樂業囉!<br><br>雞毛與安特希望能用自己的喜好和專長，為公益加溫，為社會送愛，讓每個需要幫助的弱勢朋友都能開開心心地安雞樂業！
+
+            .btns
+              .btn(v-on:click="sw_page('url|https://www.facebook.com/ggmant/')") 粉絲專頁
+              .btn(v-on:click="sw_page('url|https://store.line.me/stickershop/author/81498')") Line貼圖     
+
+        .col_right
+          
+          img.rab_chicken(src="http://45.118.133.210/img/graphic-40.svg")
+          img.rab_book(src="http://45.118.133.210/img/graphic-50.svg")
+  .page_activity_review(v-bind:class="[cur_page=='activity_review'?'':'hide']")
+    .row.row_yellow.row_abre_about
+      .max_width
+        .col_left
+          img.icon(src="http://45.118.133.210/img/graphic-66.svg") 
+         
+        .col_right.col_content
+          h2.page_title 花旗聯合勸募活動
+          hr
+          .page_content 
+            p 回首過去21年來，聯合勸募與花旗(台灣)銀行攜手合作號召全民響應公益，所募得善款已累積超過新台幣16億，每年本活動的募款總金額約佔聯合勸募年度募款總金額的三分之一。這一路走來，一步一腳印，經年累月已協助遍及全台超過上千個不同類型的社福團體，合力推展逾超過9000個助人計畫。
+            p 每年活動期間，花旗挹注各種企業資源、號召員工響應捐款，同時釋出銀行宣傳管道，卯足全力促動花旗聯合勸募活動的募款成效，22年來不曾間斷。這份執著和努力就是希望能為台灣的中小型社福團體募到更豐沛的經費，進而服務更多的弱勢朋友，讓台灣處處充滿愛、溫暖和希望。
+
+            .btns
+              .btn(v-on:click="sw_page('activity')") 了解更多
+              .btn(v-on:click="sw_page('support')") 立即響應
+    .row.row_red
+      .max_width
+        .col_left
+          img.icon(src="http://45.118.133.210/img/graphic-67.svg") 
+         
+        .col_right.col_content.row_abre_before
+          h2.page_title 二十二年的愛心足跡
+          hr
+          .page_content 
+            p 2015 面對愛的樣貌
+            .btn.imgbtn(v-on:click="sw_page('url|http://event.unitedway.org.tw/citi2015/index.html')")
+             img(src="http://45.118.133.210/img/logo_2015.PNG")
+            p 2014 一起愛 愛不同     
+            .btn.imgbtn(v-on:click="sw_page('url|http://event.unitedway.org.tw/citi2014/index.php')")
+             img(src="http://45.118.133.210/img/logo_2014.PNG") 
+
+  .page_egg(v-bind:class="[(cur_page=='activity_egg')?'':'hide']")
+    //- .control.cleft ◀
+    //- .control.cright ▶
+    //- .container-fluid(data-pos="0" data-range="0,2")
+    .row.row_red.row_acegg_intro
+
+      //- img.village2(src="http://45.118.133.210/img/graphic-35.svg")
+      .max_width
+
+        .col_left
+          img.acegg_circle(src="http://45.118.133.210/img/graphic-14.svg")
+          img.acegg_machine(src="http://45.118.133.210/img/graphic-65.svg")
+        .col_right.col_content
+          h2.page_title 
+            span
+              img(src="http://45.118.133.210/img/graphic-42.svg" width=60)
+            | 扭蛋系列活動＆捐款感動
+          hr
+          .page_content 一顆扭蛋，藏著一個溫暖的故事，等著您用愛轉出愛的奇蹟！<br><br>活動期間，跟著安雞樂業村展開扭蛋機巡迴之旅，歡迎大家一起加入愛的行列。<br>
+            //- span 同時您也可以透過線上捐款的方式，參與線上扭蛋機，試試好手氣！
+
+            //- .btns
+              .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 立即響應
+
+  .page_egg(v-bind:class="[cur_page=='activity_egg'?'':'hide']")
+    .row.row_yellow.row_acegg_howto
+      .max_width
+        .col_left.col_content
+
+          h2.page_title 
+            span
+              img(src="http://45.118.133.210/img/graphic-50.svg" height=60)
+            span 如何找到扭蛋機？
+          hr
+          .page_content 
+            h3 / 方法1 實體扭蛋機
+            p 捐款200元（投入四枚50元硬幣），即能玩轉乙次扭蛋機。<br>請列出實體扭蛋機擺放地點及日期
+            //- h3 / 方法2 線上扭蛋機
+            //- p 線上單筆捐款200元以上（含），即可參加線上扭蛋機遊戲乙次<br>不參加扭蛋機遊戲，捐款1000元以上，即能珍藏一套5款「扭蛋超能力組」。
+            //- p ＊僅參與第22屆花旗聯合勸募活動線上信用卡捐款<br>可參與線上扭蛋機活動，其他捐款方式採隨機挑選寄送
+
+            .btns
+              .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 立即響應
+        .col_right
+          img.acegg_hex(src="http://45.118.133.210/img/graphic-17.svg")
+          img.acegg_eggchk(src="http://45.118.133.210/img/graphic-64.svg")
+    
+    
+    .row.row_white.row_acegg_eggs
+      .max_width.flex_col
+        .col_full
+          .flex_row
+            div
+              h2.page_title 
+                span
+                  img(src="http://45.118.133.210/img/graphic-50.svg" height=60)
+                span 扭蛋小公仔，超級能力組
+              hr
+              .page_content 
+                p 我們將花旗聯合勸募主要受助的類型與辨識度較為鮮明的五種弱勢族群：<br><br>長者、兒童、身心障礙者、原住民、新住民婦女，設計成五款具實用性的可愛扭蛋公仔，每款公仔都有不同的功能。<br>趕快行動，體驗無從預知會轉到什麼款扭蛋的新奇感。<br>收集扭蛋公仔傳送愛，還能療癒自己忙碌疲憊的心喔！<br><br>線上單筆捐款200元以上（含），即可參加線上扭蛋機遊戲乙次不參加扭蛋機遊戲，捐款1000元以上，即能珍藏一套5款「扭蛋超能力組」。
+                .small ＊僅限透過線上信用卡捐款響應本活動者，能參加線上扭蛋機遊戲；以其他捐款方式響應本活動者，恕不在此限。<br>為將經費用於助人服務上，響應捐款滿額獲愛心見證禮者，不再另行贈送扭蛋。
+              .btns
+                .btn(v-on:click="sw_page('news')") 更多消息
+                .btn(v-on:click="sw_page('support')") 立即響應
+            div
+              img.kj2(src="http://45.118.133.210/img/kj2.png", alt="")
+
+
+
+    .row.row_white.row_acegg_eggs
+      .max_width
+        .col_left.col_content
+
+          h2.page_title 
+            span {{chicken_egg_data.datas[chicken_egg_data.now_id].title}}
+          
+          hr
+          .page_content 
+            h3 {{{chicken_egg_data.datas[chicken_egg_data.now_id].content}}}
+        .col_right
+          .bigpic(v-if="chicken_egg_data.datas.length>0")
+            img.fimg(v-bind:src="chicken_egg_data.datas[chicken_egg_data.now_id].img" )
+          .navchk.flex_row
+            .equalbox(v-for="(id,cegg) in chicken_egg_data.datas" v-on:click="sw_egg_pre(id)")
+              //- h3.ftitle {{cegg.title}}
+              img.fimg(v-bind:src="cegg.img" )
+            //- p.fcontent {{{cegg.content}}}
+          
+    
+  .page_about(v-bind:class="[cur_page=='about'?'':'hide']")
+    .row.row_red.scroll_area.row_ab
+
+      img.village2(src="http://45.118.133.210/img/graphic-36.svg")
+      .max_width
+
+        .col_left
+
+          h2.page_title 
+            span
+              img(src="http://45.118.133.210/img/graphic-50.svg" height=60)
+            span 關於聯合勸募
+          hr
+          .page_content 深耕台灣24年的聯合勸募，是全台灣唯一專責、專業勸募的社福機構。<br>以有愛無類為核心、理性捐款為號召，向社會大眾募集愛心資源，有逾百位專家擔任志工，共同組成專業團隊，透過嚴謹審查稽核機制公開合理分配資源；<br>同時輔導、協助全台各地社福機構提供弱勢朋友完善的服務；為每一塊善款嚴格把關。
+            .btns
+              .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 立即響應
+        .col_right
+    .row.row_yellow.scroll_area.row_ab_type
+
+      //- img.village2(src="http://45.118.133.210/img/graphic-36.svg")
+      .max_width
+        .col_full
+          h2.page_title 
+            span
+              img(src="http://45.118.133.210/img/graphic-50.svg" height=60)
+            span 目標展望
+          hr
+          .page_content.auto_height
+            ul 
+              li 1.勸募社會資源，合理分配予全台中、小型社福團體，促使社會資源充分有效地運用。
+              li 2.結合企業資源，協助企業落實社會責任，提升公益資源的質與量。
+              li 3.導入輔導及稽核機制，協助社福伙伴確保及提升專業服務品質。
+              li 4.專業人士嚴謹監督每一筆勸募資源的流向與運用，為善款妥善運用嚴格把關，徵信公開透明。
+              li 5.觀察及依據社會結構改變、社會問題及弱勢朋友需求，邀集專業人士研議解決問題的相關服務策略與方案，<br>並與社福伙伴協力推展新的服務 方案，以因應或緩解社會問題。
+            .btns
+              .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 立即響應
+    .row.row_white.scroll_area
+
+      //- img.village2(src="http://45.118.133.210/img/graphic-36.svg")
+      .max_width
+
+        .col_full
+          h2.page_title 
+            span
+              img(src="http://45.118.133.210/img/graphic-50.svg" height=60)
+            span 幫助對象
+            
+          hr
+          
+          .page_content.row_ab_feature
+            .equalbox 
+              h3.ftitle 起源
+              img.fimg(src="http://45.118.133.210/img/graphic-59.svg" )
+              p.fcontent 「聯合勸募」方式，於1873年，在英國利物浦市，由數十家社福機構合辦慈善募款活動而興起。
+            .equalbox
+              h3.ftitle 成立
+              img.fimg(src="http://45.118.133.210/img/graphic-60.svg" )
+              p.fcontent 台灣在1992年，<br>由關心社會問題、想結合眾人力量一起助人者，成立聯合勸募協會。
+            .equalbox
+              h3.ftitle 角色
+              img.fimg(src="http://45.118.133.210/img/graphic-61.svg" )
+              p.fcontent 全台灣唯一專責、專業勸募的社福機構。<br>以有愛無類為核心、理性捐款為號召，向社會大眾募集愛心資源，再統一且合理地運用，為捐款者監督善款運用情形。<br>並透過嚴謹的審查監督和輔導機制，協助全台各地的社福機構提供弱勢朋友更完善的服務。
+            .equalbox
+              h3.ftitle 支持機構
+              img.fimg(src="http://45.118.133.210/img/graphic-62.svg" )
+              p.fcontent 勸募善款主要用於支持全台各地募款不易的中、小型社福機構。<br>希望讓社福機構可以將心力及資源投注於幫助弱勢朋友的助人服務，以及培力社福機構的專業能力。
+            .equalbox
+              h3.ftitle 幫助對象
+              img.fimg(src="http://45.118.133.210/img/graphic-63.svg" )
+              p.fcontent 兒少、婦女、老人、身心障礙者、疾病患者、弱勢家庭、社區居民、原住民、新住民、受刑人、藥酒毒癮者、街友、勞工…等，<br>需要被關心及幫助的弱勢族群。
+            //- .btns
+            //-   .btn(v-on:click="sw_page('news')") 更多消息
+            //-   .btn(v-on:click="sw_page('support')") 立即響應  
+    .row.row_blue.scroll_area.row_ab_table
+
+      //- img.village2(src="http://45.118.133.210/img/graphic-36.svg")
+      .max_width
+
+        .col_full
+          h2.page_title 
+            span
+              img(src="http://45.118.133.210/img/graphic-50.svg" height=60)
+            span 聯合勸募2016年支持社福團體執行助人方案
+            
+          hr
+          table
+            thead
+              th 服務對象
+              th 專案件數
+              th 運用金額
+              th 受益人次
+            tr(v-for="data in about_servicedata")
+              td {{data.name}}
+              td {{data.count}}
+              td {{data.money}}
+              td {{data.people}}
+          h6 *其他：受刑人、組織專業、勞工、街友、藥酒毒癮者、原住民
+            
+            //- .btns
+            //-   .btn(v-on:click="sw_page('news')") 更多消息
+            //-   .btn(v-on:click="sw_page('support')") 立即響應
+    .row.row_white.scroll_area
+      .max_width
+
+        .col_full
+          h2.page_title  
+            span
+              img(src="http://45.118.133.210/img/graphic-50.svg" height=60)
+            span 專業監督，合理分配，嚴謹把關，讓愛到位
+            
+          hr
+          
+          .page_content
+            p 聯合勸募透過合理分配、嚴謹審查機制、專業監督及輔導、公開透明徵信運用每一筆捐款<br><br>並且交由近兩百位含括社福學界、財務會計專家、NPO負責人、實務工作者，共同組成的專業團隊，藉由嚴謹的審核、稽核程序，協助聯合勸募共同為每年提供補助超過300個社福團體的助人服務品質做把關，確保弱勢朋友得到專業且妥切的幫助。<br><br>此外，每年度委託第三公正單位的會計事務所，進行財務稽核。每筆善款的使用、流向，<br>都將透明公開公布於官網及對外文宣刊物，並確實將捐款收據寄送到愛心捐款人手上。
+    .row.row_white.scroll_area.row_ab_donate
+      .max_width
+
+        .col_full
+          h2.page_title  
+            span
+              img(src="http://45.118.133.210/img/graphic-50.svg" height=60)
+            span 捐款方式
+            
+          hr
+          
+          .page_content
+            p QRcode官網捐款方式一覽：
+              span
+                img.qrcode(src="http://45.118.133.210/img/qrcode.PNG")
+              | <br>https://www.unitedway.org.tw/donate/method<br>捐款專線 :（02）2378-2256分機9<br>地址：台北市大安區復興南路二段363號4樓<br>網址：http://www.unitedway.org.tw<br>立案字號：台內社字第8189471號
+
+   .page_support(v-bind:class="[cur_page=='support'?'':'hide']")
+    .row.row_red.scroll_area.row_sp_ab
+      .redline
+      img.kj3(src="http://45.118.133.210/img/kj3.png")
+      .max_width
+
+        .col_left
+
+          h2.page_title 立即響應
+          hr
+          .page_content 您愛的付出，幫助弱勢朋友跨越生命的困境<br>讓愛不中斷，陪伴他們勇敢改寫生命的故事<br>扭轉生命的奇蹟，因為有您！
+
+            .btns
+              .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 前往捐款
+            br
+            br
+            br
+        .col_right
+          
+    .row.row_yellow.scroll_area.row_sp_present
+
+    
+      .max_width
+
+        .col_left
+          //- img.ab_basket(src="http://45.118.133.210/img/graphic-48.svg")     
+          
+        .col_right
+          h2.page_title 愛心見證禮：安雞樂業組介紹
+
+          hr
+          .page_content 祝您事事順心，快快樂樂！安居樂業，天天美滿！<br>雞毛玩偶胖胖雞布偶<br>毛茸茸、肥嘟嘟，陪你過好年！<br><br>實用帆布包愛心胖胖小提包<br>限量版安雞樂業可扣式帆布包，讓你出門時刻平安又環保！
+            .btns
+              .btn(v-on:click="sw_page('activity')") 安雞樂業村
+              .btn(v-on:click="sw_page('support')") 立即響應  
+    
+    .row.row_red.row_sp_price
+      .max_width
+        .col_full
+
+          h2.page_title 
+            span 扭蛋小公仔，超級能力組
+          hr
+          .page_content.flex_row
+            
+            .col_left
+              img(src="http://45.118.133.210/img/graphic-67.svg")
+              span 
+                h3 / 月捐500元
+                h4 讓愛擁有無限可能
+              p 活動期間2016/11/1-2017/2/28<br>月捐500元，持續12個月以上（含）或單筆捐款滿6000元（含），<br>即可珍藏愛心見證禮「安雞樂業」乙套<br>單筆捐款滿3000元，安雞樂業絨毛布偶或小提袋，挑選一項，開心帶回家！
+                .small 每筆捐款以兌換乙份禮物為限，捐款金額不累積贈送禮物，數量有限，送完為止。
+
+                
+               
+            .col_right
+              img(src="http://45.118.133.210/img/graphic-66.svg")
+              span 
+                h3 / 捐款200元
+                h4 由您開始行動，轉出生命不同的奇蹟
+              p 五款不同可愛造型及具實用功能的超萌扭蛋，值得您用愛珍藏。
+              p 【實體扭蛋機】<br>捐款200元（投入四枚50元硬幣），即能玩轉乙次扭蛋機。<br>
+              //- 【線上扭蛋機】<br>活動期間：2016/12/12-2017/2/28<br>響應本活動線上信用卡捐款乙次達200元以上者（捐款金額不得累計），<br>即可參加線上扭蛋機遊戲乙次。<br>＊捐款滿額獲得愛心見證禮者，不再贈送扭蛋。
+
+            
+            
+          
+
+        
+  .page_news(v-bind:class="[cur_page=='news'?'':'hide',now_showing_news?'unfold':'']" )
+    .row.row_yellow.scroll_area.row_p_news(v-if="index_news")
+      .max_width
+
+        .col_left
+
+          h2.page_title 
+            span 扭蛋巡迴地圖＆最新消息！
+            span
+              img.page_title_right_pic(src="http://45.118.133.210/img/graphic-21.svg")
+            hr
+          .page_content 落實聯合勸募服務台灣的理念，<br>第22屆花旗聯合勸募活動下鄉啦！<br>我們將走入夜市，走入手手市集，歡迎大小朋友來現場響應愛心！
+
+            .btns
+              //- .btn(v-on:click="sw_page('news')") 更多消息
+              .btn(v-on:click="sw_page('support')") 立即響應
+        .col_right
+          .newsitem(v-for="(id,news) in index_news" v-on:click="show_news(id)") 
+            h3.newstime {{news.time}}
+            h2.newstitle {{news.title}}
+            h5.news_engtime {{news.eng_time}}
+            p.news_content {{news.content}}
+        .col_newsdetail
+          .newsarea(v-if="index_news.length>0")
+            h2 {{index_news[news_id].title}}
+            hr
+            h4 {{index_news[news_id].time}} {{index_news[news_id].eng_time}}
+            h4 {{index_news[news_id].content}}
+            p {{index_news[news_id].detail}}
+            div {{{index_news[news_id].blog}}}      
+  .row.row_footer(v-if="footer_com")
+    .max_width.flex_col
+      .row_companys.flex_row(v-bind:class="[cur_page=='index'?'':'hide']")
+        div.col_left
+          div
+            h4 協辦單位
+            img(v-for="com in footer_com.cor" v-bind:src="com.url" title="{{com.name}}" alt="{{com.name}}")
+          div
+            h4 贊助單位
+            img(v-for="com in footer_com.sup" v-bind:src="com.url" title="{{com.name}}" alt="{{com.name}}")
+        div.col_right
+          h4 通路贊助
+          .flex_row
+            img(v-for="com in footer_com.selsup" v-bind:src="com.url" title="{{com.name}}" alt="{{com.name}}")
+      .row_last.flex_row
+        .logos
+          img(src="http://45.118.133.210/img/company.PNG")
+          img(src="http://45.118.133.210/img/companylogo/banklogo.png")
+        .info
+          h4 
+            b 中華社會福利聯合勸募協會    
+            | &nbsp;&nbsp;&nbsp;捐款專線：(02)2378-2256分機9
+          h4 10667台北市大安區復興南路二段363號4樓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;勸募核准字號：衛部救字號第1041363523

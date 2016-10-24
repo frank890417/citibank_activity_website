@@ -1,0 +1,918 @@
+
+
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>花旗網站demo 0922 (首頁-桌面版本)</title>
+<meta property="og:title" content="花旗網站demo 0922" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.autocad.tw" />
+<meta property="og:image" content="http://45.118.133.210/img/og.JPG" />
+<meta property="og:description" content="花旗網站demo 0922" />
+
+    
+
+    
+    
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/earlyaccess/cwtexhei.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Hind+Madurai:300,400,500,600,700'>
+<link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+        <style>
+      @charset "UTF-8";
+* {
+  font-family: "Hind Madurai", "sans-serif", "微軟正黑體";
+  font-weight: 500;
+  position: relative;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.container-fluid {
+  width: 100%;
+}
+
+.max_width {
+  width: 100%;
+  height: 100%;
+  max-width: 1044px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px;
+}
+
+.col {
+  display: inline-block;
+  min-height: 70vh;
+}
+
+.col_left, .col_right {
+  width: calc(50% - 20px);
+  margin: 10px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 95vh;
+  height: 0px;
+}
+.row:before, .row:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  background-color: inherit;
+  -webkit-transform: skewY(-1.5deg);
+          transform: skewY(-1.5deg);
+  z-index: 500;
+}
+.row:before {
+  top: -20px;
+  box-shadow: 0px -10px 30px -10px rgba(34, 34, 34, 0.4);
+}
+.row:after {
+  bottom: 30px;
+}
+
+.page_title {
+  padding: 5px 20px;
+  margin: 0;
+  font-size: 1.9em;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.page_content {
+  font-size: 0.95em;
+  letter-spacing: 1px;
+  padding: 5px 20px;
+  margin: 0;
+  padding-top: 20px;
+  line-height: 1.7em;
+  min-height: 30vh;
+}
+
+.btn {
+  padding: 5px 15px;
+  border: solid 1px #fafafa;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 5px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #fafafa;
+  color: #222;
+}
+
+hr {
+  border: none;
+  margin: 0;
+  z-index: 100;
+}
+
+.row.row_red {
+  background-color: #FF5F71;
+  color: #fafafa;
+}
+.row.row_red hr {
+  border-top: solid 2px #fafafa;
+}
+.row.row_red .page_content {
+  color: rgba(250, 250, 250, 0.8);
+}
+
+.row.row_yellow {
+  background-color: #FFD629;
+  color: #5F1C00;
+}
+.row.row_yellow hr {
+  border-top: solid 2px #5F1C00;
+}
+.row.row_yellow .page_content {
+  color: rgba(95, 28, 0, 0.8);
+  font-weight: 800;
+}
+
+.row.row_blue {
+  background-color: #4A93B7;
+  color: #fafafa;
+}
+.row.row_blue hr {
+  border-top: solid 2px #fafafa;
+}
+.row.row_blue .page_content {
+  color: rgba(250, 250, 250, 0.8);
+}
+
+@-webkit-keyframes cin {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 1;
+  }
+}
+
+@keyframes cin {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 1;
+  }
+}
+.row_index {
+  color: #fafafa;
+  background: -webkit-radial-gradient(#dddddd 10%, #fafafa 11%);
+  background: radial-gradient(#dddddd 10%, #fafafa 11%);
+  background-size: 11px 11px;
+}
+.row_index .max_width {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.row_index .yellowpiece, .row_index .bluepiece {
+  width: 100%;
+  height: 120px;
+  position: absolute;
+  background-color: #222;
+  bottom: -60px;
+}
+.row_index .yellowpiece {
+  background-color: #FFD629;
+  -webkit-transform: skewY(-4deg);
+          transform: skewY(-4deg);
+}
+.row_index .bluepiece {
+  background-color: #4A93B7;
+  -webkit-transform: skewY(1.8deg);
+          transform: skewY(1.8deg);
+  bottom: -55px;
+}
+.row_index .people {
+  height: 75vh;
+  width: auto;
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  z-index: 10;
+}
+.row_index .comic_block {
+  min-height: 60vh;
+  border: solid 4px #222;
+  margin-top: 50px;
+  overflow: hidden;
+}
+.row_index .col_left {
+  width: calc(20% - 10px);
+}
+.row_index .col_mid {
+  width: calc(20% - 10px);
+}
+.row_index .col_right {
+  width: calc(100% - 40% - 10px);
+}
+.row_index .col_left .comic_block {
+  background-color: #fafafa;
+}
+.row_index .col_left .chicken {
+  position: absolute;
+  width: 200%;
+  left: -100%;
+  bottom: 10%;
+  -webkit-animation: c_in1 5s both;
+          animation: c_in1 5s both;
+}
+@-webkit-keyframes c_in1 {
+  0% {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+  }
+  30% {
+    -webkit-transform: translateX(-120px);
+            transform: translateX(-120px);
+  }
+  60% {
+    -webkit-transform: translateX(-60px);
+            transform: translateX(-60px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+@keyframes c_in1 {
+  0% {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+  }
+  30% {
+    -webkit-transform: translateX(-120px);
+            transform: translateX(-120px);
+  }
+  60% {
+    -webkit-transform: translateX(-60px);
+            transform: translateX(-60px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+.row_index .col_mid .comic_block {
+  background-color: #FFD629;
+}
+.row_index .col_mid .chicken2, .row_index .col_mid .chair {
+  position: absolute;
+  width: 160%;
+  right: -50%;
+  bottom: 10%;
+  -webkit-animation: c_in2 1.5s ease-in both;
+          animation: c_in2 1.5s ease-in both;
+}
+@-webkit-keyframes c_in2 {
+  0% {
+    -webkit-transform: translateY(-500px) rotate(8deg);
+            transform: translateY(-500px) rotate(8deg);
+  }
+  90% {
+    -webkit-transform: translateY(0px) rotate(-5deg);
+            transform: translateY(0px) rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+}
+@keyframes c_in2 {
+  0% {
+    -webkit-transform: translateY(-500px) rotate(8deg);
+            transform: translateY(-500px) rotate(8deg);
+  }
+  90% {
+    -webkit-transform: translateY(0px) rotate(-5deg);
+            transform: translateY(0px) rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+}
+.row_index .col_mid .chair {
+  position: absolute;
+  width: 90%;
+  right: -10%;
+  bottom: 0%;
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+.row_index .col_mid .button {
+  display: inline-block;
+  background-color: #FFD629;
+  padding: 10px;
+  width: 80%;
+  color: #222;
+  font-size: 1em;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.row_index .col_right {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.row_index .col_right nav ul {
+  background-color: #4D4D4D;
+  width: 100%;
+  padding: 5px 5px;
+}
+.row_index .col_right nav li {
+  display: inline-block;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 0.95em;
+  letter-spacing: 1px;
+  border-bottom: solid 2px transparent;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+.row_index .col_right nav li:hover {
+  border-bottom: solid 2px #fafafa;
+}
+.row_index .col_right .comic_block {
+  margin-top: -5px;
+  height: 200px;
+  min-height: 0px;
+  overflow: hidden;
+}
+.row_index .col_right .comic_block img {
+  height: 120%;
+  bottom: 15%;
+}
+.row_index .col_right .comic_block.small {
+  display: inline-block;
+  width: 35%;
+  background-color: #FF5F71;
+  margin-top: 10px;
+}
+.row_index .col_right .comic_block.small .grass {
+  position: absolute;
+  height: 70%;
+  bottom: -10%;
+}
+.row_index .col_right .comic_block.small .table {
+  position: absolute;
+  height: 90%;
+  bottom: -10%;
+  right: 10%;
+  -webkit-animation: table_flow 1.5s both;
+          animation: table_flow 1.5s both;
+}
+@-webkit-keyframes table_flow {
+  0% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+@keyframes table_flow {
+  0% {
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+.row_index .col_right .logo {
+  max-width: 220px;
+  margin: 50px;
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}
+
+.row_about .col_left {
+  height: 90vh;
+}
+.row_about img {
+  z-index: 3000;
+}
+.row_about .flyingchicken {
+  width: 60%;
+  max-width: 160px;
+  position: absolute;
+  top: 50px;
+  left: 35%;
+  z-index: 2000;
+}
+.row_about .circle {
+  position: absolute;
+  height: 65%;
+  left: -13%;
+  bottom: 30%;
+}
+.row_about .machine {
+  height: 67%;
+  left: 5%;
+  position: absolute;
+  top: 0px;
+}
+.row_about .egg1, .row_about .egg4, .row_about .eggo1 {
+  width: 150px;
+  position: absolute;
+}
+.row_about .egg2, .row_about .egg3 {
+  width: 70px;
+  position: absolute;
+}
+.row_about .eggo2, .row_about .eggo3 {
+  width: 60px;
+  position: absolute;
+}
+.row_about .egg1 {
+  left: 15%;
+  top: 15%;
+}
+.row_about .egg2 {
+  left: 10%;
+  top: 20%;
+}
+.row_about .egg3 {
+  left: 40%;
+  top: 10%;
+}
+.row_about .egg4 {
+  left: 20%;
+  top: 25%;
+}
+.row_about .eggo1 {
+  left: -12%;
+  bottom: 40%;
+}
+.row_about .eggo2 {
+  left: 5%;
+  bottom: 30%;
+}
+.row_about .eggo3 {
+  left: -15%;
+  bottom: 50%;
+}
+
+.row_news .col_left .clock {
+  width: 90px;
+  position: absolute;
+  top: -80px;
+  left: 35%;
+  z-index: 5000;
+}
+.row_news .col_right .heart {
+  width: 60px;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+}
+.row_news .col_right .heart2 {
+  left: 43%;
+  top: 2%;
+}
+.row_news .col_right .heart3 {
+  left: 73%;
+  top: 33%;
+}
+.row_news .col_right .heart4 {
+  left: 53%;
+  top: 43%;
+}
+.row_news .col_right .heart5 {
+  left: 43%;
+  top: 20%;
+}
+.row_news .col_right .hex {
+  height: 80%;
+  position: absolute;
+}
+.row_news .col_right .chicken_news {
+  height: 70%;
+  bottom: 15%;
+  left: 5%;
+  position: absolute;
+}
+
+.row_support .col_left {
+  min-height: 90%;
+}
+.row_support .col_left .tri, .row_support .col_left .talk, .row_support .col_left .chicken_sup, .row_support .col_left .bird_sup {
+  position: absolute;
+}
+.row_support .col_left .tri {
+  width: 95%;
+  left: 0%;
+  top: 0%;
+}
+.row_support .col_left .chicken_sup {
+  width: 55%;
+  left: 20%;
+  bottom: 20%;
+}
+.row_support .col_left .talk {
+  width: 110px;
+  left: 62%;
+  top: 13%;
+  position: absolute;
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
+  z-index: 300;
+}
+.row_support .col_right .bird_sup {
+  position: absolute;
+  width: 70px;
+  top: -50px;
+  right: 20%;
+  z-index: 2000;
+}
+
+.row_movie {
+  background-image: url("http://event.unitedway.org.tw/citi2015/upload/index/5946697a35d17463c6267c30c1d537a2.jpg");
+  background-size: cover;
+}
+.row_movie:before, .row_movie:after {
+  height: 50px !important;
+}
+.row_movie .playbtn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  font-size: 100px;
+  cursor: pointer;
+}
+
+.row_summary {
+  background: -webkit-radial-gradient(#dddddd 10%, #fafafa 11%);
+  background: radial-gradient(#dddddd 10%, #fafafa 11%);
+  background-size: 11px 11px;
+}
+.row_summary .btn {
+  border-color: #5F1C00 !important;
+}
+.row_summary .btn:hover {
+  background-color: #5F1C00 !important;
+  color: #fafafa !important;
+}
+.row_summary .col_left .dialog_sum, .row_summary .col_left .cook {
+  position: absolute;
+}
+.row_summary .col_left .dialog_sum {
+  height: 15vh;
+  top: -15%;
+  right: -20%;
+}
+.row_summary .col_left .cook {
+  width: 120px;
+  top: -40px;
+  right: 20%;
+}
+.row_summary .col_right .allegg {
+  height: 140%;
+}
+
+.scroll_common {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+.scroll_wait {
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+}
+
+.row_footer {
+  min-height: 0px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  padding-top: 50px;
+}
+.row_footer h4 {
+  margin: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .max_width {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .col {
+    display: block;
+    width: 100% !important;
+    height: 20%;
+  }
+
+  .comic_block {
+    width: 100%;
+    max-width: 100%;
+    min-height: 50px;
+  }
+}
+.comic_block_hover .chicken {
+  -webkit-animation: cmove_h 4s infinite !important;
+          animation: cmove_h 4s infinite !important;
+}
+@-webkit-keyframes cmove_h {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+  60% {
+    -webkit-transform: translateX(70px);
+            transform: translateX(70px);
+  }
+  80% {
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+  }
+  100% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+}
+@keyframes cmove_h {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+  60% {
+    -webkit-transform: translateX(70px);
+            transform: translateX(70px);
+  }
+  80% {
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+  }
+  100% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px);
+  }
+}
+
+    </style>
+
+    
+    
+    
+  </head>
+
+  <body translate="no" >
+
+    
+<div class="container-fluid">
+  <div class="row row_index"><img src="http://45.118.133.210/img/people.png" class="people"/>
+    <div class="bluepiece"></div>
+    <div class="yellowpiece"></div>
+    <div class="max_width">
+      <div class="col col_left">
+        <div data-mul-speed="0.1" class="comic_block"><img src="http://45.118.133.210/img/graphic-03.svg" class="chicken"/></div>
+      </div>
+      <div class="col col_mid">
+        <div class="button">立即響應</div>
+        <div data-mul-speed="0.5" class="comic_block"><img src="http://45.118.133.210/img/graphic-07.svg" class="chair"/><img src="http://45.118.133.210/img/graphic-04.svg" class="chicken2"/></div>
+      </div>
+      <div class="col col_right">
+        <nav>
+          <ul>
+            <li>Home</li>
+            <li>立即響應</li>
+            <li>第22屆花旗聯合勸募</li>
+            <li>最新消息</li>
+          </ul>
+        </nav>
+        <div data-mul-speed="0.6" class="comic_block"><img src="http://45.118.133.210/img/block1.svg" class="village"/></div>
+        <div class="bottompart">
+          <div data-mul-speed="0.2" class="comic_block small"><img src="http://45.118.133.210/img/graphic-05.svg" class="grass"/><img src="http://45.118.133.210/img/graphic-06.svg" class="table"/></div><img src="http://45.118.133.210/img/logo-01.svg" class="logo"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row_about row_red"><img src="http://45.118.133.210/img/graphic-08.svg" class="flyingchicken"/>
+    <div class="max_width">
+      <div class="col col_left"><img src="http://45.118.133.210/img/graphic-14.svg" class="circle"/><img src="http://45.118.133.210/img/graphic-09.svg" class="machine"/><img src="http://45.118.133.210/img/graphic-10.svg" class="egg1"/><img src="http://45.118.133.210/img/graphic-11.svg" class="egg2"/><img src="http://45.118.133.210/img/graphic-12.svg" class="egg3"/><img src="http://45.118.133.210/img/graphic-13.svg" class="egg4"/><img src="http://45.118.133.210/img/graphic-13.svg" class="eggo1"/><img src="http://45.118.133.210/img/graphic-11.svg" class="eggo2"/><img src="http://45.118.133.210/img/graphic-12.svg" class="eggo3"/></div>
+      <div class="col col_right">
+        <h2 class="page_title">一起讓愛轉出生命不同的奇蹟！</h2>
+        <hr/>
+        <p class="page_content">花旗（台灣）銀行與聯合勸募長期致力於匯集愛的星火，<br>讓每個小小的付出，積累成足以扭轉弱勢朋友未來的巨大能量。<br><br>多年來我們協助了無數台灣各種類型尚未有能力獨立募款的社福機構，<br>關於每一筆善款幫助了誰，協助了哪些族群扭轉了生命奇蹟，<br>改寫了哪些弱勢朋友的故事？<br>今年，我們將用扭蛋告訴您這些動人的生命故事。
+          <div class="btn">扭蛋活動</div>
+          <div class="btn">聯合勸募</div>
+          <div class="btn">立即響應</div>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row row_yellow row_news">
+    <div class="max_width">
+      <div class="col col_left">
+        <h2 class="page_title">最新消息</h2>
+        <hr/>
+        <p class="page_content"> <img src="http://45.118.133.210/img/graphic-21.svg" class="clock"/>9/17（一）       一起讓愛轉出生命不同的奇蹟！      ►<br/><br/>9/18（一）       一起讓愛轉出生命不同的奇蹟！      ►<br/><br/>9/19（一）       一起讓愛轉出生命不同的奇蹟！      ►<br/><br/>9/25（一）       一起讓愛轉出生命不同的奇蹟！      ►<br/>
+          <div class="btn">更多消息</div>
+          <div class="btn">立即響應</div>
+        </p>
+      </div>
+      <div class="col col_right"><img src="http://45.118.133.210/img/graphic-17.svg" class="hex"/><img src="http://45.118.133.210/img/graphic-16.svg" class="heart heart1"/><img src="http://45.118.133.210/img/graphic-15.svg" class="chicken_news"/><img src="http://45.118.133.210/img/graphic-18.svg" class="heart heart2"/><img src="http://45.118.133.210/img/graphic-19.svg" class="heart heart3"/><img src="http://45.118.133.210/img/graphic-16.svg" class="heart heart4"/><img src="http://45.118.133.210/img/graphic-19.svg" class="heart heart5"/></div>
+    </div>
+  </div>
+  <div class="row row_blue row_support">
+    <div class="max_width">
+      <div class="col col_left"><img src="http://45.118.133.210/img/graphic-22.svg" class="tri"/><img src="http://45.118.133.210/img/graphic-23.svg" class="talk"/><img src="http://45.118.133.210/img/graphic-24.svg" class="chicken_sup"/></div>
+      <div class="col col_right"> 
+        <h2 class="page_title">立即響應！</h2>
+        <hr/>
+        <p class="page_content"> <img src="http://45.118.133.210/img/graphic-25.svg" class="bird_sup"/>因為有您，他們擁有了扭轉生命的可能。<br>我們誠摯邀請您，一起和我們擁抱生命的不同，<br>扭轉生命的奇蹟。
+          <div class="btns">
+            <div class="btn">更多資訊</div>
+            <div class="btn">立即響應</div>
+          </div>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row row_red row_movie">
+    <div class="playbtn"><i class="fa fa-play-circle-o"></i></div>
+  </div>
+  <div class="row row_yellow row_summary">
+    <div class="max_width">
+      <div class="col_left">
+        <h2 class="page_title">花旗聯合勸募</h2>
+        <hr/>
+        <p class="page_content">我們知道每一筆善款，都是一份善的執念。<br>因此在這花旗(台灣)銀行)與聯合勸募攜手走過的二十二餘年，<br>我們將募集來超過16億的善款，透過嚴密的專案審查制度，<br>幫助台灣各地因為知名度不足而無法獨立募款的社福機構<br>能夠專心地為受助者提供服務，扭轉一個又一個生命的奇蹟，<br>一起擁抱每一份與眾不同的人與愛。</p><img src="http://45.118.133.210/img/graphic-27.svg" class="cook"/>
+        <div class="btn">更多消息</div>
+        <div class="btn">立即響應</div>
+      </div>
+      <div class="col_right"><img src="http://45.118.133.210/img/graphic-28.svg" class="allegg"/></div>
+    </div>
+  </div>
+  <div class="row row_footer">
+    <div class="max_width">
+      <h4>中華社會福利聯合勸募協會   捐款專線：(02)2378-2256分機9</h4>
+      <h4>10667台北市大安區復興南路二段363號4樓   勸募核准字號：衛部救字號第1041363523</h4>
+    </div>
+  </div>
+</div>
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js'></script>
+
+        <script>
+      // $(".comic_block").hover(function(){
+//   $(this).addClass("comic_block_hover");
+// },function(){
+//  $(this).removeClass("comic_block_hover");
+// });
+
+
+$(".page_content,.page_title").each(function(index,value){
+  $(value).addClass("scroll_common");
+  $(value).addClass("scroll_detecting");
+  $(value).addClass("scroll_wait");
+});
+$(window).scroll(function(e){
+    //scroll show
+    var wstop=$(window).scrollTop();
+    $(".scroll_detecting").each(function(index,value){
+      if ($(this).offset().top-$(window).height()+50<wstop){
+      $(this).removeClass("scroll_detecting");
+      $(this).removeClass("scroll_wait");
+    }
+    });
+  
+    //village
+    $(".village").css("transform","translateX(-"+wstop/8+"px)");
+  
+    //grass
+    $(".grass").css("transform","translateX(-"+wstop/5+"px)");
+  
+    //table
+    $(".table").css("transform","translateX("+wstop/8+"px)");
+  
+    //pieces
+    $(".bluepiece").css("transform","translateY("+wstop/10+"px) skewY(1.8deg)");
+ $(".yellowpiece").css("transform","translateY("+wstop/20+"px) skewY(-4deg)"); 
+  
+  
+  //flying chk
+   $(".flyingchicken").css("transform","translateY(-"+wstop/4+"px) rotate("+wstop/10+"deg)"); 
+  
+  //egg
+  $(".egg1").css("transform","translateY("+(wstop/15-20)+"px) rotate("+wstop/10+"deg)"); 
+  $(".egg4").css("transform","translateY("+(wstop/10-20)+"px) rotate("+wstop/10+"deg)"); 
+  
+   $(".egg2").css("transform","translateY("+(wstop/7-10)+"px) rotate("+wstop/5+"deg)"); 
+   $(".egg3").css("transform","translateY("+(wstop/5-20)+"px) rotate(-"+wstop/8+"deg)"); 
+  
+  //circle
+  $(".machine").css("transform","translateY("+(-20+wstop/10)+"px) rotate(-"+wstop/200+"deg)"); 
+  
+  //hearts
+  $(".heart1").css("transform","translateX("+(wstop-800)/10+"px) translateY(-"+(wstop-800)/20+"px)  rotate(-"+wstop/200+"deg)"); 
+  $(".heart2").css("transform","translateX("+(wstop-800)/8+"px) translateY(-"+(wstop-800)/8+"px)  rotate(-"+wstop/200+"deg)"); 
+  
+  $(".heart3").css("transform","translateX("+(wstop-800)/12+"px) translateY(-"+(wstop-800)/12+"px)  rotate(-"+wstop/200+"deg)"); 
+  
+  $(".heart4").css("transform","translateX("+(wstop-800)/15+"px) translateY(-"+(wstop-800)/15+"px)  rotate(-"+wstop/200+"deg)"); 
+  
+  $(".heart5").css("transform","translateX("+(wstop-800)/5+"px) translateY(-"+(wstop-800)/5+"px)  rotate(-"+wstop/200+"deg)"); 
+  
+  //hex
+  $(".hex").css("transform","translateY("+(-20+(wstop-1200)/20)+"px) rotate(-"+(wstop-1200)/200+"deg)"); 
+  
+  //talk
+   $(".talk").css("transform","rotate(-"+Math.sin(-wstop/50)*20+"deg) scale("+(1+Math.cos(wstop/50)/4)+")"); 
+  
+  //tri
+  $(".tri").css("transform","translateY("+(-20+(wstop-1800)/20)+"px) rotate(-"+(wstop-1800)/70+"deg)"); 
+  
+  //eggall
+  $(".allegg").css("transform","translateY("+(-20+(wstop-3000)/20)+"px) rotate(-"+(wstop-3000)/70+"deg)"); 
+  
+  
+  
+    $(".comic_block").each(
+      function(index,value){
+        $(value).css("transform","translateY(-"+(parseFloat($(value).attr("data-mul-speed")))*wstop/2+"px)");
+      }
+    );
+});
+
+$(".comic_block").each(function(index,value){
+  $(this).css("animation-delay",-(2*Math.random()+0.1)+"s");
+});
+      //# sourceURL=pen.js
+    </script>
+
+    
+    
+    
+  </body>
+</html>
+ 
