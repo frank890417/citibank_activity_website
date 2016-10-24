@@ -114,8 +114,8 @@ body.loading {
   position: absolute;
   color: inherit;
   background-color: inherit;
-  -webkit-transform: skewY(-1.5deg) translateX(-120px);
-          transform: skewY(-1.5deg) translateX(-120px);
+  -webkit-transform: skewY(-1.5deg) translateX(-10px);
+          transform: skewY(-1.5deg) translateX(-10px);
   z-index: 200;
 }
 .row:before {
@@ -167,9 +167,11 @@ body.loading {
 .btn img {
   width: 100%;
   max-width: 300px;
+  cursor: pointer;
 }
 .btn.imgbtn {
   background-color: #fff;
+  cursor: pointer;
 }
 
 hr {

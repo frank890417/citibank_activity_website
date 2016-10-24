@@ -3,6 +3,20 @@ var mobile_mode=false;
 var api_url="http://45.118.133.210:8083/api/block/get/";
 
 
+//如果進入點是ip，重新導向網址
+if (window.location.hostname=="45.118.133.210"){
+  window.location.href = window.location.href.replace("45.118.133.210","citi2016.unitedway.org.tw");
+}
+
+//如果hash改變，偵測並載入項目
+window.onhashchange = function() {
+  var target_page=window.location.hash.substr(1);
+  if (target_page=="support"){
+    target_page="page_support";
+  }
+  vm.sw_page(target_page);
+}
+
 if ($(window).width()<800){
   mobile_mode=true;
 }
@@ -73,11 +87,15 @@ var vm=new Vue({
   },
   methods:{
     sw_page: function(target_page){
+      
+      
+      //收合手機導覽列
       $(".normal_nav").removeClass("mnavopen");
       if (target_page.indexOf("url|")==0){
         window.open(target_page.substr(4));
         return 0;
       }
+      
       //立即響應設定為導向聯勸網站
       if (target_page=="support"){
   window.open("https://www.unitedway.org.tw/civicrm/contribute/transact?reset=1&id=3");
@@ -110,7 +128,7 @@ var vm=new Vue({
       },300);
       
       //700ms 後偵測畫面內容浮出
-      setTimeout(function(){detect_show(wstop)},700);
+      setTimeout(function(){detect_show(0)},700);
       var body = $("html, body");
       body.stop().animate({scrollTop:0}, '500', 'swing', function() { 
       });
@@ -126,6 +144,14 @@ var vm=new Vue({
       setTimeout(function(){
         vm.page_loading=false;
       },500);
+      
+      //add waiting bubble
+      $(".page_content,.page_title").each(function(index,value){
+        $(value).addClass("scroll_common");
+        $(value).addClass("scroll_detecting");
+        $(value).addClass("scroll_wait");
+      });
+      
 
       
     },
@@ -247,7 +273,7 @@ $(".page_content,.page_title").each(function(index,value){
 
 function detect_show(wstop){
   $(".scroll_detecting").each(function(index,value){
-      let pan=-50;
+      let pan=20;
       if (mobile_mode) pan=-200;
       if ($(this).offset().top-$(window).height()+pan<wstop){
       $(this).removeClass("scroll_detecting");
