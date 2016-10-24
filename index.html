@@ -129,8 +129,8 @@
     </div>
     <div class="row row_yellow row_news">
       <div class="max_width">
-        <div class="col_left col_content">
-          <h2 class="page_title">最新消息</h2>
+        <div class="col_full col_content">
+          <h2 class="page_title">扭蛋巡迴地圖＆最新消息！</h2>
           <hr/>
           <div class="page_content"> 
             <div v-for="(id,news) in index_news" v-on:click="jump_newspage(id)" title="點擊查看詳細消息!" class="newsitem"> 
@@ -162,8 +162,8 @@
         </div>
       </div>
     </div>
-    <div class="row row_yellow row_movie"><br/><br/><br/>
-      <div class="playbtn"><i class="fa fa-play-circle-o"></i></div>
+    <div class="row row_yellow row_movie">
+      <iframe width="100%" height="580px" src="https://www.youtube.com/embed/WWh_G7cSFxA" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
     </div>
     <div class="row row_yellow row_summary">
       <div class="max_width">
@@ -232,7 +232,7 @@
     </div>
     <div class="row row_white row_ac_main_present">
       <div class="max_width">
-        <div class="col_left"><img src="http://45.118.133.210/img/logo-01.svg" class="icon"/></div>
+        <div class="col_left"><img src="http://45.118.133.210/img/item_pic/bagcom.png"/></div>
         <div class="col_right col_content">
           <h2 class="page_title">立即響應＆愛心見證禮</h2>
           <hr/>
@@ -299,32 +299,38 @@
   <div v-bind:class="[cur_page=='activity_present'?'':'hide']" class="page_activity_present">
     <div class="row row_white row_acpr_about">
       <div class="max_width">
-        <div class="col_left"><img src="http://45.118.133.210/img/item_pic/bag2.png" class="bag"/></div>
+        <div class="col_left"><img src="http://45.118.133.210/img/item_pic/bagcom.png" class="bag"/></div>
         <div class="col_right col_content">
           <h2 class="page_title">愛心見證禮</h2>
           <hr/>
           <div class="page_content"> 
             <p>每一年，花旗聯合勸募活動都會依隔年的生肖，設計製作愛心見證禮送給捐款人，<br>以表達對捐款人無私付出的感謝。<br>今年特別與插畫家安雞樂業合作，共同設計「安雞樂業」開心組，為了滿足捐款人的不同喜好及需求，我們貼心設計可愛的絨毛玩偶，還有實用的帆布小提袋，讓給捐款人有多樣化的選擇。<br><br>活動期間2016/11/1-2017/2/28<br><br>月捐500元，持續12個月以上（含）或單筆捐款滿 6,000元，即可珍藏愛心見證禮「安雞樂業」乙套。<br>∙單筆捐款滿3,000元，安雞樂業絨毛布偶或小提袋，挑選一項，開心帶回家！</p>
-            <div class="btns">
-              <div v-on:click="sw_page('activity')" class="btn">了解更多</div>
-              <div v-on:click="sw_page('support')" class="btn">立即響應</div>
-            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="row row_red row_acpr_chks">
+      <div class="whiteline"></div>
       <div class="max_width">
-        <div class="col_left">
+        <div class="flex_col title_area">
+          <h2 class="page_title">愛心見證禮：<br>安雞樂業組介紹</h2>
+          <div class="btns">
+            <div v-on:click="sw_page('activity_present')" class="btn">了解更多</div>
+            <div v-on:click="sw_page('support')" class="btn">立即響應 </div>
+          </div>
         </div>
-        <div class="col_right col_content">
-          <h2 class="page_title">愛心見證禮：安雞樂業組介紹</h2>
-          <hr/>
-          <div class="page_content"> 
-            <p>安心生活，雞年豐收，樂善好施，業發利市，處處有愛，天天開心！<br>安雞樂業絨毛布偶<br>毛茸茸、肥嘟嘟，陪伴左右，溫暖您心！<br>尺寸：<br>安雞樂業小提袋<br>限量版安雞樂業可扣式帆布包，讓您快樂帶出門，便利又環保！<br>尺寸：寬25公分、高20公分、側寬10公分</p>
-            <div class="btns">
-              <div v-on:click="sw_page('activity_village')" class="btn">了解更多</div>
-              <div v-on:click="sw_page('support')" class="btn">立即響應 </div>
+        <hr/>
+        <div class="col_full flex_row">
+          <div class="col_left">
+            <div class="page_content"> <img src="http://45.118.133.210/img/item_pic/lovechk.png" class="prod_img"/>
+              <h3>安雞樂業絨毛布偶</h3>
+              <p>毛茸茸、肥嘟嘟，陪伴左右，溫暖您心！<br>安心生活，雞年豐收，樂善好施，業發利市，處處有愛，天天開心！<br>尺寸：</p>
+            </div>
+          </div>
+          <div class="col_right">
+            <div class="page_content"> <img src="http://45.118.133.210/img/item_pic/bagnew.png" class="prod_img"/>
+              <h3>安雞樂業小提袋</h3>
+              <p>限量版安雞樂業可扣式帆布包，讓您快樂帶出門，便利又環保！<br>尺寸：寬25公分、高20公分、側寬10公分</p>
             </div>
           </div>
         </div>
@@ -456,7 +462,7 @@
     <div class="row row_red scroll_area row_ab"><img src="http://45.118.133.210/img/graphic-36.svg" class="village2"/>
       <div class="max_width">
         <div class="col_left">
-          <h2 class="page_title"> <span><img src="http://45.118.133.210/img/graphic-50.svg" height="60"/></span><span>關於聯合勸募</span></h2>
+          <h2 class="page_title"> <span><img src="http://45.118.133.210/img/graphic-50.svg" height="60"/></span><span>關於聯合勸募 UNITED WAY</span></h2>
           <hr/>
           <div class="page_content">深耕台灣24年的聯合勸募，是全台灣唯一專責、專業勸募的社福機構。<br>以有愛無類為核心、理性捐款為號召，向社會大眾募集愛心資源，有逾百位專家擔任志工，共同組成專業團隊，透過嚴謹審查稽核機制公開合理分配資源；<br>同時輔導、協助全台各地社福機構提供弱勢朋友完善的服務；為每一塊善款嚴格把關。
             <div class="btns">
@@ -489,12 +495,12 @@
         </div>
       </div>
     </div>
-    <div class="row row_white scroll_area">
+    <div class="row row_white scroll_area row_ab_feature">
       <div class="max_width">
         <div class="col_full">
           <h2 class="page_title"> <span><img src="http://45.118.133.210/img/graphic-50.svg" height="60"/></span><span>幫助對象</span></h2>
           <hr/>
-          <div class="page_content row_ab_feature">
+          <div class="page_content">
             <div class="equalbox"> 
               <h3 class="ftitle">起源</h3><img src="http://45.118.133.210/img/graphic-59.svg" class="fimg"/>
               <p class="fcontent">「聯合勸募」方式，於1873年，在英國利物浦市，由數十家社福機構合辦慈善募款活動而興起。</p>
@@ -519,7 +525,7 @@
         </div>
       </div>
     </div>
-    <div class="row row_blue scroll_area row_ab_table">
+    <div class="row row_yellow scroll_area row_ab_table">
       <div class="max_width">
         <div class="col_full">
           <h2 class="page_title"> <span><img src="http://45.118.133.210/img/graphic-50.svg" height="60"/></span><span>聯合勸募2016年支持社福團體執行助人方案</span></h2>
@@ -543,7 +549,7 @@
         </div>
       </div>
     </div>
-    <div class="row row_white scroll_area">
+    <div class="row row_red scroll_area">
       <div class="max_width">
         <div class="col_full">
           <h2 class="page_title"> <span><img src="http://45.118.133.210/img/graphic-50.svg" height="60"/></span><span>專業監督，合理分配，嚴謹把關，讓愛到位</span></h2>
@@ -559,8 +565,9 @@
         <div class="col_full">
           <h2 class="page_title"> <span><img src="http://45.118.133.210/img/graphic-50.svg" height="60"/></span><span>捐款方式</span></h2>
           <hr/>
-          <div class="page_content">
-            <p>QRcode官網捐款方式一覽：<span><img src="http://45.118.133.210/img/qrcode.PNG" class="qrcode"/></span><br>https://www.unitedway.org.tw/donate/method<br>捐款專線 :（02）2378-2256分機9<br>地址：台北市大安區復興南路二段363號4樓<br>網址：http://www.unitedway.org.tw<br>立案字號：台內社字第8189471號</p>
+          <div class="page_content flex_row">
+            <p>QRcode官網捐款方式一覽：<span></span><br>https://www.unitedway.org.tw/donate/method<br>捐款專線 :（02）2378-2256分機9<br>地址：台北市大安區復興南路二段363號4樓<br>網址：http://www.unitedway.org.tw<br>立案字號：台內社字第8189471號</p>
+            <div>     <img src="http://45.118.133.210/img/qrcode.PNG" class="qrcode"/></div>
           </div>
         </div>
       </div>
@@ -644,11 +651,14 @@
           </div>
         </div>
         <div class="col_right">
-          <div v-for="(id,news) in index_news" v-on:click="show_news(id)" class="newsitem"> 
-            <h3 class="newstime">{{news.time}}</h3>
-            <h2 class="newstitle">{{news.title}}</h2>
-            <h5 class="news_engtime">{{news.eng_time}}</h5>
-            <p class="news_content">{{news.content}}</p>
+          <div v-for="(id,news) in index_news" v-on:click="show_news(id)" class="newsitem">
+            <div><img src="http://event.unitedway.org.tw/citi2015/images/witness/img_1.png" class="newsimg"/></div>
+            <div>
+              <h3 class="newstime">{{news.time}}</h3>
+              <h2 class="newstitle">{{news.title}}</h2>
+              <h5 class="news_engtime">{{news.eng_time}}</h5>
+              <p class="news_content">{{news.content}}</p>
+            </div>
           </div>
         </div>
         <div class="col_newsdetail">

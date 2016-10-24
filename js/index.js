@@ -1,6 +1,7 @@
 var debug_mode=false;
 var mobile_mode=false;
 var api_url="http://45.118.133.210:8083/api/block/get/";
+var default_page=debug_mode?"activity_present":"index";
 
 
 //如果進入點是ip，重新導向網址
@@ -31,7 +32,7 @@ var vm=new Vue({
       {name: "about", text: "關於聯合勸募"},
       {name: "news", text: "最新消息"},
     ],
-    cur_page: window.location.hash==""?"index":window.location.hash.substr(1),
+    cur_page: window.location.hash==""?default_page:window.location.hash.substr(1),
     index_talk: {
       cur_id: 0,
       cur_len: 0,
@@ -355,7 +356,10 @@ $(window).scroll(function(e){
 
   
   //row ab
-  $(".ab_book").css("transform","translateY("+wstop/30+"px) rotate(-"+(wstop)/30+"deg)"); 
+  
+  
+  $(".redline").css("transform","skewX(10deg) translateY("+wstop/-7+"px)"); 
+  
   $(".ab_basket").css("transform","translateX("+(-120+wstop/5)+"px) translateY("+wstop/30+"px) rotate("+(wstop)/30+"deg)"); 
   
     if (!mobile_mode){

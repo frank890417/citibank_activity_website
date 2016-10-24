@@ -1,6 +1,6 @@
 // color definition
 $color_white: #fafafa
-$color_red: #EA5D6D
+$color_red: #EF6570
 $color_yellow: #FFD629
 $color_brown: #5F1C00
 $color_blue: #66A5BE
@@ -8,12 +8,12 @@ $color_grey: #333
 $color_black: #333
 
 //maxium content width
-$max_width: 1100px
+$max_width: 1200px
 
 //title and para fontsize
-$title_size: 1.5em
-$sub_title_size: 1.1em
-$para_size: 0.75em
+$title_size: 1.55em
+$sub_title_size: 1.2em
+$para_size: 0.80em
 
 //rwd
 $break_small: 800px
@@ -60,6 +60,14 @@ body.loading
 .flex_col
   display: flex !important
   flex-direction: column !important
+  
+@mixin flex_row
+  display: flex
+  flex-direction: row
+
+@mixin flex_col
+  display: flex
+  flex-direction: column
   
 .container-fluid
   width: 100%
@@ -130,7 +138,7 @@ body.loading
   padding: 5px 20px
   margin: 0
   padding-top: 20px
-  line-height: 1.7em
+  line-height: 1.75em
   min-height: 250px
   font-weight: 300
   width: 100%
@@ -179,6 +187,7 @@ hr
     border-top: solid 2px $color_white
   .page_content
     +color_set(rgba($color_white,0.8),inherit)
+    font-weight: 400
   .page_title
     font-weight: 600
   
@@ -206,6 +215,7 @@ hr
     border-top: solid 2px $color_white
   .page_content
     color: rgba($color_white,0.8)
+    font-weight: 400
     
 .row.row_white
   +bg_branch
@@ -213,6 +223,8 @@ hr
   border-color: $color_brown
   .page_title
     font-weight: 600
+  .page_content
+    font-weight: 400
   hr
     border-top: solid 2px $color_brown
   .page_content
@@ -753,7 +765,7 @@ hr
   .newsitem
     margin: 0
     padding: 10px 5px
-    border-bottom: solid 2px $color_white
+    // border-bottom: solid 2px $color_white
     cursor: pointer
     transition-duration: 0.5s
     &:hover
@@ -784,13 +796,14 @@ hr
       
     h5
       margin: 5px
+  .clock
+    width: 90px
+    position: absolute
+    top: -80px
+    right: 15%
+    z-index: 5000
   .col_left
-    .clock
-      width: 90px
-      position: absolute
-      top: -80px
-      left: 35%
-      z-index: 5000
+    
     .news_jump_btn
       cursor: pointer
       transition: 0.3s
@@ -860,11 +873,15 @@ hr
       
       
 .row_movie
-  background-image: url('http://event.unitedway.org.tw/citi2015/upload/index/5946697a35d17463c6267c30c1d537a2.jpg')
+  // background-image: url('http://event.unitedway.org.tw/citi2015/upload/index/5946697a35d17463c6267c30c1d537a2.jpg')
   background-size: cover
-  min-height: 400px
+  min-height: 500px
+  // background-image: none
+  background-color: $color_black
+  padding: 0px
   &:before,&:after 
     height: 50px
+    // background-color: $color_white
   .playbtn
     position: absolute
     left: 50%
@@ -896,7 +913,7 @@ hr
       right: -20%
     .cook
       width: 120px
-      top: -40px
+      top: -80px
       right: 20%
       
       
@@ -941,7 +958,7 @@ hr
   .col_left
     width: 35%
     img
-      height: 35px
+      height: 30px
   .col_right
     width: 65%
   
@@ -970,7 +987,7 @@ hr
     align-items: top
     width: 100%
     // border-top: solid 2px $color_grey
-    padding-top: 20px
+    padding-top: 10px
     .logos
       padding-top: 10px
     .info
@@ -1274,10 +1291,10 @@ hr
   .row_ac_main_egg,.row_ac_main_village,.row_ac_main_present
     .col_left
       display: flex
-      justify-content: center
+      justify-content: center 
       align-items: center
     img
-      width: 70%
+      width: 80%
   .row_aboutvillage
     background-image: radial-gradient(lighten($color_yellow,8) 50% ,$color_yellow 50%)
     background-size: 150%  250%
@@ -1360,8 +1377,25 @@ hr
     &:before
       display: none
   .row_acpr_chks
+    .whiteline
+      position: absolute
+      width: 63vw
+      // background-color: $color_white
+      border: solid 1px $color_white
+      height: 40px
+      bottom: 42%
+      right: 0%
+      transform: skewX(10deg)
+    .title_area
+      width: 40%
+    .prod_img
+      height: 300px
+      transition: 0.4s
+      top: 0px
+      &:hover
+        top: -30px
     .icon
-      width: 100%
+      height: 300px
       // background-color: $color_white
       &:before
         content: ""
@@ -1373,6 +1407,8 @@ hr
         left: -50px
         bottom: 40px
   .row_ac_artist
+    .col_right
+      min-height: 300px
     .rab_book
       width: 30%
       position: absolute
@@ -1381,8 +1417,8 @@ hr
     .rab_chicken
       position: absolute
       right: 35%
-      bottom: 5%
-      width: 70%
+      bottom: 0%
+      width: 60%
       transform-origin: 50% 105%
 .page_activity_review
   .row_abre_about
@@ -1393,33 +1429,27 @@ hr
   .page_title
     font-weight: 900
   &.unfold .row_p_news
-    .col_left
-      width: 0%
-      
-      
-      white-space: nowrap
-    .col_right
-      width: 35%
-      
     .col_newsdetail
-      width: 65%
+      width: 100%
+      
   .row_p_news
-    
+    .max_width
+      flex-direction: column
     .page_title_right_pic
       width: 120px
       top: 40px
       transform: rotate(10deg)
       margin-left: 10px
     .col_left
-      width: 55%
+      width: 100%
       transition-duration: 0.5s
       white-space: nowrap
       overflow: hidden
     .col_right
-      width: 45%
+      width: 100%
       transition-duration: 0.5s
-      overflow-y: scroll
-      height: 70%
+      // overflow-y: scroll
+      // height: 70%
       min-height: 0
     .col_newsdetail
       width: 0%
@@ -1442,6 +1472,13 @@ hr
     border-bottom: solid 2px $color_white
     cursor: pointer
     transition-duration: 0.5s
+    // align-items: center
+    +flex_row
+
+    .newsimg
+      width: 200px
+      margin-right: 50px
+      border: solid 7px $color_white
     &:hover
       background-color: lighten($color_yellow,10)
     
@@ -1537,11 +1574,16 @@ hr
   
   //聯合勸募五個介紹
   .row_ab_feature
-    display: flex
-    justify-content: center
-    align-items: top
-    padding-top: 50px
-    
+    .page_content
+      display: flex
+      justify-content: center
+      align-items: top
+      padding-top: 50px
+    // height: 400px
+    .max_width
+      // position: absolute
+      max-width: 100vw
+      width: 100%
     .ftitle
       font-size: 18px
       color: $color_brown
@@ -1550,8 +1592,9 @@ hr
         content: "/ "
     .fimg
       width: 100px
-    // .fcontent
-    //   text-indent: 2em
+      border: solid 3px
+      border-radius: 100%
+
     .equalbox
       padding: 0px 10px
       width: 20%
@@ -1574,8 +1617,12 @@ hr
       z-index: 1000
       pointer-events: none
   .row_ab_donate
+    .page_content
+      mix-blend-mode: multiply
     .qrcode
       width: 120px
+      margin-top: 16px
+      margin-left: 90px
 .row_aboutvillage3
   .relation
     height: 90%
@@ -1636,19 +1683,20 @@ hr
       width: 30px
     li
       display: none
-      font-size: 25px
+      font-size: $sub_title_size
       padding: 20px
       &.btn
         display: block
     #sub_nav
       display: block
-      font-size: 20px
+      font-size: $para_size
       max-height: 1000px
       position: relative
       margin: 0
       top: 0
       li
         position: relative
+        font-size: $sub_title_size*0.9
     background-color: #fff
     transition: right 0.5s
   .mnavopen
@@ -1657,7 +1705,7 @@ hr
     flex-direction: column
     padding: 5px
     padding: 100px 5px
-    padding-right: 45px
+    // padding-right: 45px
   .main_index_content
     padding-top: 0px !important
   .col_left,.col_right
@@ -1753,6 +1801,7 @@ hr
       height: 400px
   .row_movie
     min-height: 500px
+    
   .row_about
     .col_left
       height: 400px
@@ -1779,14 +1828,17 @@ hr
         width: 100%
   .page_about
     .row_ab_feature
-      flex-direction: column 
-      .equalbox
-        width: 100% !important
+      .page_content
+        flex-direction: column 
+        .equalbox
+          width: 100% !important
   .page_news .row_p_news
     .col_left,.col_right,col_newsdetail
       width: 100%
     .col_left
       overflow: initial
+    .newsitem
+      +flex_col
   .page_support
     .row_sp_ab
       height: 600px
