@@ -73,7 +73,7 @@ body.loading
   width: 100%
   
 .max_width
-  width: 100%
+  width: calc(100% - 20px)
   max-width: $max_width
   display: flex
   justify-content: center
@@ -138,6 +138,8 @@ body.loading
   padding: 5px 20px
   margin: 0
   padding-top: 20px
+  box-sizing: border-box
+  
   line-height: 1.75em
   min-height: 250px
   font-weight: 300
@@ -408,6 +410,7 @@ hr
     top: 10px
     z-index: 10000
     cursor: pointer
+    pointer-events: none
     img
       height: 80px
     opacity: 0
@@ -1036,7 +1039,8 @@ hr
   position: fixed
   top: 0px
   left: 0px
-  
+  .logofixed
+    pointer-events: initial
   //取消當index成為導覽列時候的斑點背景
   // &.row_index
   //   background-image: none
@@ -1740,8 +1744,11 @@ hr
     
     &:before
       z-index: 1
+  
   [class^='col_']
     min-height: initial
+  .col_full
+    width: 100%
   // .row
   //   min-height: 120vh
   .page_about
@@ -1878,9 +1885,18 @@ hr
   .row_acegg_howto
     .col_right
       height: 300px
-      
+  .page_activity_present .row_acpr_chks 
+    .title_area
+      width: 100%
+    .col_full
+      overflow-x: scroll
+  .row_p_news
+    .newsitem
+      .newsimg
+        width: 95%
   .row_footer 
     .col_left,.col_right
       width: 100%
     .col_right .flex_row
       flex-wrap: wrap
+  

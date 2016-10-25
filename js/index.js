@@ -2,7 +2,7 @@ var debug_mode=false;
 var mobile_mode=false;
 var api_url="http://45.118.133.210:8083/api/block/get/";
 var default_page=debug_mode?"activity_present":"index";
-
+var last_scroll_top=0;
 
 //如果進入點是ip，重新導向網址
 if (window.location.hostname=="45.118.133.210"){
@@ -157,15 +157,30 @@ var vm=new Vue({
       
     },
     show_news: function(id){
-      if (id==this.news_id){
-        if (this.now_showing_news)
-          this.now_showing_news=false;
-        else
-          this.now_showing_news=true;
-      }else{
-        this.news_id=id;
-        this.now_showing_news=true;
-      }
+      //切換頁的時候開loading效果
+      this.page_loading=true;
+      setTimeout(function(){
+        vm.page_loading=false;
+      },500);
+      setTimeout(function(){
+        if (id==vm.news_id){
+          if (vm.now_showing_news){
+            vm.now_showing_news=false;
+            // var body = $("html, body");
+            // body.stop().animate({scrollTop:last_scroll_top}, '0', 'swing', function() { 
+            // });
+          }else{
+            vm.now_showing_news=true;
+            
+          }
+        }else{
+          // last_scroll_top=$(window).scrollTop();
+          vm.news_id=id;
+          vm.now_showing_news=true;
+        }
+      },500);
+      
+      
     },
     jump_newspage: function(id){
       this.sw_page("news");
