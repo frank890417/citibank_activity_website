@@ -459,8 +459,10 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
     
     
     .row.row_white.row_acegg_eggs
+      img.kj2(src="http://45.118.133.210/img/kj2.png", alt="")
       .max_width.flex_col
         .col_full
+          
           .flex_row
             div
               h2.page_title 
@@ -469,13 +471,13 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
                 span 扭蛋小公仔，超級能力組
               hr
               .page_content 
-                p 我們將花旗聯合勸募主要受助的類型與辨識度較為鮮明的五種弱勢族群：<br><br>長者、兒童、身心障礙者、原住民、新住民婦女，設計成五款具實用性的可愛扭蛋公仔，每款公仔都有不同的功能。<br>趕快行動，體驗無從預知會轉到什麼款扭蛋的新奇感。<br>收集扭蛋公仔傳送愛，還能療癒自己忙碌疲憊的心喔！<br><br>線上單筆捐款200元以上（含），即可參加線上扭蛋機遊戲乙次不參加扭蛋機遊戲，捐款1000元以上，即能珍藏一套5款「扭蛋超能力組」。
-                .small ＊僅限透過線上信用卡捐款響應本活動者，能參加線上扭蛋機遊戲；以其他捐款方式響應本活動者，恕不在此限。<br>為將經費用於助人服務上，響應捐款滿額獲愛心見證禮者，不再另行贈送扭蛋。
+                p 我們將花旗聯合勸募主要受助的類型與辨識度較為鮮明的五種弱勢族群：<br><br>長者、兒童、身心障礙者、原住民、新住民婦女，<br>設計成五款具實用性的可愛扭蛋公仔，每款公仔都有不同的功能。<br>趕快行動，體驗無從預知會轉到什麼款扭蛋的新奇感。<br>收集扭蛋公仔傳送愛，還能療癒自己忙碌疲憊的心喔！<br><br>線上單筆捐款200元以上（含），即可參加線上扭蛋機遊戲乙次不參加扭蛋機遊戲，<br>捐款1000元以上，即能珍藏一套5款「扭蛋超能力組」。
+                .small ＊僅限透過線上信用卡捐款響應本活動者，能參加線上扭蛋機遊戲；<br>以其他捐款方式響應本活動者，恕不在此限。<br>為將經費用於助人服務上，響應捐款滿額獲愛心見證禮者，不再另行贈送扭蛋。
               .btns
                 .btn(v-on:click="sw_page('news')") 更多消息
                 .btn(v-on:click="sw_page('support')") 立即響應
             div
-              img.kj2(src="http://45.118.133.210/img/kj2.png", alt="")
+              
 
 
 
@@ -761,7 +763,8 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
       .max_width
         .logos
           img(src="http://45.118.133.210/img/company.PNG")
-          img(src="http://45.118.133.210/img/companylogo/banklogo.png")
+          span &nbsp;&nbsp; &nbsp;&nbsp;
+          img(src="http://45.118.133.210/img/companylogo/banklogo.svg")
         .info
           h4 
             b 中華社會福利聯合勸募協會    

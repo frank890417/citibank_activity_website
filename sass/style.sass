@@ -1223,6 +1223,10 @@ hr
       display: block
       width: 200px
   .row_acegg_intro
+    .col_left
+      min-height: 300px
+    .col_right .page_content
+      min-height: 0px
     .acegg_machine,.acegg_circle
       position: absolute
       width: 70%
@@ -1241,6 +1245,8 @@ hr
       transform-origin: center center
   .row_acegg_eggs
     min-height: 500px
+    overflow: hidden
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.2) inset
     .col_right
       height: 450px
     .bigpic
@@ -1251,9 +1257,10 @@ hr
       img
         width: 100%
     .kj2
-      width: 90%
-      min-width: 500px
-      max-width: 750px
+      position: absolute
+      width: 40%
+      bottom: 0px
+      right: 10%
     .navchk
       position: absolute
       left: 10px
@@ -1885,6 +1892,12 @@ hr
   .row_acegg_howto
     .col_right
       height: 300px
+  .page_egg
+    .row_acegg_eggs
+      padding-bottom: 300px
+      .kj2
+        width: auto
+        height: 370px
   .page_activity_present .row_acpr_chks 
     .title_area
       width: 100%
@@ -1895,6 +1908,8 @@ hr
       .newsimg
         width: 95%
   .row_footer 
+    .row_companys
+      padding: 25px
     .col_left,.col_right
       width: 100%
     .col_right .flex_row
