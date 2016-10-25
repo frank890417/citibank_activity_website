@@ -289,7 +289,7 @@ $(".page_content,.page_title").each(function(index,value){
 
 function detect_show(wstop){
   $(".scroll_detecting").each(function(index,value){
-      let pan=20;
+      var pan=20;
       if (mobile_mode) pan=-200;
       if ($(this).offset().top-$(window).height()+pan<wstop){
       $(this).removeClass("scroll_detecting");
