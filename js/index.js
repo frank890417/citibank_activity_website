@@ -239,7 +239,7 @@ setInterval(function(){
 
 setTimeout(function(){
   vm.page_loading=false;
-},1500);
+},2000);
 
 
 var target_height=70;
@@ -259,10 +259,10 @@ function trace_val(){
   }
 }
 setTimeout(trace_val,800);
-setTimeout(function(){
-  // $(".row_index .col_mid").css("transition","0.5s 0.3s");
-  $(".row_index").removeClass("pic_mode");
-},1000);
+// setTimeout(function(){
+//   // $(".row_index .col_mid").css("transition","0.5s 0.3s");
+//   $(".row_index").removeClass("pic_mode");
+// },1000);
 
 
 

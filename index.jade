@@ -1,5 +1,5 @@
-body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loading':'']")
-  .loading_page(v-bind:class="[page_loading?'loading':'']")
+body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loading?'loading':'']")
+  .loading_page.loading(v-bind:class="[page_loading?'loading':'']")
     .center_box
       .loading_egg(v-bind:class="[page_loading?'':'open']")
         
@@ -20,7 +20,7 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
   //- input(type="checkbox" v-model="pic_mode")
   .page_index_hold(v-bind:class="[cur_page=='index'?'hide':'']")
 
-  .row.row_index.pic_mode(v-bind:class="[cur_page=='index'?'':'page_index']")
+  .row.row_index(v-bind:class="[cur_page=='index'?'':'page_index']")
     div.logofixed(v-on:click="sw_page('index')" v-bind:class="[page_loading?'loading':'']")
       img(src="http://45.118.133.210/img/logo-01.svg")
       //- h1 第二十二屆花旗聯合勸募活動
@@ -471,8 +471,10 @@ body.container-fluid.web_body.cur_block_A#app(v-bind:class="[page_loading?'loadi
                 span 扭蛋小公仔，超級能力組
               hr
               .page_content 
-                p 我們將花旗聯合勸募主要受助的類型與辨識度較為鮮明的五種弱勢族群：<br><br>長者、兒童、身心障礙者、原住民、新住民婦女，<br>設計成五款具實用性的可愛扭蛋公仔，每款公仔都有不同的功能。<br>趕快行動，體驗無從預知會轉到什麼款扭蛋的新奇感。<br>收集扭蛋公仔傳送愛，還能療癒自己忙碌疲憊的心喔！<br><br>線上單筆捐款200元以上（含），即可參加線上扭蛋機遊戲乙次不參加扭蛋機遊戲，<br>捐款1000元以上，即能珍藏一套5款「扭蛋超能力組」。
-                .small ＊僅限透過線上信用卡捐款響應本活動者，能參加線上扭蛋機遊戲；<br>以其他捐款方式響應本活動者，恕不在此限。<br>為將經費用於助人服務上，響應捐款滿額獲愛心見證禮者，不再另行贈送扭蛋。
+                p 我們將花旗聯合勸募主要受助的類型與辨識度較為鮮明的五種弱勢族群：<br><br>長者、兒童、身心障礙者、原住民、新住民婦女，<br>設計成五款具實用性的可愛扭蛋公仔，每款公仔都有不同的功能。<br>趕快行動，體驗無從預知會轉到什麼款扭蛋的新奇感。<br>收集扭蛋公仔傳送愛，還能療癒自己忙碌疲憊的心喔！
+                
+                //- span <br><br>線上單筆捐款200元以上（含），即可參加線上扭蛋機遊戲乙次不參加扭蛋機遊戲，<br>捐款1000元以上，即能珍藏一套5款「扭蛋超能力組」。
+                //- .small ＊僅限透過線上信用卡捐款響應本活動者，能參加線上扭蛋機遊戲；<br>以其他捐款方式響應本活動者，恕不在此限。<br>為將經費用於助人服務上，響應捐款滿額獲愛心見證禮者，不再另行贈送扭蛋。
               .btns
                 .btn(v-on:click="sw_page('news')") 更多消息
                 .btn(v-on:click="sw_page('support')") 立即響應
