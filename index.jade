@@ -44,8 +44,8 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
     .max_width.main_index_content
       .col_left
 
-        .comic_block(data-mul-speed="0.1" v-on:click="sw_page('about')" )
-          img.chicken(src="http://45.118.133.210/img/graphic-03.svg")
+        .comic_block#comic_block1(data-mul-speed="0.1" v-on:click="sw_page('about')" )
+          img.c1chk(src="http://45.118.133.210/img/graphic-03.svg")
 
       .col_mid
         //- .button.nav_sponsor 立即響應
@@ -53,7 +53,7 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
           h3.title {{{index_talk.data[index_talk.cur_id].substr(0,index_talk.cur_len)}}}
             | {{(index_talk.cur_len % 3==0? '|':'')}}
           img.talkbg(src="http://45.118.133.210/img/index_talk-01.svg")
-        .comic_block(data-mul-speed="0.5"  v-on:click="sw_page('about')")
+        .comic_block#comic_block2(data-mul-speed="0.5"  v-on:click="sw_page('about')")
           img.chair(src="http://45.118.133.210/img/graphic-07.svg")
           img.chicken2(src="http://45.118.133.210/img/graphic-04.svg")
 
@@ -68,7 +68,7 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
             li.nav_activity( v-on:click="sw_page('about')") 聯合勸募
             li.nav_news( v-on:click="sw_page('news')") 最新消息
 
-        .comic_block.big#mchscene(data-mul-speed="0.6" v-on:click="sw_page('activity_village')" title="我想看安雞樂業村的故事!")
+        .comic_block#comic_block3.big(data-mul-speed="0.6" v-on:click="sw_page('activity_village')" title="我想看安雞樂業村的故事!")
           img.village(src="http://45.118.133.210/img/block1.svg")
           h2 你的愛心，讓我們生活更美好...
           img.mch.mch1(src="http://45.118.133.210/img/chicken-29.svg")
@@ -79,7 +79,7 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
           img.mch.mch6(src="http://45.118.133.210/img/chicken-34.svg")
         .bottompart
           .top
-            .comic_block(data-mul-speed="0.2").small
+            .comic_block#comic_block4(data-mul-speed="0.2").small
               img.grass(src="http://45.118.133.210/img/graphic-05.svg")
               img.table(src="http://45.118.133.210/img/graphic-06.svg")
             .heartbox

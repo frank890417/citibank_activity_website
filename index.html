@@ -69,7 +69,7 @@
     <div class="yellowpiece"></div>
     <div class="max_width main_index_content">
       <div class="col_left">
-        <div data-mul-speed="0.1" v-on:click="sw_page('about')" class="comic_block"><img src="http://45.118.133.210/img/graphic-03.svg" class="chicken"/></div>
+        <div id="comic_block1" data-mul-speed="0.1" v-on:click="sw_page('about')" class="comic_block"><img src="http://45.118.133.210/img/graphic-03.svg" class="c1chk"/></div>
       </div>
       <div class="col_mid">
         <div v-if="index_talk.data.length&gt;0" class="talkbox">
@@ -78,7 +78,7 @@
             {{(index_talk.cur_len % 3==0? '|':'')}}
           </h3><img src="http://45.118.133.210/img/index_talk-01.svg" class="talkbg"/>
         </div>
-        <div data-mul-speed="0.5" v-on:click="sw_page('about')" class="comic_block"><img src="http://45.118.133.210/img/graphic-07.svg" class="chair"/><img src="http://45.118.133.210/img/graphic-04.svg" class="chicken2"/></div>
+        <div id="comic_block2" data-mul-speed="0.5" v-on:click="sw_page('about')" class="comic_block"><img src="http://45.118.133.210/img/graphic-07.svg" class="chair"/><img src="http://45.118.133.210/img/graphic-04.svg" class="chicken2"/></div>
       </div>
       <div class="col_right">
         <nav id="index_nav">
@@ -90,12 +90,12 @@
             <li v-on:click="sw_page('news')" class="nav_news">最新消息</li>
           </ul>
         </nav>
-        <div id="mchscene" data-mul-speed="0.6" v-on:click="sw_page('activity_village')" title="我想看安雞樂業村的故事!" class="comic_block big"><img src="http://45.118.133.210/img/block1.svg" class="village"/>
+        <div id="comic_block3" data-mul-speed="0.6" v-on:click="sw_page('activity_village')" title="我想看安雞樂業村的故事!" class="comic_block big"><img src="http://45.118.133.210/img/block1.svg" class="village"/>
           <h2>你的愛心，讓我們生活更美好...</h2><img src="http://45.118.133.210/img/chicken-29.svg" class="mch mch1"/><img src="http://45.118.133.210/img/chicken-31.svg" class="mch mch3"/><img src="http://45.118.133.210/img/chicken-33.svg" class="mch mch5"/><img src="http://45.118.133.210/img/chicken-34.svg" class="mch mch6"/>
         </div>
         <div class="bottompart">
           <div class="top">
-            <div data-mul-speed="0.2" class="comic_block small"><img src="http://45.118.133.210/img/graphic-05.svg" class="grass"/><img src="http://45.118.133.210/img/graphic-06.svg" class="table"/></div>
+            <div id="comic_block4" data-mul-speed="0.2" class="comic_block small"><img src="http://45.118.133.210/img/graphic-05.svg" class="grass"/><img src="http://45.118.133.210/img/graphic-06.svg" class="table"/></div>
             <div class="heartbox">
               <div class="barbox">
                 <div class="bar"></div>

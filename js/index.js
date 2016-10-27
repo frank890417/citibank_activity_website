@@ -291,20 +291,27 @@ function detect_show(wstop){
 setTimeout(function(){detect_show(wstop)},600);
 
 wstop=$(window).scrollTop();
+
+var village = $(".village");
+var grass = $(".grass");
+var table = $(".table");
 $(window).scroll(function(e){
     //scroll show
     wstop=$(window).scrollTop();
     detect_show(wstop);
   
     //village
-    $(".village").css("transform","translateX(-"+wstop/8+"px)");
-  
+    TweenMax.to(village,0,{
+      css: {x: -wstop/8}
+    });
     //grass
-    $(".grass").css("transform","translateX(-"+wstop/5+"px)");
-  
+    TweenMax.to(grass,0,{
+      css: {x: -wstop/5}
+    });
     //table
-    $(".table").css("transform","translateX("+wstop/8+"px)");
-  
+    TweenMax.to(table,0,{
+      css: {x: wstop/8}
+    });
     //pieces
     if (vm.cur_page=="index" && !mobile_mode){  
       $(".bluepiece").css("transform","translateY("+wstop/10+"px) skewY(1.8deg)");
@@ -538,6 +545,34 @@ var scene=document.querySelector(".mch1");
 //   });
 // },6000);
 
+
+var cm1=document.querySelector("#comic_block1");
+var cm2=document.querySelector("#comic_block2");
+var cm3=document.querySelector("#comic_block3");
+var cm4=document.querySelector("#comic_block4");
+
+var ctm=new TimelineMax({delay: 0});
+ctm.to(cm1,2,{
+  css:{
+    y: -80
+  }
+}).to(cm1,1.5,{
+  css:{
+    y: 0
+  }
+});
+var ctm2=new TimelineMax({delay: 0});
+ctm2.to(cm2,2,{
+  css:{
+    y: 80
+  }
+}).to(cm2,1.5,{
+  css:{
+    y: 0
+  }
+});
+
+
 var mch1=document.querySelector(".mch1");
 var mch2=document.querySelector(".mch3");
 var mch3=document.querySelector(".mch5");
@@ -598,7 +633,7 @@ var mch={
 
 mch.init();
 var tmm;
-$("#mchscene").mouseenter(function(){
+$("#comic_block3").mouseenter(function(){
   var t1=new TimelineMax;
   t1.to(mch2,0.4,{
     css:{x:0,bottom:50,rotation: 0},
@@ -619,10 +654,10 @@ $("#mchscene").mouseenter(function(){
   
   var t3=new TimelineMax({delay: 0.7});
   t3.to(mch3,0.4,{
-    css:{x:0,bottom:50,rotation: 10},
+    css:{x:0,bottom:10,rotation: 10,skewX: 2},
     ease: Power1.easeOut
   }).to(mch3,0.4,{
-    css:{x:0,bottom:0,rotation: 0},
+    css:{x:0,bottom:0,rotation: 0,skewX: 0},
     ease: Power1.easeIn
   });
   
