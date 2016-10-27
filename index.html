@@ -14,7 +14,8 @@
     
 
     
-    
+    <link rel="stylesheet" href="css/normalize.css">
+
     <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/earlyaccess/cwtexhei.css'>
 <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Hind+Madurai:300,400,500,600,700'>
 <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
@@ -89,7 +90,7 @@
             <li v-on:click="sw_page('news')" class="nav_news">最新消息</li>
           </ul>
         </nav>
-        <div data-mul-speed="0.6" v-on:click="sw_page('activity_village')" title="我想看安雞樂業村的故事!" class="comic_block big"><img src="http://45.118.133.210/img/block1.svg" class="village"/>
+        <div id="mchscene" data-mul-speed="0.6" v-on:click="sw_page('activity_village')" title="我想看安雞樂業村的故事!" class="comic_block big"><img src="http://45.118.133.210/img/block1.svg" class="village"/>
           <h2>你的愛心，讓我們生活更美好...</h2><img src="http://45.118.133.210/img/chicken-29.svg" class="mch mch1"/><img src="http://45.118.133.210/img/chicken-31.svg" class="mch mch3"/><img src="http://45.118.133.210/img/chicken-33.svg" class="mch mch5"/><img src="http://45.118.133.210/img/chicken-34.svg" class="mch mch6"/>
         </div>
         <div class="bottompart">
@@ -675,6 +676,7 @@
     </div>
   </div>
   <div v-if="footer_com" class="row row_footer">
+    <!--網頁設計與開發- 墨雨設計 (https://www.facebook.com/MonoameDesign/)-->
     <div v-bind:class="[cur_page=='index'?'':'hide']" class="row_companys">
       <div class="max_width">
         <div class="col_left">
@@ -706,6 +708,8 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js'></script>
 <script src='https://d3js.org/d3.v4.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TimelineMax.min.js'></script>
 
         <script src="js/index.js"></script>
 

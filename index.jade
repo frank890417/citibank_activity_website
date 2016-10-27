@@ -2,11 +2,6 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
   .loading_page.loading(v-bind:class="[page_loading?'loading':'']")
     .center_box
       .loading_egg(v-bind:class="[page_loading?'':'open']")
-        
-        
-
-
-       
         .eggtoppart  
           img.eggtop(src="http://45.118.133.210/img/graphic-51.svg")
           img.eggtop2(src="http://45.118.133.210/img/graphic-57.svg") 
@@ -73,7 +68,7 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
             li.nav_activity( v-on:click="sw_page('about')") 聯合勸募
             li.nav_news( v-on:click="sw_page('news')") 最新消息
 
-        .comic_block.big(data-mul-speed="0.6" v-on:click="sw_page('activity_village')" title="我想看安雞樂業村的故事!")
+        .comic_block.big#mchscene(data-mul-speed="0.6" v-on:click="sw_page('activity_village')" title="我想看安雞樂業村的故事!")
           img.village(src="http://45.118.133.210/img/block1.svg")
           h2 你的愛心，讓我們生活更美好...
           img.mch.mch1(src="http://45.118.133.210/img/chicken-29.svg")
@@ -747,7 +742,7 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
             p {{index_news[news_id].detail}}
             div {{{index_news[news_id].blog}}}      
   .row.row_footer(v-if="footer_com")
-
+    //網頁設計與開發- 墨雨設計 (https://www.facebook.com/MonoameDesign/)
     .row_companys(v-bind:class="[cur_page=='index'?'':'hide']")
       .max_width
         div.col_left

@@ -1,7 +1,7 @@
 var debug_mode=false;
 var mobile_mode=false;
 var api_url="http://45.118.133.210:8083/api/block/get/";
-var default_page=debug_mode?"activity_present":"index";
+var default_page=debug_mode?"index":"index";
 var last_scroll_top=0;
 
 //如果進入點是ip，重新導向網址
@@ -18,6 +18,7 @@ window.onhashchange = function() {
   vm.sw_page(target_page);
 }
 
+//如果畫面大小小於800就開啟手機模式js
 if ($(window).width()<800){
   mobile_mode=true;
 }
@@ -43,21 +44,11 @@ var vm=new Vue({
     news_id: 0,
     now_showing_news: false,
     pic_mode: false,
-    page_loading: !debug_mode,
+    page_loading: true,
     showing_chicken: false,
     showing_chicken_id: 1,
     showing_chkdata: [],
-    about_servicedata:[
-      {name:"身心障礙",count:116,money:62504097,people:198822},
-      {name:"婦女",count:30,money:18999320,people:144383},
-      {name:"家庭",count:58,money:34200509,people:620530},
-      {name:"兒童",count:56,money:36274360,people:532293},
-      {name:"老人",count:48,money:29607314,people:408760},
-      {name:"青少年",count:47,money:27136263,people:588956},
-      {name:"疾病患者",count:46,money:33727550,people:286355},
-      {name:"社區居民",count:35,money:2384715,people:1517627},
-      {name:"其他",count:65,money:50491741,people:5096820}
-    ],
+    about_servicedata:[],
     chicken_egg_data:{
       now_id:0,
       datas:
@@ -166,15 +157,10 @@ var vm=new Vue({
         if (id==vm.news_id){
           if (vm.now_showing_news){
             vm.now_showing_news=false;
-            // var body = $("html, body");
-            // body.stop().animate({scrollTop:last_scroll_top}, '0', 'swing', function() { 
-            // });
           }else{
             vm.now_showing_news=true;
-            
           }
         }else{
-          // last_scroll_top=$(window).scrollTop();
           vm.news_id=id;
           vm.now_showing_news=true;
         }
@@ -197,26 +183,29 @@ var vm=new Vue({
   ready: function(){
     this.index_talk.cur_id=parseInt(Math.random()*this.index_talk.data.length);
     
+    function request_block(blockname,callback){
+      // load data
+      $.ajax({
+        url: api_url+blockname,
+        success: callback
+      });
+    }
+    
     // load data
-    $.ajax({
-      url: api_url+"A",
-      success: function(res){
-        // console.log(JSON.parse((""+res).trim()));
+    request_block("A",function(res){
         vm.$set("footer_com",JSON.parse(res.index_footercom));
         vm.$set("index_news",JSON.parse(res.index_news));
         vm.$set("index_talk.data",JSON.parse(res.index_talk));
-        
-      }
     });
-    $.ajax({
-      url: api_url+"E",
-      success: function(res){
+    request_block("D",function(res){
+        vm.$set("about_servicedata",JSON.parse(res.about_servicedata));
+    });
+    request_block("E",function(res){
         var data=JSON.parse(res.about_showing_chkdata);
         vm.$set("showing_chkdata",data);
         setTimeout(function(){
           preparechk(data);
         },1000);  
-      }
     });
   }
 });
@@ -231,21 +220,21 @@ setInterval(function(){
   global_time++;
   $(".loading_egg").css("transform","rotate("+current_deg+"deg)");
   current_deg+=(target_deg-current_deg)*0.1;
-  
-  target_deg=-90+(global_time+Math.sin(global_time)/2);
-  // else
-  //   target_deg=5;
+  target_deg=-90+(global_time+Math.sin(global_time)/2)
 },10);
 
 setTimeout(function(){
   vm.page_loading=false;
 },2000);
+if (debug_mode){
+  setTimeout(function(){
+    vm.page_loading=false;
+  },500);
+}
 
-
+//首頁的愛心能量條
 var target_height=70;
 var current_height=20;
-
-
 
 function trace_val(){
   if (current_height<target_height){
@@ -259,11 +248,12 @@ function trace_val(){
   }
 }
 setTimeout(trace_val,800);
+
+////關閉圖片模式
 // setTimeout(function(){
 //   // $(".row_index .col_mid").css("transition","0.5s 0.3s");
 //   $(".row_index").removeClass("pic_mode");
 // },1000);
-
 
 
 var mpos={x: 0,y: 0};
@@ -365,16 +355,8 @@ $(window).scroll(function(e){
   $(".rab_chicken").css("transform","rotate("+(mpos.x-wsize.width/2)/-25+"deg)");
   $(".rab_book").css("transform","translateY("+wstop/10+"px) rotate(-"+(wstop)/30+"deg)"); 
 
-
-  
-
-
-  
   //row ab
-  
-  
   $(".redline").css("transform","skewX(10deg) translateY("+wstop/-7+"px)"); 
-  
   $(".ab_basket").css("transform","translateX("+(-120+wstop/5)+"px) translateY("+wstop/30+"px) rotate("+(wstop)/30+"deg)"); 
   
     if (!mobile_mode){
@@ -396,58 +378,46 @@ $(window).scroll(function(e){
   
 });
 
-
-
-
 $(".comic_block").each(function(index,value){
   $(this).css("animation-delay",-(2*Math.random()+0.1)+"s");
 });
 
-
-// $("nal li").click(function(){
-//   $(".web_body").addClass("page_index");
+// $(".switches").each(function(index,value){
+//   var el_sw=value;
+//   console.log(el_sw);
+//   var cl=$(el_sw).children(".cleft");
+//   var cr=$(el_sw).children(".cright");
+//   var ff=$(el_sw).children(".container-fluid:first");
+  
+//   function sw_page(delta){
+//     var cur_pos=parseInt($(ff).attr("data-pos"))+delta;
+//     var min_pos=parseInt($(ff).attr("data-range").split(",")[0]);
+//     var max_pos=parseInt($(ff).attr("data-range").split(",")[1]);
+    
+//     if (cur_pos>max_pos) cur_pos=max_pos;
+//     if (cur_pos<min_pos) cur_pos=min_pos;
+    
+//     ff.css("margin-left",-cur_pos*100+"%");
+//     $(ff).attr("data-pos",cur_pos);
+//   }
+  
+//   cl.click(function(){
+//     sw_page(-1);
+    
+//   });
+//   cr.click(function(){
+//     sw_page(1);
+//   });
+  
 // });
 
-$(".nav_home").click(function(){
-  $(".web_body").removeClass("page_index");
-});
 
-$(".switches").each(function(index,value){
-  var el_sw=value;
-  console.log(el_sw);
-  var cl=$(el_sw).children(".cleft");
-  var cr=$(el_sw).children(".cright");
-  var ff=$(el_sw).children(".container-fluid:first");
-  
-  function sw_page(delta){
-    var cur_pos=parseInt($(ff).attr("data-pos"))+delta;
-    var min_pos=parseInt($(ff).attr("data-range").split(",")[0]);
-    var max_pos=parseInt($(ff).attr("data-range").split(",")[1]);
-    
-    if (cur_pos>max_pos) cur_pos=max_pos;
-    if (cur_pos<min_pos) cur_pos=min_pos;
-    
-    ff.css("margin-left",-cur_pos*100+"%");
-    $(ff).attr("data-pos",cur_pos);
-  }
-  
-  cl.click(function(){
-    sw_page(-1);
-    
-  });
-  cr.click(function(){
-    sw_page(1);
-  });
-  
+$(".mobile_nav_toggle").click(function(){
+  $(".normal_nav").toggleClass("mnavopen");
 });
-
-// //page switch
-// $(".main_index_content,.people").css("opacity","0");
-// $(".row_index").css("min-height","150px");
 
 var nodes=[];
 function preparechk(chkdata){
-  
   nodes=chkdata;
   var chkarea = d3.select("#chicken_activity"),
       chkarea_width = 500,
@@ -458,7 +428,6 @@ function preparechk(chkdata){
     chkdata[i].x= Math.random()*200;
     chkdata[i].y= Math.random()*200;
     chkdata[i].r= 100;
-    // chkdata[i].img_url= "http://45.118.133.210/img/graphic-"+(37+i)+".svg"
   };
   var circles=chkarea.selectAll("div").data(nodes).enter().append("div")
   .style("width",function(d){return d.r+"px"})
@@ -532,8 +501,6 @@ function preparechk(chkdata){
         .nodes(nodes)
         .on("tick", ticked);
 
-  // simulation.stop();
-  //  simulation.tick();
   setInterval(
     function(){
       simulation.alphaTarget(0.3).restart()
@@ -548,6 +515,130 @@ function preparechk(chkdata){
     ,50);
 }
 
-$(".mobile_nav_toggle").click(function(){
-  $(".normal_nav").toggleClass("mnavopen");
+
+var scene=document.querySelector(".mch1");
+
+// $("#mchscene").css({
+//   position: "fixed",
+//   width: "100vw",
+//   height: "70vh",
+//   left: "0px",
+//   top: "10vh",
+//   "z-index": "20000"
+// });
+
+// setTimeout(function(){
+//   $("#mchscene").css({
+//     position: "",
+//     width: "",
+//     height: "",
+//     left: "",
+//     top: "",
+//     "z-index": ""
+//   });
+// },6000);
+
+var mch1=document.querySelector(".mch1");
+var mch2=document.querySelector(".mch3");
+var mch3=document.querySelector(".mch5");
+var mch4=document.querySelector(".mch6");
+
+var mchs=[mch1,mch2,mch3,mch4];
+// var tMax = new TimelineMax({delay:1});
+
+var mch={
+  init: function(){
+    var t1=new TimelineMax({delay: 2});
+    t1.from(mch2,1,{
+      css:{x:0,bottom:-200,rotation: 0},
+      ease: Power1.easeOut
+    }).to(mch2,0.4,{
+      css:{x:0,bottom:0,rotation: 0},
+      ease: Power1.easeIn
+    });
+
+    var t2=new TimelineMax({delay: 2+0.5});
+    t2.from(mch1,1,{
+      css:{x:0,bottom:-200,rotation: 0},
+      ease: Power1.easeOut
+    }).to(mch1,0.4,{
+      css:{x:0,bottom:50,rotation: 10},
+      ease: Power1.easeOut
+    }).to(mch1,0.4,{
+      css:{x:0,bottom:0,rotation: 0},
+      ease: Power1.easeIn
+    });
+
+    var t3=new TimelineMax({delay: 2+0.7});
+    t3.from(mch3,1,{
+      css:{x:0,bottom:-200,rotation: 0},
+      ease: Power1.easeOut
+    }).to(mch3,0.4,{
+      css:{x:0,bottom:50,rotation: 10},
+      ease: Power1.easeOut
+    }).to(mch3,0.4,{
+      css:{x:0,bottom:0,rotation: 0},
+      ease: Power1.easeIn
+    });
+
+    var t4=new TimelineMax({delay: 2+0.1});
+    t4.from(mch4,1,{
+      css:{x:0,bottom:-200,rotation: 0},
+      ease: Power1.easeOut
+    }).to(mch4,0.4,{
+      css:{x:0,bottom:50,rotation: 10},
+      ease: Power1.easeOut
+    }).to(mch4,0.4,{
+      css:{x:0,bottom:0,rotation: 0},
+      ease: Power1.easeIn
+    });
+  }
+};
+
+
+mch.init();
+var tmm;
+$("#mchscene").mouseenter(function(){
+  var t1=new TimelineMax;
+  t1.to(mch2,0.4,{
+    css:{x:0,bottom:50,rotation: 0},
+    ease: Power1.easeOut
+  }).to(mch2,0.4,{
+    css:{x:0,bottom:0,rotation: 0},
+    ease: Power1.easeIn
+  });
+  
+  var t2=new TimelineMax({delay: 0.5});
+  t2.to(mch1,0.4,{
+    css:{x:0,bottom:50,rotation: 10},
+    ease: Power1.easeOut
+  }).to(mch1,0.4,{
+    css:{x:0,bottom:0,rotation: 0},
+    ease: Power1.easeIn
+  });
+  
+  var t3=new TimelineMax({delay: 0.7});
+  t3.to(mch3,0.4,{
+    css:{x:0,bottom:50,rotation: 10},
+    ease: Power1.easeOut
+  }).to(mch3,0.4,{
+    css:{x:0,bottom:0,rotation: 0},
+    ease: Power1.easeIn
+  });
+  
+  var t4=new TimelineMax({delay: 0.1});
+  t4.to(mch4,0.3,{
+    css:{x:0,rotationY:180,rotation: 10},
+    ease: Power1.easeOut
+  }).to(mch4,0.8,{
+    css:{x: -30},
+    ease: Power1.easeOut
+  }).to(mch4,0.3,{
+    css:{x:0,rotationY:0,rotation: 0},
+    ease: Power1.easeIn
+  }).to(mch4,0.8,{
+    css:{x: 30},
+    ease: Power1.easeOut
+  });
+  
 });

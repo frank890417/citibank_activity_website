@@ -603,10 +603,11 @@ hr
       &.big
         background-color: #69ACC7
       .mch
-        height: 50%
+        height: 130px
         position: absolute
-        bottom: -2%
-        animation: popup 1s both
+        tranform-origin: center bottom
+        bottom: -150px
+        // animation: popup 1s both
         &.mch1
           left: 20%
           animation-delay: 0s
@@ -1172,20 +1173,21 @@ hr
         opacity: 0
       img.table
         bottom: -100px
-    .comic_block.big:hover 
-      .mch
-        animation-delay: 0s
-        animation: wiggle 1s infinite
+    .comic_block.big
+      transition: 0.5s
+      // .mch
+      //   animation-delay: 0s
+      //   animation: wiggle 1s infinite
         
-      @keyframes wiggle
-        0%
-          transform: rotate(0deg)
-        30%
-          transform: rotate(5deg)
-        70%
-          transform: rotate(-5deg)
-        100%
-          transform: rotate(0deg)
+      // @keyframes wiggle
+      //   0%
+      //     transform: rotate(0deg)
+      //   30%
+      //     transform: rotate(5deg)
+      //   70%
+      //     transform: rotate(-5deg)
+      //   100%
+      //     transform: rotate(0deg)
 
 .pic_mode
   .col_left 
