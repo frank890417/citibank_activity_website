@@ -2094,6 +2094,8 @@ hr {
   background-image: -webkit-radial-gradient(#f17c85 50%, #ef6570 50%);
   background-image: radial-gradient(#f17c85 50%, #ef6570 50%);
   background-size: 150% 250%;
+  -webkit-transition-duration: 0s;
+          transition-duration: 0s;
 }
 .page_about .row_ab .village2 {
   position: absolute;

@@ -3,6 +3,36 @@ var mobile_mode=false;
 var api_url="http://45.118.133.210:8083/api/block/get/";
 var default_page=debug_mode?"index":"index";
 var last_scroll_top=0;
+var ga_enable=!debug_mode && window.location.hostname!="s.codepen.io" && window.location.hostname!="45.118.133.210";
+var user_nav_sw_discard=false;
+
+console.log("Monoame design @2016");
+
+//建立ga物件
+if (ga_enable){
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+  //建立ga使用者
+  ga('create', 'UA-52977512-10', 'auto'); //墨雨
+  ga('create', 'UA-10005421-24', 'auto' , 'clientTracker'); //廠商
+  console.log("GA Enabled. Production Mode.");
+}else{
+  console.log("GA disabled. Testing Mode.");
+}
+
+//送出瀏覽資料
+function ga_send(){
+  if (ga_enable){
+    ga('send', 'pageview');
+    ga('clientTracker.send', 'pageview');
+    console.log("GA log "+window.location.hash+" . [GA]");
+  }else{
+    console.log("Page visit log "+window.location.hash+" . [disable GA]");
+  }
+}
 
 //如果進入點是ip，重新導向網址
 if (window.location.hostname=="45.118.133.210"){
@@ -11,18 +41,22 @@ if (window.location.hostname=="45.118.133.210"){
 
 //如果hash改變，偵測並載入項目
 window.onhashchange = function() {
-  var target_page=window.location.hash.substr(1);
-  if (target_page=="support"){
-    target_page="page_support";
+  if (!user_nav_sw_discard){
+    var target_page=window.location.hash.substr(1);
+    if (target_page=="support"){
+      target_page="page_support";
+    }
+    vm.sw_page(target_page);
+  }else{
+    user_nav_sw_discard=true;
   }
-  vm.sw_page(target_page);
 }
 
 //如果畫面大小小於800就開啟手機模式js
 if ($(window).width()<800){
   mobile_mode=true;
 }
-//cur_page:  window.location.hash==""?"index":window.location.hash.substr(1),
+
 var vm=new Vue({
   el: "#app",
   data: {
@@ -79,7 +113,7 @@ var vm=new Vue({
   },
   methods:{
     sw_page: function(target_page){
-      
+      var sw_waittime=500;
       
       //收合手機導覽列
       $(".normal_nav").removeClass("mnavopen");
@@ -88,20 +122,36 @@ var vm=new Vue({
         return 0;
       }
       
+      //設定切換hash抵銷額度1
+      user_nav_sw_discard=true;
+      
+      //切換hash
+      window.location.hash=target_page;
+      
+      ///重新導向news      
+      if (target_page.indexOf("news@")!=-1){
+         // console.log(target_page);
+         this.news_id=parseInt(target_page.split("@")[1]);
+         setTimeout(function(){
+          vm.now_showing_news=true;
+        },400);
+         target_page="news";
+      }else{
+        setTimeout(function(){
+          vm.now_showing_news=false;
+        },400);
+      }
+      
       //立即響應設定為導向聯勸網站
       if (target_page=="support"){
   window.open("https://www.unitedway.org.tw/civicrm/contribute/transact?reset=1&id=3");
         return 0;
       }
+      
       //將page_support導向原先support分頁
       if (target_page=="page_support"){
         target_page="support";
       }
-      
-      
-      //切換hash
-      window.location.hash=target_page;
-      
       
       //300ms 後切換頁面
       setTimeout(function(){
@@ -109,8 +159,8 @@ var vm=new Vue({
         $(".bluepiece").css("transform","");
         $(".yellowpiece").css("transform","");
         
-        
-        
+        //送出ga資料
+        ga_send();
         // for(var i=0;i<vm.page_list.length;i++){
         //   if (vm.page_list[i].name==target_page){
         //     history.pushState(vm.page_list[i], vm.page_list[i].text, vm.page_list[i].name);
@@ -121,8 +171,8 @@ var vm=new Vue({
       
       //700ms 後偵測畫面內容浮出
       setTimeout(function(){detect_show(0)},700);
-      var body = $("html, body");
-      body.stop().animate({scrollTop:0}, '500', 'swing', function() { 
+        var body = $("html, body");
+        body.stop().animate({scrollTop:0}, '500', 'swing', function() { 
       });
       
       //換對話
@@ -135,9 +185,9 @@ var vm=new Vue({
       this.page_loading=true;
       setTimeout(function(){
         vm.page_loading=false;
-      },500);
+      },sw_waittime);
       
-      //add waiting bubble
+      //加入當等待效果隱藏，滑到定位後去掉
       $(".page_content,.page_title").each(function(index,value){
         $(value).addClass("scroll_common");
         $(value).addClass("scroll_detecting");
@@ -147,27 +197,29 @@ var vm=new Vue({
 
       
     },
-    show_news: function(id){
-      //切換頁的時候開loading效果
-      this.page_loading=true;
-      setTimeout(function(){
-        vm.page_loading=false;
-      },500);
-      setTimeout(function(){
-        if (id==vm.news_id){
-          if (vm.now_showing_news){
-            vm.now_showing_news=false;
-          }else{
-            vm.now_showing_news=true;
-          }
-        }else{
-          vm.news_id=id;
-          vm.now_showing_news=true;
-        }
-      },500);
+    show_news: function(id){ 
+      vm.sw_page("news@"+id);
+      // //切換頁的時候開loading效果
+      // this.page_loading=true;
+      // setTimeout(function(){
+      //   vm.page_loading=false;
+      // },500);
+      // setTimeout(function(){
+      //   if (id==vm.news_id){
+      //     if (vm.now_showing_news){
+      //       vm.now_showing_news=false;
+      //     }else{
+      //       vm.now_showing_news=true;
+      //     }
+      //   }else{
+      //     vm.news_id=id;
+      //     vm.now_showing_news=true;
+      //   }
+      // },500);
       
       
     },
+    //跳到新聞頁
     jump_newspage: function(id){
       this.sw_page("news");
       this.show_news(id);
@@ -207,6 +259,16 @@ var vm=new Vue({
           preparechk(data);
         },1000);  
     });
+    
+    if (window.location.hash!="#index"){
+      //設定切換hash抵銷額度1
+      user_nav_sw_discard=true;
+      //重新導向網站
+      this.sw_page(window.location.hash==""?default_page:window.location.hash.substr(1));
+    }else{
+      ga_send();
+    }
+    
   }
 });
 setInterval(function(){
@@ -315,6 +377,9 @@ var acegg_hex=$(".acegg_hex");
 var acegg_eggchk=$(".acegg_eggchk");
 var acegg_machine=$(".acegg_machine");
 var acegg_circle=$(".acegg_circle");
+
+var row_ab= $(".row_ab");
+
 // function trantemp(template,inject){
 //   var	str = template;
 //   var res = str.replace(/\#/i, "(wstop/"+inject+")");
@@ -396,7 +461,13 @@ $(window).scroll(function(e){
     acegg_machine.css("transform","translateX(-50%) translateY(-50%) rotate("+Math.sin(wstop/150)*15+"deg) "); 
     acegg_circle.css("transform","translateX(-50%) translateY(-50%) rotate("+Math.sin(-wstop/150)*15+"deg)"); 
 
-
+    if (wstop<800){
+      var mh=(500-wstop/2);
+      if (mh<0)mh=0;
+      row_ab.css("height",mh+"px");
+      row_ab.css("min-height",mh+"px");
+    }
+    
   });
 })();
 $(".comic_block").each(function(index,value){
@@ -653,7 +724,7 @@ var mch={
 
 mch.init();
 
-$("#comic_block3").mouseenter(function(){
+function active_chk(){
   var t1=new TimelineMax;
   t1.to(mch2,0.4,{
     css:{x:0,bottom:50,rotation: 0},
@@ -696,4 +767,8 @@ $("#comic_block3").mouseenter(function(){
     ease: Power1.easeOut
   });
   
-});
+}
+
+$("#comic_block3").mouseenter(active_chk);
+
+setInterval(active_chk,4000);

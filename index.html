@@ -662,7 +662,7 @@
           </div>
         </div>
         <div class="col_newsdetail">
-          <div v-on:click="show_news(news_id)" class="back_news_btn">◀ 回到消息清單</div>
+          <div v-on:click="sw_page('news')" class="back_news_btn">◀ 回到消息清單</div>
           <div v-if="index_news.length&gt;0" class="newsarea">
             <h2>{{index_news[news_id].title}} <span class="small">
                 <h4>{{index_news[news_id].time}} {{index_news[news_id].eng_time}}</h4></span></h2>
