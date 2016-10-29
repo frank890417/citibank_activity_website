@@ -16,6 +16,7 @@ $sub_title_size: 1.2em
 $para_size: 0.80em
 
 //rwd
+$break_xs: 500px
 $break_small: 800px
 $break_medium: 1050px
 
@@ -73,13 +74,13 @@ body.loading
   width: 100%
   
 .max_width
-  width: calc(100% - 20px)
+  width: calc(100% - 25px)
   max-width: $max_width
   display: flex
   justify-content: center
   align-items: center
   padding: 50px
-  // box-sizing: border-box
+  box-sizing: border-box
 
 .auto_height
   height: auto !important
@@ -603,7 +604,7 @@ hr
       &.big
         background-color: #69ACC7
       .mch
-        height: 130px
+        width: 130px
         position: absolute
         tranform-origin: center bottom
         bottom: -160px
@@ -642,7 +643,7 @@ hr
       display: inline-block
       width: 30%
       height: 20vh
-      
+      // top: 0px
       background-color: $color_red
       margin-top: 10px
       .grass
@@ -1713,7 +1714,8 @@ hr
     right: -105%
     
     top: 0px
-    // display: none
+    // opacity: 1
+    // display: block
     // pointer-events: none
     position: fixed
     .mobile_nav_toggle
@@ -1799,7 +1801,9 @@ hr
         margin: 0px
         width: 40%
     .col_mid
+      min-height: 300px
       .comic_block
+        top: 0px
         width: 30%
         &:hover
           width: 30%
@@ -1919,3 +1923,100 @@ hr
     .col_right .flex_row
       flex-wrap: wrap
   
+@media screen and (max-width: $break_xs)
+  span.xsbr
+    display: block  
+  .max_width
+    padding: 10px
+    left: -5px
+    
+  .row_index
+    .people
+      height: 56vh
+    .max_width
+      width: calc(100% - 20px)
+      padding: 10px
+    .col_right
+      min-height: 345px
+      .logoarea
+        width: 50%
+        .logo
+          width: 150px
+          margin: 10px
+        h3
+          margin-left: 25px
+          margin: 0px
+          margin-top: 5px
+          font-size: 12px
+      .comic_block
+        max-height: 170px
+        font-size: 0.6em
+        h2
+          top: 40px
+          left: 6%
+        .mch
+          width: 80px
+      .comic_block.small
+        min-height: 110px
+        height: 110px
+    .col_mid
+      min-height: 200px
+      .comic_block
+        top: 0px
+      .talkbox
+        width: 220px
+        right: 50px
+        top: -50px
+        .title
+          font-size: 15px
+          line-height: 20px
+          padding: 20px 25px
+  .row_about
+    .machine
+      min-width: 204px
+      left: 14%
+    .circle
+      min-width: 200px
+    .egg1,.egg4,.eggo1
+      width: 100px
+    .egg3,.eggo2,.egg2
+      width: 70px
+  .row_news
+    .col_right
+      .chicken_news
+        width: 87%
+      
+  .row_support
+
+    .col_left
+      min-height: 300px
+      height: 300px
+      .chicken_sup
+        width: 65%
+        top: 10%
+  .row_summary 
+    padding-top: 50px
+    .col_left 
+      .cook
+        right: -20%
+  .row_last 
+    .info
+      padding-left: 0px
+    .logos span
+      display: none
+  
+  .page_support 
+    .row_sp_ab 
+      .kj3
+        min-width: 300px
+        width: 300px
+        right: -14px
+
+    .row_sp_present
+      .page_content
+        width: 200px
+  .page_about
+    .row_ab_type
+      .page_content 
+        width: 100%
+    

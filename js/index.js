@@ -260,7 +260,7 @@ var vm=new Vue({
         },1000);  
     });
     
-    if (window.location.hash!="#index"){
+    if (window.location.hash!="#index" && window.location.hash!=""){
       //設定切換hash抵銷額度1
       user_nav_sw_discard=true;
       //重新導向網站

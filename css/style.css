@@ -53,7 +53,7 @@ body.loading {
 }
 
 .max_width {
-  width: calc(100% - 20px);
+  width: calc(100% - 25px);
   max-width: 1100px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -68,6 +68,7 @@ body.loading {
       -ms-flex-align: center;
           align-items: center;
   padding: 50px;
+  box-sizing: border-box;
 }
 
 .auto_height {
@@ -786,7 +787,7 @@ hr {
   background-color: #69ACC7;
 }
 .row_index .col_right .comic_block .mch {
-  height: 130px;
+  width: 130px;
   position: absolute;
   tranform-origin: center bottom;
   bottom: -160px;
@@ -2302,7 +2303,11 @@ hr {
     margin: 0px;
     width: 40%;
   }
+  .row_index .col_mid {
+    min-height: 300px;
+  }
   .row_index .col_mid .comic_block {
+    top: 0px;
     width: 30%;
   }
   .row_index .col_mid .comic_block:hover {
@@ -2482,5 +2487,124 @@ hr {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 500px) {
+  span.xsbr {
+    display: block;
+  }
+
+  .max_width {
+    padding: 10px;
+    left: -5px;
+  }
+
+  .row_index .people {
+    height: 56vh;
+  }
+  .row_index .max_width {
+    width: calc(100% - 20px);
+    padding: 10px;
+  }
+  .row_index .col_right {
+    min-height: 345px;
+  }
+  .row_index .col_right .logoarea {
+    width: 50%;
+  }
+  .row_index .col_right .logoarea .logo {
+    width: 150px;
+    margin: 10px;
+  }
+  .row_index .col_right .logoarea h3 {
+    margin-left: 25px;
+    margin: 0px;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  .row_index .col_right .comic_block {
+    max-height: 170px;
+    font-size: 0.6em;
+  }
+  .row_index .col_right .comic_block h2 {
+    top: 40px;
+    left: 6%;
+  }
+  .row_index .col_right .comic_block .mch {
+    width: 80px;
+  }
+  .row_index .col_right .comic_block.small {
+    min-height: 110px;
+    height: 110px;
+  }
+  .row_index .col_mid {
+    min-height: 200px;
+  }
+  .row_index .col_mid .comic_block {
+    top: 0px;
+  }
+  .row_index .col_mid .talkbox {
+    width: 220px;
+    right: 50px;
+    top: -50px;
+  }
+  .row_index .col_mid .talkbox .title {
+    font-size: 15px;
+    line-height: 20px;
+    padding: 20px 25px;
+  }
+
+  .row_about .machine {
+    min-width: 204px;
+    left: 14%;
+  }
+  .row_about .circle {
+    min-width: 200px;
+  }
+  .row_about .egg1, .row_about .egg4, .row_about .eggo1 {
+    width: 100px;
+  }
+  .row_about .egg3, .row_about .eggo2, .row_about .egg2 {
+    width: 70px;
+  }
+
+  .row_news .col_right .chicken_news {
+    width: 87%;
+  }
+
+  .row_support .col_left {
+    min-height: 300px;
+    height: 300px;
+  }
+  .row_support .col_left .chicken_sup {
+    width: 65%;
+    top: 10%;
+  }
+
+  .row_summary {
+    padding-top: 50px;
+  }
+  .row_summary .col_left .cook {
+    right: -20%;
+  }
+
+  .row_last .info {
+    padding-left: 0px;
+  }
+  .row_last .logos span {
+    display: none;
+  }
+
+  .page_support .row_sp_ab .kj3 {
+    min-width: 300px;
+    width: 300px;
+    right: -14px;
+  }
+  .page_support .row_sp_present .page_content {
+    width: 200px;
+  }
+
+  .page_about .row_ab_type .page_content {
+    width: 100%;
   }
 }
