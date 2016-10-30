@@ -289,10 +289,19 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
             
             span {{{showing_chkdata[showing_chicken_id].content}}}
           .page_content(v-show="!showing_chicken") 安雞樂業村是個溫暖的小村莊，和外頭的世界相同，<br>村子裡面有各式各樣、形形色色的小雞。<br>有些小雞富有，有些小雞貧窮；有些小雞天生有美麗的缺陷，<br>有些小雞後天變得不一樣。<br>他們彼此之間有些不同，但相同的是擁有一顆溫暖的心<br>喜歡分享愛、分享快樂，喜歡彼此擁抱，喜歡一起歡笑。<br>最喜歡互助合作的他們，獲選為第22屆花旗聯合勸募活動模範村莊，<br>號召大家一起響應「一起愛 愛不同」
-            .btns
-              .btn(v-on:click="sw_page('news')") 更多消息
-              .btn(v-on:click="sw_page('support')") 立即響應
+            //- .btns
+            //-   .btn(v-on:click="sw_page('news')") 更多消息
+            //-   .btn(v-on:click="sw_page('support')") 立即響應
         .col_right#chicken_activity
+          .mobile_ac_chks(v-if="mobile_mode")
+            .tilt_text 傾斜手機跟我玩!
+            .btn_next(v-on:click="sw_ac_chkintro(+1)") >
+            .btn_pre(v-on:click="sw_ac_chkintro(-1)") <
+            img#chicken_ac_intro(src="http://45.118.133.210/img/chk/chks_chk{{showing_chkdata[showing_chicken_id].chkpic_num}}{{viewing_m_chk.pose}}.svg", alt="")
+            h2 {{showing_chkdata[showing_chicken_id].title}}
+            .slogan {{{showing_chkdata[showing_chicken_id].slogan}}}
+            .page_content
+              span {{{showing_chkdata[showing_chicken_id].content}}}
           //- img.chk.chk1(src="http://45.118.133.210/img/graphic-37.svg")
           //- img.chk.chk2(src="http://45.118.133.210/img/graphic-38.svg")
           //- img.chk.chk3(src="http://45.118.133.210/img/graphic-39.svg")
@@ -339,13 +348,13 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
         hr
         .col_full.flex_row
           
-          .col_left
+          .col_left#present_intro_slide
             
             .page_content 
               img.prod_img(src="http://45.118.133.210/img/item_pic/lovechk.png") 
               h3 安雞樂業絨毛布偶
               p 毛茸茸、肥嘟嘟，陪伴左右，溫暖您心！<br>安心生活，雞年豐收，樂善好施，業發利市，處處有愛，天天開心！<br>尺寸：
-          .col_right
+          .col_right#present_intro_slide2
             .page_content 
               img.prod_img(src="http://45.118.133.210/img/item_pic/bagnew.png") 
               h3 安雞樂業小提袋
@@ -491,11 +500,16 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
         .col_right
           .bigpic(v-if="chicken_egg_data.datas.length>0")
             img(v-bind:src="chicken_egg_data.datas[chicken_egg_data.now_id].img" )
-          .navchk
-            .equalbox(v-for="(id,cegg) in chicken_egg_data.datas" v-on:click="sw_egg_pre(id)" title="{{cegg.title}}")
-              //- h3.ftitle {{cegg.title}}
-              img.fimg(v-bind:src="cegg.img" )
-            //- p.fcontent {{{cegg.content}}}
+            .navchk
+              .equalbox(v-for="(id,cegg) in chicken_egg_data.datas" v-on:click="sw_egg_pre(id)" title="{{cegg.title}}")
+                img.fimg(v-bind:src="cegg.img" )
+          .m(v-if="mobile_mode")
+            h2.page_title 
+              span {{chicken_egg_data.datas[chicken_egg_data.now_id].title}}
+            .page_content 
+              h3 {{{chicken_egg_data.datas[chicken_egg_data.now_id].content}}}
+          
+
           
     
   .page_about(v-bind:class="[cur_page=='about'?'':'hide']")
@@ -722,9 +736,8 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
 
           h2.page_title 
             span 扭蛋巡迴地圖＆最新消息！
-            span
-              img.page_title_right_pic(src="http://45.118.133.210/img/graphic-21.svg")
-            hr
+            img.page_title_right_pic(src="http://45.118.133.210/img/graphic-21.svg")
+          hr
           .page_content 落實聯合勸募服務台灣的理念，<br>第22屆花旗聯合勸募活動下鄉啦！<br>我們將走入夜市，走入手手市集，歡迎大小朋友來現場響應愛心！
 
             .btns

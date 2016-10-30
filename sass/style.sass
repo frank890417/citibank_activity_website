@@ -522,6 +522,7 @@ hr
       width: 300px
       left: -200px
       transition: 0.5s
+      z-index: 800
       .talkbg,.title
         position: absolute
         z-index: 300
@@ -1287,15 +1288,15 @@ hr
           width: 60px
           .fimg
             width: 60px
-        .fimg
-          margin: 0px 3px
-          width: 50px
-          background-color: $color_white
-          
-          // color: $color_black
-          border: solid 2px $color_black
-          cursor: pointer
-          transition: 0.5s
+      .fimg
+        margin: 0px 3px
+        width: 50px
+        background-color: $color_white
+
+        // color: $color_black
+        border: solid 2px $color_black
+        cursor: pointer
+        transition: 0.5s
 
           
 .page_activity
@@ -1334,6 +1335,41 @@ hr
         vertical-align: bottom
     #chicken_activity
       min-height: 60vh
+      .mobile_ac_chks
+        width: 100%
+        .tilt_text
+          position: absolute
+          right: 0px
+          top: 0px
+          font-size: $para_size
+          background-color: $color_white
+          color: $color_brown
+          padding: 5px 10px
+          
+        .btn_next,.btn_pre
+          color: $color_white
+          position: absolute
+          top: 45vh
+          font-size: 50px
+          font-weight: 500
+          z-index: 300
+          transform: scaleY(1.4)
+        .btn_next
+          right: 5px
+        .btn_pre
+          left: 5px
+        .page_content
+          padding-top: 0px
+        .slogan
+          background-color: $color_brown
+          color: white
+          font-size: $para_size
+          max-height: initial
+          width: initial
+          box-sizing: border-box
+          padding: 10px 30px 10px 10px
+          &:after
+            right: -130px
     .chk
       width: 30%
       border: solid 6px white
@@ -1468,10 +1504,13 @@ hr
       flex-direction: column
     .page_title_right_pic
       width: 120px
-      top: 40px
+      top: -10px
+      right: 20px
       transform: rotate(10deg)
       margin-left: 10px
+      position: absolute
     .col_left
+      padding-top: 20px
       width: 100%
       transition-duration: 0.5s
       white-space: nowrap
@@ -1517,6 +1556,7 @@ hr
       width: 200px
       margin-right: 50px
       border: solid 7px $color_white
+      margin-bottom: 10px
     &:hover
       background-color: lighten($color_yellow,10)
     
@@ -1843,6 +1883,7 @@ hr
         left: initial
         right: 80px
         
+        
     .col_right
       order: 1
       .comic_block
@@ -1855,6 +1896,7 @@ hr
   .row_support .col_left
     min-height: 500px
   .row_news
+    
     .col_right
       height: 400px
   .row_support
@@ -1893,14 +1935,17 @@ hr
         flex-direction: column 
         .equalbox
           width: 100% !important
-  .page_news .row_p_news
-    .col_left,.col_right,col_newsdetail
-    
-      width: 100%
-    .col_left
-      overflow: initial
-    .newsitem
-      +flex_col
+  .page_news 
+    white-space: normal
+    .row_p_news
+      .col_left,.col_right,col_newsdetail
+
+        width: 100%
+      .col_left
+        overflow: initial
+        white-space: normal
+      .newsitem
+        +flex_col
   .page_support
     .row_sp_ab
       height: 600px
@@ -1908,6 +1953,7 @@ hr
         right: -100px
     .row_sp_present
       background-size: auto 100%
+  .row_acegg_eggs 
   .row_acegg_intro
     .col_left
       height: 300px
@@ -1917,6 +1963,16 @@ hr
   .page_egg
     .row_acegg_eggs
       padding-bottom: 300px
+      .bigpic
+        position: relative
+      .navchk
+        position: absolute
+        right: 10px
+        bottom: 5px
+        .fimg
+          width: 30px
+          &:hober
+            width: 30px
       .kj2
         width: auto
         height: 370px
@@ -1924,7 +1980,10 @@ hr
     .title_area
       width: 100%
     .col_full
-      overflow-x: scroll
+      // overflow-x: scroll
+      width: 120%
+      margin-left: -20px
+      margin-right: -20px
   .row_p_news
     .newsitem
       .newsimg
@@ -2038,4 +2097,7 @@ hr
     .row_ab_type
       .page_content 
         width: 100%
+  .page_news 
+    .row_p_news .page_title_right_pic
+      right: -58px
     

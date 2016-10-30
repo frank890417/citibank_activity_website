@@ -267,13 +267,17 @@
           <hr/>
           <div v-show="showing_chicken" class="page_content"> <span>{{{showing_chkdata[showing_chicken_id].content}}}</span></div>
           <div v-show="!showing_chicken" class="page_content">安雞樂業村是個溫暖的小村莊，和外頭的世界相同，<br>村子裡面有各式各樣、形形色色的小雞。<br>有些小雞富有，有些小雞貧窮；有些小雞天生有美麗的缺陷，<br>有些小雞後天變得不一樣。<br>他們彼此之間有些不同，但相同的是擁有一顆溫暖的心<br>喜歡分享愛、分享快樂，喜歡彼此擁抱，喜歡一起歡笑。<br>最喜歡互助合作的他們，獲選為第22屆花旗聯合勸募活動模範村莊，<br>號召大家一起響應「一起愛 愛不同」
-            <div class="btns">
-              <div v-on:click="sw_page('news')" class="btn">更多消息</div>
-              <div v-on:click="sw_page('support')" class="btn">立即響應</div>
-            </div>
           </div>
         </div>
         <div id="chicken_activity" class="col_right">
+          <div v-if="mobile_mode" class="mobile_ac_chks">
+            <div class="tilt_text">傾斜手機跟我玩!</div>
+            <div v-on:click="sw_ac_chkintro(+1)" class="btn_next">></div>
+            <div v-on:click="sw_ac_chkintro(-1)" class="btn_pre"><</div><img id="chicken_ac_intro" src="http://45.118.133.210/img/chk/chks_chk{{showing_chkdata[showing_chicken_id].chkpic_num}}{{viewing_m_chk.pose}}.svg" alt=""/>
+            <h2>{{showing_chkdata[showing_chicken_id].title}}</h2>
+            <div class="slogan">{{{showing_chkdata[showing_chicken_id].slogan}}}</div>
+            <div class="page_content"><span>{{{showing_chkdata[showing_chicken_id].content}}}</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -318,13 +322,13 @@
         </div>
         <hr/>
         <div class="col_full flex_row">
-          <div class="col_left">
+          <div id="present_intro_slide" class="col_left">
             <div class="page_content"> <img src="http://45.118.133.210/img/item_pic/lovechk.png" class="prod_img"/>
               <h3>安雞樂業絨毛布偶</h3>
               <p>毛茸茸、肥嘟嘟，陪伴左右，溫暖您心！<br>安心生活，雞年豐收，樂善好施，業發利市，處處有愛，天天開心！<br>尺寸：</p>
             </div>
           </div>
-          <div class="col_right">
+          <div id="present_intro_slide2" class="col_right">
             <div class="page_content"> <img src="http://45.118.133.210/img/item_pic/bagnew.png" class="prod_img"/>
               <h3>安雞樂業小提袋</h3>
               <p>限量版安雞樂業可扣式帆布包，讓您快樂帶出門，便利又環保！<br>尺寸：寬25公分、高20公分、側寬10公分</p>
@@ -444,11 +448,16 @@
           </div>
         </div>
         <div class="col_right">
-          <div v-if="chicken_egg_data.datas.length&gt;0" class="bigpic"><img v-bind:src="chicken_egg_data.datas[chicken_egg_data.now_id].img"/></div>
-          <div class="navchk">
-            <div v-for="(id,cegg) in chicken_egg_data.datas" v-on:click="sw_egg_pre(id)" title="{{cegg.title}}" class="equalbox"><img v-bind:src="cegg.img" class="fimg"/>
+          <div v-if="chicken_egg_data.datas.length&gt;0" class="bigpic"><img v-bind:src="chicken_egg_data.datas[chicken_egg_data.now_id].img"/>
+            <div class="navchk">
+              <div v-for="(id,cegg) in chicken_egg_data.datas" v-on:click="sw_egg_pre(id)" title="{{cegg.title}}" class="equalbox"><img v-bind:src="cegg.img" class="fimg"/></div>
             </div>
-            
+          </div>
+          <div v-if="mobile_mode" class="m">
+            <h2 class="page_title"> <span>{{chicken_egg_data.datas[chicken_egg_data.now_id].title}}</span></h2>
+            <div class="page_content"> 
+              <h3>{{{chicken_egg_data.datas[chicken_egg_data.now_id].content}}}</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -637,9 +646,8 @@
     <div v-if="index_news" class="row row_yellow scroll_area row_p_news">
       <div class="max_width">
         <div class="col_left">
-          <h2 class="page_title"> <span>扭蛋巡迴地圖＆最新消息！</span><span><img src="http://45.118.133.210/img/graphic-21.svg" class="page_title_right_pic"/></span>
-            <hr/>
-          </h2>
+          <h2 class="page_title"> <span>扭蛋巡迴地圖＆最新消息！</span><img src="http://45.118.133.210/img/graphic-21.svg" class="page_title_right_pic"/></h2>
+          <hr/>
           <div class="page_content">落實聯合勸募服務台灣的理念，<br>第22屆花旗聯合勸募活動下鄉啦！<br>我們將走入夜市，走入手手市集，歡迎大小朋友來現場響應愛心！
             <div class="btns">
               <div v-on:click="sw_page('support')" class="btn">立即響應</div>
