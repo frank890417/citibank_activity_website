@@ -3,7 +3,7 @@ var mobile_mode=false;
 var api_url="http://45.118.133.210:8083/api/block/get/";
 var default_page=debug_mode?"index":"index";
 var last_scroll_top=0;
-var ga_enable=!debug_mode && window.location.hostname!="s.codepen.io" && window.location.hostname!="45.118.133.210";
+var ga_enable=!debug_mode && window.location.hostname=="citi2016.unitedway.org.tw";
 var user_nav_sw_discard=false;
 
 console.log("Monoame design @2016");
@@ -26,8 +26,8 @@ if (ga_enable){
 //送出瀏覽資料
 function ga_send(){
   if (ga_enable){
-    ga('send', 'pageview');
-    ga('clientTracker.send', 'pageview');
+    ga('send', 'pageview',{ 'page': location.pathname + location.search + location.hash});
+    ga('clientTracker.send', 'pageview',{ 'page': location.pathname + location.search + location.hash});
     console.log("GA log "+window.location.hash+" . [GA]");
   }else{
     console.log("Page visit log "+window.location.hash+" . [disable GA]");
@@ -392,7 +392,7 @@ $(window).scroll(function(e){
     detect_show(wstop);
 
     //village
-    village.css("transform","translateX("+wstop/-10+"px)");
+    village.css("transform","scale(1.1) translateX("+wstop/-10+"px)");
     //grass
     grass.css("transform","translateX("+wstop/-5+"px)"); 
     //table
@@ -658,12 +658,32 @@ ctm2.to(cm2,2,{
 });
 
 
+  $.ajax({
+    url: "http://45.118.133.210/img/scene/command.php?type=get&name=scene_index",
+    success: function(res){
+      var result=res;
+      $(".village").html(res);
+      $(".village").children("svg").attr("id","scene_index");
+       $("#index_sceneinner").css("transform","scale(1.2)");
+      
+      
+       house1=$("#scene_index #house1");
+       house2=$("#scene_index #house2");
+       houses=[house1,house2];
+       mch.init();
+      
+      
+      
+    }
+  });  
+
 var mch1=document.querySelector(".mch1");
 var mch2=document.querySelector(".mch3");
 var mch3=document.querySelector(".mch5");
 var mch4=document.querySelector(".mch6");
 
 var mchs=[mch1,mch2,mch3,mch4];
+
 // var tMax = new TimelineMax({delay:1});
 var tmm=new TimelineMax;
 var mch={
@@ -713,6 +733,28 @@ var mch={
       ease: Power1.easeIn
     });
     
+    
+    var t5=new TimelineMax({delay: 2});
+    t5.from(houses[0],1,{
+      css:{x:0,bottom:-200,rotation: 0},
+      ease: Power1.easeOut
+    }).to(houses[0],5,{
+      css:{x:0,bottom:0,rotation: 0},
+      ease: Power1.easeIn
+    });
+    
+    var t6=new TimelineMax({delay: 2.5});
+    t6.from(houses[1],1,{
+      css:{x:0,bottom:-200,rotation: 0},
+      ease: Power1.easeOut
+    }).to(houses[1],5,{
+      css:{x:0,bottom:0,rotation: 0},
+      ease: Power1.easeIn
+    });
+    
+     tmm.add(t5,0);
+     tmm.add(t6,0);
+    
     tmm.add(t1,0);
     tmm.add(t2,0);
     tmm.add(t3,0);
@@ -722,7 +764,7 @@ var mch={
 };
 
 
-mch.init();
+
 
 function active_chk(){
   var t1=new TimelineMax;

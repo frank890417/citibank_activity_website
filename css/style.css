@@ -779,9 +779,16 @@ hr {
 }
 .row_index .col_right .comic_block .village {
   position: absolute;
-  width: 105%;
+  width: 110%;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
   bottom: -1%;
   pointer-events: none;
+}
+.row_index .col_right .comic_block .village svg {
+  bottom: -10px;
 }
 .row_index .col_right .comic_block.big {
   background-color: #69ACC7;
@@ -2181,6 +2188,7 @@ hr {
     left: initial;
     right: -105%;
     top: 0px;
+    opacity: 1;
     position: fixed;
     background-color: #fff;
     -webkit-transition: right 0.5s;
@@ -2599,9 +2607,6 @@ hr {
     min-width: 300px;
     width: 300px;
     right: -14px;
-  }
-  .page_support .row_sp_present .page_content {
-    width: 200px;
   }
 
   .page_about .row_ab_type .page_content {
