@@ -17,8 +17,8 @@ $para_size: 0.80em
 
 //rwd
 $break_xs: 500px
-$break_small: 800px
-$break_medium: 1050px
+$break_sm: 800px
+$break_md: 1050px
 
 *
   font-family: 'Hind Madurai',"sans-serif","Noto Sans TC","微軟正黑體"
@@ -43,8 +43,9 @@ html,body
   padding: 0
   margin: 0
 
-html
+html,body
   overflow-x: hidden
+  
 body,html
   width: 100%
   font-weight: 400
@@ -112,12 +113,13 @@ body.loading
   &:before
     content: ""
     display: block
-    width: 120vw
     height: 100px
     position: absolute
     +color_set(inherit,inherit)
     transform: skewY(-1.5deg) translateX(-10px)
     z-index: 200
+    left: -10px
+    width: 120%
     // box-shadow: none
   &:before
     top: -20px
@@ -427,12 +429,13 @@ hr
     align-items: flex-start
     
   .yellowpiece,.bluepiece
-    width: 100%
     height: 120px
     position: absolute
     background-color: $color_black
     bottom: -60px
     transition: 0.4s
+    left: -10px
+    width: 120%
   .yellowpiece
     background-color: $color_yellow
     transform: skewY(-4deg)
@@ -1056,6 +1059,7 @@ hr
     pointer-events: none
   .yellowpiece,.bluepiece
     height: 20px
+    
   .yellowpiece
     height: 20px
   .main_index_content,.people
@@ -1452,9 +1456,11 @@ hr
     margin-bottom: 20px
     font-weight: 800
     cursor: pointer
+    z-index: 200
   .col_newsdetail
     max-height: 0px
     transition: 0.5s
+    line-height: 1.5*$para_size
   
       
   .row_p_news
@@ -1485,7 +1491,7 @@ hr
       display: none
       transition-duration: 0.5s
       overflow: hidden
-      padding: 40px
+      padding: 10px
       // white-space: nowrap
       box-sizing: border-box
       .newsarea
@@ -1495,7 +1501,8 @@ hr
         width: 100%
         height: 80%
         padding: 20px
-      
+        box-sizing: border-box
+        
     
   .newsitem
     margin: 0
@@ -1547,6 +1554,7 @@ hr
       max-height: 10000px
       min-height: 400px
       display: block  
+      width: 100%
       .newsarea
         display: block  
     .back_news_btn
@@ -1700,14 +1708,14 @@ hr
     &.cright
       right: 30px
       
-@media screen and (max-width: $break_medium)
+@media screen and (max-width: $break_md)
   .row_companys
     flex-direction: column !important
 
 //RWD
   
 
-@media screen and (max-width: $break_small)
+@media screen and (max-width: $break_sm)
   #index_nav
     display: none
   .normal_nav
@@ -1730,10 +1738,11 @@ hr
       width: 30px
     li
       display: none
-      font-size: $sub_title_size
+      
       padding: 20px
       &.btn
         display: block
+        font-size: $sub_title_size*1.1
     #sub_nav
       display: block
       font-size: $para_size
@@ -1743,7 +1752,7 @@ hr
       top: 0
       li
         position: relative
-        font-size: $sub_title_size*0.9
+        font-size: $sub_title_size*1
     background-color: #fff
     transition: right 0.5s
   .mnavopen
@@ -1886,6 +1895,7 @@ hr
           width: 100% !important
   .page_news .row_p_news
     .col_left,.col_right,col_newsdetail
+    
       width: 100%
     .col_left
       overflow: initial
@@ -1926,6 +1936,11 @@ hr
       width: 100%
     .col_right .flex_row
       flex-wrap: wrap
+    .row_last 
+      padding: 10px
+      .info,.logos
+        width: 100%
+        padding: 0px
   
 @media screen and (max-width: $break_xs)
   span.xsbr
@@ -1933,7 +1948,9 @@ hr
   .max_width
     padding: 10px
     left: -5px
-    
+  .page_content
+    padding-left: 10px
+    padding-right: 10px
   .row_index
     .people
       height: 56vh
@@ -2004,8 +2021,6 @@ hr
       .cook
         right: -20%
   .row_last 
-    .info
-      padding-left: 0px
     .logos span
       display: none
   
