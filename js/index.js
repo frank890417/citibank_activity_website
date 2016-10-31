@@ -24,7 +24,7 @@ if (ga_enable){
 
 //送出瀏覽資料
 function ga_send(pagename){
-  var page=location.pathname + location.search + location.hash
+  var page=location.pathname + location.search + location.hash;
   if (pagename!="")page=pagename;
   if (page==location.pathname + location.search +"#index") page=location.pathname + location.search ;
   if (ga_enable){
@@ -317,8 +317,8 @@ if (debug_mode){
 }
 
 //首頁的愛心能量條
-var target_height=70;
-var current_height=20;
+var target_height=20;
+var current_height=0;
 
 function trace_val(){
   if (current_height<target_height){
@@ -331,7 +331,7 @@ function trace_val(){
     setTimeout(trace_val,800);
   }
 }
-setTimeout(trace_val,800);
+setTimeout(trace_val,3000);
 
 ////關閉圖片模式
 // setTimeout(function(){
@@ -700,7 +700,17 @@ ctm2.to(cm2,2,{
        house1=$("#scene_index #house1");
        house2=$("#scene_index #house2");
        houses=[house1,house2];
+      
+       bird1=$("#scene_index #bird1");
+       bird2=$("#scene_index #bird2");
+       birds=[bird1,bird2];
+      
+       cat=$("#scene_index #cat");
+      
+       comic_grass=$("#scene_index #Grass");
+      
        mch.init();
+      
       
       
       
@@ -711,14 +721,16 @@ var mch1=document.querySelector(".mch1");
 var mch2=document.querySelector(".mch3");
 var mch3=document.querySelector(".mch5");
 var mch4=document.querySelector(".mch6");
+// var birds=$("#")
+
 
 var mchs=[mch1,mch2,mch3,mch4];
-
+var delay_start=3;
 // var tMax = new TimelineMax({delay:1});
 var tmm=new TimelineMax;
 var mch={
   init: function(){
-    var t1=new TimelineMax({delay: 2});
+    var t1=new TimelineMax({delay: delay_start});
     t1.from(mch2,1,{
       css:{x:0,bottom:-200,rotation: 0},
       ease: Power1.easeOut
@@ -727,7 +739,7 @@ var mch={
       ease: Power1.easeIn
     });
 
-    var t2=new TimelineMax({delay: 2+0.5});
+    var t2=new TimelineMax({delay: delay_start+0.5});
     t2.from(mch1,1,{
       css:{x:0,bottom:-200,rotation: 0},
       ease: Power1.easeOut
@@ -739,7 +751,7 @@ var mch={
       ease: Power1.easeIn
     });
 
-    var t3=new TimelineMax({delay: 2+0.7});
+    var t3=new TimelineMax({delay: delay_start+0.7});
     t3.from(mch3,1,{
       css:{x:0,bottom:-200,rotation: 0},
       ease: Power1.easeOut
@@ -751,7 +763,7 @@ var mch={
       ease: Power1.easeIn
     });
 
-    var t4=new TimelineMax({delay: 2+0.1});
+    var t4=new TimelineMax({delay: delay_start+0.1});
     t4.from(mch4,1,{
       css:{x:0,bottom:-200,rotation: 0},
       ease: Power1.easeOut
@@ -764,26 +776,60 @@ var mch={
     });
     
     
-    var t5=new TimelineMax({delay: 2});
+    var t5=new TimelineMax({delay: delay_start});
     t5.from(houses[0],1,{
-      css:{x:0,bottom:-200,rotation: 0},
+      css:{y: 800},
       ease: Power1.easeOut
-    }).to(houses[0],5,{
-      css:{x:0,bottom:0,rotation: 0},
+    }).to(houses[0],2,{
+      css:{y: 0},
       ease: Power1.easeIn
     });
     
-    var t6=new TimelineMax({delay: 2.5});
+    
+    var t6=new TimelineMax({delay: delay_start+0.5});
     t6.from(houses[1],1,{
-      css:{x:0,bottom:-200,rotation: 0},
+      css:{y: 800},
       ease: Power1.easeOut
-    }).to(houses[1],5,{
-      css:{x:0,bottom:0,rotation: 0},
+    }).to(houses[1],2,{
+      css:{y: 0},
       ease: Power1.easeIn
     });
+    
+    var t9=new TimelineMax({delay: delay_start});
+    t9.from(comic_grass,0,{
+      css:{y: 500},
+      ease: Power1.easeOut
+    }).to(comic_grass,2,{
+      css:{y: 0},
+      ease: Power1.easeIn
+    });
+    
+     var t7=new TimelineMax({delay: delay_start+1});
+    t7.from(birds[0],1,{
+      css:{x: 1500,y: 100},
+      ease: Power1.easeOut
+    }).to(birds[0],2,{
+      css:{x: 0},
+      ease: Power1.easeIn
+    });
+    
+    var t8=new TimelineMax({delay: delay_start+1.5});
+    t8.from(birds[1],1,{
+      css:{x: 1500,y: -50},
+      ease: Power1.easeOut
+    }).to(birds[1],2,{
+      css:{x: 0},
+      ease: Power1.easeIn
+    });
+    
+    
     
      tmm.add(t5,0);
      tmm.add(t6,0);
+    
+     tmm.add(t7,0);
+     tmm.add(t8,0);
+     tmm.add(t9,0);
     
     tmm.add(t1,0);
     tmm.add(t2,0);
@@ -860,9 +906,9 @@ function orientation(event){
     vm.viewing_m_chk.pose="_right";
   }else if (event.gamma<-20){
     vm.viewing_m_chk.pose="_left";
-  }else if (event.beta>40){
+  }else if (event.beta>60){
     vm.viewing_m_chk.pose="_top";
-  }else if (event.beta<-20){
+  }else if (event.beta<0){
     vm.viewing_m_chk.pose="_bottom";
   }else{
     vm.viewing_m_chk.pose="";

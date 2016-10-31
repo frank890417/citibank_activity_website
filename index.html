@@ -5,8 +5,8 @@
   <title>webdemo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>一起愛，愛不同-第22屆花旗聯合勸募活動</title>
-<meta name="description" content="Free Web tutorials">
-<meta property="og:title" content="一起讓愛轉出生命不同的奇蹟！聯合勸募與花旗（台灣）銀行長期致力於匯集愛的星火，讓每個小小的付出，積累成足以扭轉弱勢朋友未來的巨大能量。" />
+<meta name="description" content="一起讓愛轉出生命不同的奇蹟！聯合勸募與花旗（台灣）銀行長期致力於匯集愛的星火，讓每個小小的付出，積累成足以扭轉弱勢朋友未來的巨大能量。">
+<meta property="og:title" content="一起愛，愛不同-第22屆花旗聯合勸募活動" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://citi2016.unitedway.org.tw/" />
 <meta property="og:image" content="http://45.118.133.210/img/og.JPG" />
@@ -132,9 +132,10 @@
           <hr/>
           <div class="page_content"> 
             <div v-for="(id,news) in index_news" v-on:click="jump_newspage(id)" title="點擊查看詳細消息!" class="newsitem"> 
-              <h3 class="newstime">{{news.time}}</h3>
-              <h2 class="newstitle">{{news.title}}</h2>
-              <h5 class="news_engtime">{{news.eng_time}}</h5>
+              <div class="newstime">{{news.time}}</div>
+              <div class="news_texts"><span class="newstitle">{{news.title}}</span>
+                <div class="news_engtime">{{news.eng_time}}</div>
+              </div>
             </div><img src="http://45.118.133.210/img/graphic-21.svg" class="clock"/>
             <div class="btns">
               <div v-on:click="sw_page('news')" class="btn">更多消息</div>
@@ -161,7 +162,7 @@
       </div>
     </div>
     <div class="row row_yellow row_movie">
-      <iframe width="100%" height="580px" src="http://www.youtube.com/embed/WWh_G7cSFxA" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+      <iframe width="100%" height="580px" src="http://www.youtube.com/embed/AYFN9ruOpr4" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
     </div>
     <div class="row row_yellow row_summary">
       <div class="max_width">
@@ -657,7 +658,7 @@
         </div>
         <div class="col_right">
           <div v-for="(id,news) in index_news" v-on:click="show_news(id)" class="newsitem">
-            <div><img src="http://event.unitedway.org.tw/citi2015/images/witness/img_1.png" class="newsimg"/></div>
+            <div><img src="http://45.118.133.210/img/logo-01.svg" class="newsimg"/></div>
             <div>
               <h3 class="newstime">{{news.time}}</h3>
               <h2 class="newstitle">{{news.title}}</h2>
