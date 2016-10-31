@@ -2493,6 +2493,9 @@ hr {
   .page_about .row_ab_feature .page_content .equalbox {
     width: 100% !important;
   }
+  .page_about .row_ab_table table.page_content {
+    width: 100%;
+  }
 
   .page_news {
     white-space: normal;
