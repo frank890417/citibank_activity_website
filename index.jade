@@ -347,7 +347,7 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
             .btn(v-on:click="sw_page('support')") 立即響應 
         hr
         .col_full.flex_row
-          
+          .tilt_text(v-if="mobile_mode") 傾斜手機查看!
           .col_left#present_intro_slide
             
             .page_content 
@@ -691,6 +691,13 @@ body.container-fluid.web_body.cur_block_A#app.loading(v-bind:class="[page_loadin
           span.xsbr
           hr
           .page_content 祝您事事順心，快快樂樂！安居樂業，天天美滿！<br>雞毛玩偶胖胖雞布偶<br>毛茸茸、肥嘟嘟，陪你過好年！<br><br>實用帆布包愛心胖胖小提包<br>限量版安雞樂業可扣式帆布包，讓你出門時刻平安又環保！
+          span.xsbr
+          span.xsbr
+          span.xsbr
+          span.xsbr
+          span.xsbr
+          span.xsbr
+          span.xsbr
             .btns
               .btn(v-on:click="sw_page('activity')") 安雞樂業村
               .btn(v-on:click="sw_page('support')") 立即響應  

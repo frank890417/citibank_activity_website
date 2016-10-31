@@ -1,6 +1,6 @@
-var debug_mode=true;
+var debug_mode=false;
 var api_url="http://45.118.133.210:8083/api/block/get/";
-var default_page=debug_mode?"activity_village":"index";
+var default_page=debug_mode?"support":"index";
 var last_scroll_top=0;
 var ga_enable=!debug_mode && window.location.hostname=="citi2016.unitedway.org.tw";
 var user_nav_sw_discard=false;
@@ -23,15 +23,26 @@ if (ga_enable){
 }
 
 //送出瀏覽資料
-function ga_send(){
+function ga_send(pagename){
+  var page=location.pathname + location.search + location.hash
+  if (pagename!="")page=pagename;
+  if (page==location.pathname + location.search +"#index") page=location.pathname + location.search ;
   if (ga_enable){
-    ga('send', 'pageview',{ 'page': location.pathname + location.search + location.hash});
-    ga('clientTracker.send', 'pageview',{ 'page': location.pathname + location.search + location.hash});
-    console.log("GA log "+window.location.hash+" . [GA]");
+    
+    ga('send', 'pageview',page);
+    ga('clientTracker.send', 'pageview',page);
+    console.log("GA log "+((pagename!="")?pagename:location.hash)+" . [GA]");
   }else{
-    console.log("Page visit log "+window.location.hash+" . [disable GA]");
+    console.log("Page visit log "+((pagename!="")?pagename:location.hash)+" . [disable GA]");
   }
 }
+
+function ga_title(title){
+  if (ga_enable){
+    ga('set', 'title',title);
+  }
+}
+
 
 //如果進入點是ip，重新導向網址
 if (window.location.hostname=="45.118.133.210"){
@@ -55,9 +66,13 @@ var vm=new Vue({
   el: "#app",
   data: {
     page_list: [
-      {name: "index", text: "首頁"},
+      {name: "index", text: "一起愛，愛不同"},
       {name: "support", text: "立即響應"},
-      {name: "activity", text: "安雞樂業村"},
+      {name: "activity", text: ""},
+      {name: "activity_egg", text: "扭蛋系列活動"},
+      {name: "activity_village", text: "安雞樂業村"},
+      {name: "activity_present", text: "愛心見證禮"},
+      {name: "activity_review", text: "歷年回顧"},
       {name: "about", text: "關於聯合勸募"},
       {name: "news", text: "最新消息"},
     ],
@@ -144,6 +159,8 @@ var vm=new Vue({
       //立即響應設定為導向聯勸網站
       if (target_page=="support"){
   window.open("https://www.unitedway.org.tw/civicrm/contribute/transact?reset=1&id=3");
+        ga_title("跳至聯合勸募網站(點立即響應)");
+        ga_send("#jump_to_donate_website");
         return 0;
       }
       
@@ -158,8 +175,17 @@ var vm=new Vue({
         $(".bluepiece").css("transform","");
         $(".yellowpiece").css("transform","");
         
+        vm.page_list.forEach(
+          function(value,index){
+            if (value.name==target_page){
+              var title=value.text+(value.text==""?"":"-")+"第22屆花旗聯合勸募";
+              ga_title(title);
+              document.title =title; 
+            }
+        });
+        
         //送出ga資料
-        ga_send();
+        ga_send("");
         // for(var i=0;i<vm.page_list.length;i++){
         //   if (vm.page_list[i].name==target_page){
         //     history.pushState(vm.page_list[i], vm.page_list[i].text, vm.page_list[i].name);
@@ -198,30 +224,10 @@ var vm=new Vue({
     },
     show_news: function(id){ 
       vm.sw_page("news@"+id);
-      // //切換頁的時候開loading效果
-      // this.page_loading=true;
-      // setTimeout(function(){
-      //   vm.page_loading=false;
-      // },500);
-      // setTimeout(function(){
-      //   if (id==vm.news_id){
-      //     if (vm.now_showing_news){
-      //       vm.now_showing_news=false;
-      //     }else{
-      //       vm.now_showing_news=true;
-      //     }
-      //   }else{
-      //     vm.news_id=id;
-      //     vm.now_showing_news=true;
-      //   }
-      // },500);
-      
-      
     },
     //跳到新聞頁
     jump_newspage: function(id){
-      this.sw_page("news");
-      this.show_news(id);
+      vm.sw_page("news@"+id);
     },
     tick: function(){
       if (Math.random()>0.3)
@@ -276,7 +282,7 @@ var vm=new Vue({
       //重新導向網站
       this.sw_page(window.location.hash==""?default_page:window.location.hash.substr(1));
     }else{
-      ga_send();
+      ga_send("");
     }
     
   }
