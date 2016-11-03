@@ -1,6 +1,6 @@
 var debug_mode=false;
 var api_url="http://45.118.133.210:8083/api/block/get/";
-var default_page=debug_mode?"support":"index";
+var default_page=debug_mode?"index":"index";
 var last_scroll_top=0;
 var ga_enable=!debug_mode && window.location.hostname=="citi2016.unitedway.org.tw";
 var user_nav_sw_discard=false;
@@ -247,6 +247,9 @@ var vm=new Vue({
     }
   },
   ready: function(){
+    $("body").removeClass("force_loading");
+    $(".loading_page").removeClass("force_loading");
+    
     this.index_talk.cur_id=parseInt(Math.random()*this.index_talk.data.length);
     
     function request_block(blockname,callback){
@@ -256,6 +259,38 @@ var vm=new Vue({
         success: callback
       });
     }
+
+
+    $.ajax({
+        url: "http://45.118.133.210/img/scene/command.php?type=get&name=scene_index",
+        success: function(res){
+          var result=res;
+          $(".village").html(res);
+          $(".village").children("svg").attr("id","scene_index");
+           $("#index_sceneinner").css("transform","scale(1.2)");
+          
+          
+           house1=$("#scene_index #house1");
+           house2=$("#scene_index #house2");
+           houses=[house1,house2];
+          
+           bird1=$("#scene_index #bird1");
+           bird2=$("#scene_index #bird2");
+           birds=[bird1,bird2];
+          
+           cat=$("#scene_index #cat");
+          
+           comic_grass=$("#scene_index #Grass");
+          
+           mch.init();
+           setInterval(active_chk,4000);
+           vm.page_loading=false;
+          
+          
+        }
+      });  
+
+
     
     // load data
     request_block("A",function(res){
@@ -308,8 +343,8 @@ setInterval(function(){
 },10);
 
 setTimeout(function(){
-  vm.page_loading=false;
-},2000);
+  
+},6000);
 if (debug_mode){
   setTimeout(function(){
     vm.page_loading=false;
@@ -405,7 +440,7 @@ var acegg_circle=$(".acegg_circle");
 var row_ab= $(".row_ab");
 
 // function trantemp(template,inject){
-//   var	str = template;
+//   var  str = template;
 //   var res = str.replace(/\#/i, "(wstop/"+inject+")");
 //   return template.
 // }
@@ -688,35 +723,7 @@ ctm2.to(cm2,2,{
 });
 
 
-  $.ajax({
-    url: "http://45.118.133.210/img/scene/command.php?type=get&name=scene_index",
-    success: function(res){
-      var result=res;
-      $(".village").html(res);
-      $(".village").children("svg").attr("id","scene_index");
-       $("#index_sceneinner").css("transform","scale(1.2)");
-      
-      
-       house1=$("#scene_index #house1");
-       house2=$("#scene_index #house2");
-       houses=[house1,house2];
-      
-       bird1=$("#scene_index #bird1");
-       bird2=$("#scene_index #bird2");
-       birds=[bird1,bird2];
-      
-       cat=$("#scene_index #cat");
-      
-       comic_grass=$("#scene_index #Grass");
-      
-       mch.init();
-      
-      
-      
-      
-    }
-  });  
-
+  
 var mch1=document.querySelector(".mch1");
 var mch2=document.querySelector(".mch3");
 var mch3=document.querySelector(".mch5");
@@ -725,52 +732,52 @@ var mch4=document.querySelector(".mch6");
 
 
 var mchs=[mch1,mch2,mch3,mch4];
-var delay_start=3;
+var delay_start=0;
 // var tMax = new TimelineMax({delay:1});
 var tmm=new TimelineMax;
 var mch={
   init: function(){
-    var t1=new TimelineMax({delay: delay_start});
-    t1.from(mch2,1,{
+    var t1=new TimelineMax({delay: delay_start+1});
+    t1.from(mch2,0,{
       css:{x:0,bottom:-200,rotation: 0},
       ease: Power1.easeOut
-    }).to(mch2,0.4,{
+    }).to(mch2,0.6,{
       css:{x:0,bottom:0,rotation: 0},
       ease: Power1.easeIn
     });
 
-    var t2=new TimelineMax({delay: delay_start+0.5});
-    t2.from(mch1,1,{
+    var t2=new TimelineMax({delay: delay_start+1.5});
+    t2.from(mch1,0,{
       css:{x:0,bottom:-200,rotation: 0},
       ease: Power1.easeOut
-    }).to(mch1,0.4,{
+    }).to(mch1,0.6,{
       css:{x:0,bottom:50,rotation: 10},
       ease: Power1.easeOut
-    }).to(mch1,0.4,{
+    }).to(mch1,0.6,{
       css:{x:0,bottom:0,rotation: 0},
       ease: Power1.easeIn
     });
 
-    var t3=new TimelineMax({delay: delay_start+0.7});
-    t3.from(mch3,1,{
+    var t3=new TimelineMax({delay: delay_start+1.7});
+    t3.from(mch3,0,{
       css:{x:0,bottom:-200,rotation: 0},
       ease: Power1.easeOut
-    }).to(mch3,0.4,{
+    }).to(mch3,0.6,{
       css:{x:0,bottom:50,rotation: 10},
       ease: Power1.easeOut
-    }).to(mch3,0.4,{
+    }).to(mch3,0.6,{
       css:{x:0,bottom:0,rotation: 0},
       ease: Power1.easeIn
     });
 
-    var t4=new TimelineMax({delay: delay_start+0.1});
-    t4.from(mch4,1,{
+    var t4=new TimelineMax({delay: delay_start+1.1});
+    t4.from(mch4,0,{
       css:{x:0,bottom:-200,rotation: 0},
       ease: Power1.easeOut
-    }).to(mch4,0.4,{
+    }).to(mch4,0.6,{
       css:{x:0,bottom:50,rotation: 10},
       ease: Power1.easeOut
-    }).to(mch4,0.4,{
+    }).to(mch4,0.6,{
       css:{x:0,bottom:0,rotation: 0},
       ease: Power1.easeIn
     });
@@ -778,49 +785,60 @@ var mch={
     
     var t5=new TimelineMax({delay: delay_start});
     t5.from(houses[0],1,{
-      css:{y: 800},
+      css:{y: 600},
       ease: Power1.easeOut
-    }).to(houses[0],2,{
+    }).to(houses[0],3,{
       css:{y: 0},
       ease: Power1.easeIn
     });
     
     
     var t6=new TimelineMax({delay: delay_start+0.5});
-    t6.from(houses[1],1,{
+    t6.from(houses[1],2,{
       css:{y: 800},
       ease: Power1.easeOut
-    }).to(houses[1],2,{
+    }).to(houses[1],3,{
       css:{y: 0},
       ease: Power1.easeIn
     });
     
     var t9=new TimelineMax({delay: delay_start});
-    t9.from(comic_grass,0,{
-      css:{y: 500},
+    t9.from(comic_grass,2,{
+      css:{y: 600},
       ease: Power1.easeOut
-    }).to(comic_grass,2,{
+    }).to(comic_grass,3,{
       css:{y: 0},
       ease: Power1.easeIn
     });
     
      var t7=new TimelineMax({delay: delay_start+1});
-    t7.from(birds[0],1,{
+    t7.from(birds[0],2,{
       css:{x: 1500,y: 100},
       ease: Power1.easeOut
-    }).to(birds[0],2,{
+    }).to(birds[0],3,{
       css:{x: 0},
       ease: Power1.easeIn
     });
     
     var t8=new TimelineMax({delay: delay_start+1.5});
-    t8.from(birds[1],1,{
+    t8.from(birds[1],2,{
       css:{x: 1500,y: -50},
       ease: Power1.easeOut
-    }).to(birds[1],2,{
+    }).to(birds[1],3,{
       css:{x: 0},
       ease: Power1.easeIn
     });
+    
+    
+    $("#sunflower1").css("display","none");
+    $("#sunflower2").css("display","none");
+    $("#sunflower3").css("display","none");
+    $("#bird1").css("display","none");
+    $("#bird2").css("display","none");
+    $("#cat").css("display","none");
+    $("#sign").css("display","none");
+    $("#cloud1").css("display","none");
+    $("#house1").css("display","none");
     
     
     
@@ -889,7 +907,8 @@ function active_chk(){
 
 $("#comic_block3").mouseenter(active_chk);
 
-setInterval(active_chk,4000);
+
+
 
 
 //手機板小雞簡介-重力偵測
@@ -939,3 +958,37 @@ function orientation(event){
     $("#present_intro_slide2").css("left",event.gamma*2+"px");
   }
 }
+
+
+var is_ie=false;
+function msieversion() {
+
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Internet Explorer, return version number
+    {
+        return true
+    }
+    else  // If another browser, return 0
+    {
+        return false;
+    }
+
+    return false;
+}
+is_ie=msieversion();
+// if (is_ie){
+//   $(".row").css("position","relative");
+//   $(".row").css("top","0");
+//   $(".row").css("left","0");
+//   // $("body").css("overflow-y","scroll");
+// }
+
+
+$(".heartbox").mousemove(function(e){
+   var hh=$(".heartbox").height()-(e.pageY-$(".heartbox").offset().top);
+   // console.log(hh/50-3);
+   $(".bar").css("height",(hh-60)+"px");
+   tmm.progress(hh/50-3).timeScale(0);
+})

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>webdemo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>一起愛，愛不同-第22屆花旗聯合勸募活動</title>
 <meta name="description" content="一起讓愛轉出生命不同的奇蹟！聯合勸募與花旗（台灣）銀行長期致力於匯集愛的星火，讓每個小小的付出，積累成足以扭轉弱勢朋友未來的巨大能量。">
 <meta property="og:title" content="一起愛，愛不同-第22屆花旗聯合勸募活動" />
@@ -12,8 +13,26 @@
 <meta property="og:image" content="http://45.118.133.210/img/og.JPG" />
 <meta property="og:description" content="一起讓愛轉出生命不同的奇蹟！聯合勸募與花旗（台灣）銀行長期致力於匯集愛的星火，讓每個小小的付出，積累成足以扭轉弱勢朋友未來的巨大能量。" />
 
-    
 
+<script type='application/ld+json'> 
+{
+  "@context": "http://www.schema.org",
+  "@type": "SocialEvent",
+  "name": "一起愛，愛不同-第22屆花旗聯合勸募活動",
+  "url": "http://citi2016.unitedway.org.tw/",
+  "description": "第22屆花旗聯合勸募活動正式開跑囉！邀請您一起加入愛的行列！",
+  "startDate": "2016-11-03T01:01",
+  "endDate": "2017-02-28T01:01",
+  "location": {
+    "@type": "Place",
+    "name": "中華社會福利聯合勸募協會",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "台北市大安區復興南路2段363號4樓"
+    }
+  }
+}
+ </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/earlyaccess/cwtexhei.css'>
@@ -28,8 +47,8 @@
 
 <body>
   
-<body id="app" v-bind:class="[page_loading?'loading':'']" class="container-fluid web_body cur_block_A loading">
-  <div v-bind:class="[page_loading?'loading':'']" class="loading_page loading">
+<body id="app" v-bind:class="[page_loading?'loading':'']" class="container-fluid web_body cur_block_A force_loading">
+  <div v-bind:class="[page_loading?'loading':'']" class="loading_page force_loading">
     <div class="center_box">
       <div v-bind:class="[page_loading?'':'open']" class="loading_egg">
         <div class="eggtoppart"> <img src="http://45.118.133.210/img/graphic-51.svg" class="eggtop"/><img src="http://45.118.133.210/img/graphic-57.svg" class="eggtop2"/><img src="http://45.118.133.210/img/graphic-58.svg" class="egglight"/></div><img src="http://45.118.133.210/img/graphic-54.svg" class="eggchk"/>
@@ -411,7 +430,7 @@
           <hr/>
           <div class="page_content"> 
             <h3>/ 方法1 實體扭蛋機</h3>
-            <p>捐款200元（投入四枚50元硬幣），即能玩轉乙次扭蛋機。<br>請列出實體扭蛋機擺放地點及日期</p>
+            <p>捐款200元（投入四枚50元硬幣），即能玩轉乙次扭蛋機。<br>詳細扭蛋巡迴地點請點閱最新消息</p>
             <div class="btns">
               <div v-on:click="sw_page('news')" class="btn">更多消息</div>
               <div v-on:click="sw_page('support')" class="btn">立即響應</div>

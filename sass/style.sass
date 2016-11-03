@@ -51,10 +51,14 @@ body,html
   font-weight: 400
   overflow-x: hidden
   
-body.loading
-  height: 100vh
-  overflow: hidden
-  
+body
+  &.loading
+    height: 100vh
+    overflow: hidden
+  &.force_loading
+    height: 100vh
+    overflow: hidden
+    
 .flex_row
   display: flex !important
   flex-direction: row !important
@@ -390,7 +394,7 @@ hr
       // .eggbottompart
       //   top: 120px
       //   transform: rotate(10deg) scale(0.9)
-  &.loading
+  &.loading,&.force_loading
 
     opacity: 1
     transition: 0.25s
@@ -693,6 +697,7 @@ hr
       margin-left: 65px
     .heartbox
       margin: 10px
+      cursor: pointer
       .barbox
         height: 15vh
         width: 14px
@@ -1051,16 +1056,21 @@ hr
   height: 75px
 .page_index
   // overflow: hidden
+  
   width: 100vw
   z-index: 2000
   transition-delay: 0s
-  min-height: initial
+  min-height: 0
   max-height: 75px
   position: fixed
   top: 0px
   left: 0px
   .logofixed
-    pointer-events: initial
+    pointer-events: auto
+  .main_index_content
+    pointer-events: none
+  
+    
   //取消當index成為導覽列時候的斑點背景
   // &.row_index
   //   background-image: none
@@ -1374,7 +1384,7 @@ hr
           background-color: $color_brown
           color: white
           font-size: $para_size
-          max-height: initial
+          max-height: 10000
           width: initial
           box-sizing: border-box
           padding: 10px 30px 10px 10px
@@ -1838,7 +1848,7 @@ hr
       z-index: 1
   
   [class^='col_']
-    min-height: initial
+    min-height: 0
   .col_full
     width: 100%
   // .row

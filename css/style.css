@@ -23,6 +23,10 @@ body.loading {
   height: 100vh;
   overflow: hidden;
 }
+body.force_loading {
+  height: 100vh;
+  overflow: hidden;
+}
 
 .flex_row {
   display: -webkit-box !important;
@@ -483,7 +487,7 @@ hr {
   top: 60px;
   left: 4px;
 }
-.loading_page.loading {
+.loading_page.loading, .loading_page.force_loading {
   opacity: 1;
   -webkit-transition: 0.25s;
   transition: 0.25s;
@@ -934,6 +938,7 @@ hr {
 }
 .row_index .col_right .heartbox {
   margin: 10px;
+  cursor: pointer;
 }
 .row_index .col_right .heartbox .barbox {
   height: 15vh;
@@ -1392,14 +1397,17 @@ hr {
   z-index: 2000;
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
-  min-height: initial;
+  min-height: 0;
   max-height: 75px;
   position: fixed;
   top: 0px;
   left: 0px;
 }
 .page_index .logofixed {
-  pointer-events: initial;
+  pointer-events: auto;
+}
+.page_index .main_index_content {
+  pointer-events: none;
 }
 .page_index .col_left, .page_index .col_mid, .page_index .col_right {
   pointer-events: none;
@@ -1779,7 +1787,7 @@ hr {
   background-color: #5F1C00;
   color: white;
   font-size: 0.8em;
-  max-height: initial;
+  max-height: 10000;
   width: initial;
   box-sizing: border-box;
   padding: 10px 30px 10px 10px;
@@ -2329,7 +2337,7 @@ hr {
   }
 
   [class^='col_'] {
-    min-height: initial;
+    min-height: 0;
   }
 
   .col_full {
